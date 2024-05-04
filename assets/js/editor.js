@@ -300,8 +300,7 @@
 					prevStep.find("[name^='question["+prevStepRel+"]']").each(function(e, v){
 							$(this).attr("name", $(this).attr("name").replace(prevStepRel, thisStepRel));
 					})
-
-					//# CHANGING THE STEP IDS
+ 
 					thisStep.attr("rel", prevStepRel);
 					thisStep.find(".pt-options a").attr("rel", prevStepRel);
 					thisStep.find(".pt-badge-qn").text(prevStepRel);
@@ -318,8 +317,7 @@
 					var prev2StepRel = prev2Step.attr('rel');
 					var prev2StepRelArray = prev2StepRel.split('i');
 					var newrel = "i"+prev2StepRelArray[1]+"i"+(parseInt(prev2StepRelArray[2])+1);
-
-					//# CHANGING THE STEP IDS
+ 
 					thisStep.attr("rel", newrel);
 					thisStep.find(".pt-options a").attr("rel", newrel);
 					thisStep.find(".pt-badge-qn").text(newrel);

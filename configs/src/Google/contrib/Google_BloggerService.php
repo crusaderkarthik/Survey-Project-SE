@@ -1,37 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "blogs" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bloggerService = new Google_BloggerService(...);
-   *   $blogs = $bloggerService->blogs;
-   *  </code>
-   */
+   
   class Google_BlogsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves a list of blogs, possibly filtered. (blogs.listByUser)
-     *
-     * @param string $userId ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
-     * @param array $optParams Optional parameters.
-     * @return Google_BlogList
-     */
+     
     public function listByUser($userId, $optParams = array()) {
       $params = array('userId' => $userId);
       $params = array_merge($params, $optParams);
@@ -42,14 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieve a Blog by URL. (blogs.getByUrl)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string url The URL of the blog to retrieve.
-     * @return Google_Blog
-     */
+     
     public function getByUrl($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -60,15 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Gets one blog by id. (blogs.get)
-     *
-     * @param string $blogId The ID of the blog to get.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string maxPosts Maximum number of posts to pull back with the blog.
-     * @return Google_Blog
-     */
+     
     public function get($blogId, $optParams = array()) {
       $params = array('blogId' => $blogId);
       $params = array_merge($params, $optParams);
@@ -81,25 +41,11 @@
     }
   }
 
-  /**
-   * The "posts" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bloggerService = new Google_BloggerService(...);
-   *   $posts = $bloggerService->posts;
-   *  </code>
-   */
+   
   class Google_PostsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Add a post. (posts.insert)
-     *
-     * @param string $blogId ID of the blog to fetch the post from.
-     * @param Google_Post $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Post
-     */
+     
     public function insert($blogId, Google_Post $postBody, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -110,15 +56,7 @@
         return $data;
       }
     }
-    /**
-     * Search for a post. (posts.search)
-     *
-     * @param string $blogId ID of the blog to fetch the post from.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string q Query terms to search this blog for matching posts.
-     * @return Google_PostList
-     */
+     
     public function search($blogId, $optParams = array()) {
       $params = array('blogId' => $blogId);
       $params = array_merge($params, $optParams);
@@ -129,16 +67,7 @@
         return $data;
       }
     }
-    /**
-     * Get a post by id. (posts.get)
-     *
-     * @param string $blogId ID of the blog to fetch the post from.
-     * @param string $postId The ID of the post
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string maxComments Maximum number of comments to pull back on a post.
-     * @return Google_Post
-     */
+     
     public function get($blogId, $postId, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId);
       $params = array_merge($params, $optParams);
@@ -149,20 +78,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves a list of posts, possibly filtered. (posts.list)
-     *
-     * @param string $blogId ID of the blog to fetch posts from.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string startDate Earliest post date to fetch, a date-time with RFC 3339 formatting.
-     * @opt_param string endDate Latest post date to fetch, a date-time with RFC 3339 formatting.
-     * @opt_param string labels Comma-separated list of labels to search for.
-     * @opt_param string maxResults Maximum number of posts to fetch.
-     * @opt_param string pageToken Continuation token if the request is paged.
-     * @opt_param bool fetchBodies Whether the body content of posts is included.
-     * @return Google_PostList
-     */
+     
     public function listPosts($blogId, $optParams = array()) {
       $params = array('blogId' => $blogId);
       $params = array_merge($params, $optParams);
@@ -173,15 +89,7 @@
         return $data;
       }
     }
-    /**
-     * Update a post. (posts.update)
-     *
-     * @param string $blogId The ID of the Blog.
-     * @param string $postId The ID of the Post.
-     * @param Google_Post $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Post
-     */
+     
     public function update($blogId, $postId, Google_Post $postBody, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -192,16 +100,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieve a Post by Path. (posts.getByPath)
-     *
-     * @param string $blogId ID of the blog to fetch the post from.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string path Path of the Post to retrieve.
-     * @opt_param string maxComments Maximum number of comments to pull back on a post.
-     * @return Google_Post
-     */
+     
     public function getByPath($blogId, $optParams = array()) {
       $params = array('blogId' => $blogId);
       $params = array_merge($params, $optParams);
@@ -212,15 +111,7 @@
         return $data;
       }
     }
-    /**
-     * Update a post. This method supports patch semantics. (posts.patch)
-     *
-     * @param string $blogId The ID of the Blog.
-     * @param string $postId The ID of the Post.
-     * @param Google_Post $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Post
-     */
+     
     public function patch($blogId, $postId, Google_Post $postBody, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -231,13 +122,7 @@
         return $data;
       }
     }
-    /**
-     * Delete a post by id. (posts.delete)
-     *
-     * @param string $blogId The Id of the Blog.
-     * @param string $postId The ID of the Post.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($blogId, $postId, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId);
       $params = array_merge($params, $optParams);
@@ -246,26 +131,11 @@
     }
   }
 
-  /**
-   * The "pages" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bloggerService = new Google_BloggerService(...);
-   *   $pages = $bloggerService->pages;
-   *  </code>
-   */
+   
   class Google_PagesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves pages for a blog, possibly filtered. (pages.list)
-     *
-     * @param string $blogId ID of the blog to fetch pages from.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool fetchBodies Whether to retrieve the Page bodies.
-     * @return Google_PageList
-     */
+     
     public function listPages($blogId, $optParams = array()) {
       $params = array('blogId' => $blogId);
       $params = array_merge($params, $optParams);
@@ -276,14 +146,7 @@
         return $data;
       }
     }
-    /**
-     * Gets one blog page by id. (pages.get)
-     *
-     * @param string $blogId ID of the blog containing the page.
-     * @param string $pageId The ID of the page to get.
-     * @param array $optParams Optional parameters.
-     * @return Google_Page
-     */
+     
     public function get($blogId, $pageId, $optParams = array()) {
       $params = array('blogId' => $blogId, 'pageId' => $pageId);
       $params = array_merge($params, $optParams);
@@ -296,31 +159,11 @@
     }
   }
 
-  /**
-   * The "comments" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bloggerService = new Google_BloggerService(...);
-   *   $comments = $bloggerService->comments;
-   *  </code>
-   */
+   
   class Google_CommentsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the comments for a blog, possibly filtered. (comments.list)
-     *
-     * @param string $blogId ID of the blog to fetch comments from.
-     * @param string $postId ID of the post to fetch posts from.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string startDate Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
-     * @opt_param string endDate Latest date of comment to fetch, a date-time with RFC 3339 formatting.
-     * @opt_param string maxResults Maximum number of comments to include in the result.
-     * @opt_param string pageToken Continuation token if request is paged.
-     * @opt_param bool fetchBodies Whether the body content of the comments is included.
-     * @return Google_CommentList
-     */
+     
     public function listComments($blogId, $postId, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId);
       $params = array_merge($params, $optParams);
@@ -331,15 +174,7 @@
         return $data;
       }
     }
-    /**
-     * Gets one comment by id. (comments.get)
-     *
-     * @param string $blogId ID of the blog to containing the comment.
-     * @param string $postId ID of the post to fetch posts from.
-     * @param string $commentId The ID of the comment to get.
-     * @param array $optParams Optional parameters.
-     * @return Google_Comment
-     */
+     
     public function get($blogId, $postId, $commentId, $optParams = array()) {
       $params = array('blogId' => $blogId, 'postId' => $postId, 'commentId' => $commentId);
       $params = array_merge($params, $optParams);
@@ -352,24 +187,11 @@
     }
   }
 
-  /**
-   * The "users" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bloggerService = new Google_BloggerService(...);
-   *   $users = $bloggerService->users;
-   *  </code>
-   */
+   
   class Google_UsersServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Gets one user by id. (users.get)
-     *
-     * @param string $userId The ID of the user to get.
-     * @param array $optParams Optional parameters.
-     * @return Google_User
-     */
+     
     public function get($userId, $optParams = array()) {
       $params = array('userId' => $userId);
       $params = array_merge($params, $optParams);
@@ -382,31 +204,14 @@
     }
   }
 
-/**
- * Service definition for Google_Blogger (v3).
- *
- * <p>
- * API for access to the data within Blogger.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/blogger/docs/3.0/getting_started" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_BloggerService extends Google_Service {
   public $blogs;
   public $posts;
   public $pages;
   public $comments;
   public $users;
-  /**
-   * Constructs the internal representation of the Blogger service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'blogger/v3/';
     $this->version = 'v3';
@@ -520,7 +325,7 @@ class Google_BlogList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Blog) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Blog', __METHOD__);
     $this->items = $items;
   }
@@ -588,7 +393,7 @@ class Google_BlogPosts extends Google_Model {
   public function getTotalItems() {
     return $this->totalItems;
   }
-  public function setItems(/* array(Google_Post) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Post', __METHOD__);
     $this->items = $items;
   }
@@ -760,7 +565,7 @@ class Google_CommentList extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_Comment) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Comment', __METHOD__);
     $this->items = $items;
   }
@@ -926,7 +731,7 @@ class Google_PageList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Page) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Page', __METHOD__);
     $this->items = $items;
   }
@@ -988,7 +793,7 @@ class Google_Post extends Google_Model {
   public function getReplies() {
     return $this->replies;
   }
-  public function setLabels(/* array(Google_string) */ $labels) {
+  public function setLabels(  $labels) {
     $this->assertIsArray($labels, 'Google_string', __METHOD__);
     $this->labels = $labels;
   }
@@ -1117,7 +922,7 @@ class Google_PostList extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_Post) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Post', __METHOD__);
     $this->items = $items;
   }
@@ -1181,7 +986,7 @@ class Google_PostReplies extends Google_Model {
   public function getTotalItems() {
     return $this->totalItems;
   }
-  public function setItems(/* array(Google_Comment) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Comment', __METHOD__);
     $this->items = $items;
   }

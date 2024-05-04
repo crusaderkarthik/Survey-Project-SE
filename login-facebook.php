@@ -37,7 +37,7 @@ if (isset($accessToken)) {
 		$_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
 		$fb->setDefaultAccessToken($_SESSION['facebook_access_token']); // setting default access token to be used in script
 	}
-	// redirect the user back to the same page if it has "code" GET variable
+ 
 	if (isset($_GET['code'])) {
 		header("Location: ".path."/login-facebook-rd.php");
 	}

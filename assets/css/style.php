@@ -90,7 +90,7 @@ a, a:hover, a:focus,
   background: <?php echo $header ?>;
 }
 .pt-header .pt-menu .pt-links-r ul li a {
-    /*color: #a4bdf6;*/
+     
     color: #FFF;
 }
 .pt-dashboardpage .pt-admin-nav .pt-logo {
@@ -102,7 +102,7 @@ a, a:hover, a:focus,
 .choice[type=checkbox]:checked + label:before {
   background-color: <?php echo $a ?>;
 }
-/*#5f62ad*/
+ 
 .choice:checked + label:before {
     border-color: <?php echo $a ?>;
     box-shadow: 0 0 0 4px <?php echo $a ?> inset;
@@ -182,7 +182,7 @@ a, a:hover, a:focus,
 
 
 .pt-btn {
-	/*background-image: linear-gradient(to top, #3f79fc 0%, #6694fa 100%);*/
+	 
 	background-image: linear-gradient(to top, <?php echo $btn1 ?> 0%, <?php echo $btn2 ?> 100%);
 }
 .pt-btn:hover {
@@ -273,7 +273,7 @@ input[type=text], input[type=password], input[type=phone], input[type=email], in
 }
 .pt-header .pt-menu .pt-links-l ul li a,
 .pt-header .pt-menu .pt-links-r ul li a.pt-user {
-	/*color: #cccce9;*/
+	 
 	color: #FFF;
 }
 .pt-footer a {

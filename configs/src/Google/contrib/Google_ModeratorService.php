@@ -1,42 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "votes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $votes = $moderatorService->votes;
-   *  </code>
-   */
+   
   class Google_VotesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new vote by the authenticated user for the specified submission within the specified
-     * series. (votes.insert)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param Google_Vote $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @return Google_Vote
-     */
+     
     public function insert($seriesId, $submissionId, Google_Vote $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -47,19 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the votes by the authenticated user for the specified submission within the specified
-     * series. This method supports patch semantics. (votes.patch)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param Google_Vote $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string userId
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @return Google_Vote
-     */
+     
     public function patch($seriesId, $submissionId, Google_Vote $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -70,16 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Lists the votes by the authenticated user for the given series. (votes.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @return Google_VoteList
-     */
+     
     public function listVotes($seriesId, $optParams = array()) {
       $params = array('seriesId' => $seriesId);
       $params = array_merge($params, $optParams);
@@ -90,19 +39,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the votes by the authenticated user for the specified submission within the specified
-     * series. (votes.update)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param Google_Vote $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string userId
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @return Google_Vote
-     */
+     
     public function update($seriesId, $submissionId, Google_Vote $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -113,18 +50,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the votes by the authenticated user for the specified submission within the specified
-     * series. (votes.get)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string userId
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @return Google_Vote
-     */
+     
     public function get($seriesId, $submissionId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId);
       $params = array_merge($params, $optParams);
@@ -137,31 +63,11 @@
     }
   }
 
-  /**
-   * The "responses" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $responses = $moderatorService->responses;
-   *  </code>
-   */
+   
   class Google_ResponsesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a response for the specified submission in the specified topic within the specified
-     * series. (responses.insert)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $topicId The decimal ID of the Topic within the Series.
-     * @param string $parentSubmissionId The decimal ID of the parent Submission within the Series.
-     * @param Google_Submission $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @opt_param bool anonymous Set to true to mark the new submission as anonymous.
-     * @return Google_Submission
-     */
+     
     public function insert($seriesId, $topicId, $parentSubmissionId, Google_Submission $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'topicId' => $topicId, 'parentSubmissionId' => $parentSubmissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -172,22 +78,7 @@
         return $data;
       }
     }
-    /**
-     * Lists or searches the responses for the specified submission within the specified series and
-     * returns the search results. (responses.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string sort Sort order.
-     * @opt_param string author Restricts the results to submissions by a specific author.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @opt_param string q Search query.
-     * @opt_param bool hasAttachedVideo Specifies whether to restrict to submissions that have videos attached.
-     * @return Google_SubmissionList
-     */
+     
     public function listResponses($seriesId, $submissionId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId);
       $params = array_merge($params, $optParams);
@@ -200,26 +91,11 @@
     }
   }
 
-  /**
-   * The "tags" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $tags = $moderatorService->tags;
-   *  </code>
-   */
+   
   class Google_TagsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new tag for the specified submission within the specified series. (tags.insert)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param Google_Tag $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Tag
-     */
+     
     public function insert($seriesId, $submissionId, Google_Tag $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -230,14 +106,7 @@
         return $data;
       }
     }
-    /**
-     * Lists all tags for the specified submission within the specified series. (tags.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param array $optParams Optional parameters.
-     * @return Google_TagList
-     */
+     
     public function listTags($seriesId, $submissionId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId);
       $params = array_merge($params, $optParams);
@@ -248,15 +117,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified tag from the specified submission within the specified series.
-     * (tags.delete)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param string $tagId
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($seriesId, $submissionId, $tagId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId, 'tagId' => $tagId);
       $params = array_merge($params, $optParams);
@@ -265,24 +126,11 @@
     }
   }
 
-  /**
-   * The "series" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $series = $moderatorService->series;
-   *  </code>
-   */
+   
   class Google_SeriesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new series. (series.insert)
-     *
-     * @param Google_Series $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Series
-     */
+     
     public function insert(Google_Series $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -293,14 +141,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the specified series. This method supports patch semantics. (series.patch)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param Google_Series $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Series
-     */
+     
     public function patch($seriesId, Google_Series $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -311,16 +152,7 @@
         return $data;
       }
     }
-    /**
-     * Searches the series and returns the search results. (series.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string q Search query.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @return Google_SeriesList
-     */
+     
     public function listSeries($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -331,14 +163,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the specified series. (series.update)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param Google_Series $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Series
-     */
+     
     public function update($seriesId, Google_Series $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -349,13 +174,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified series. (series.get)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param array $optParams Optional parameters.
-     * @return Google_Series
-     */
+     
     public function get($seriesId, $optParams = array()) {
       $params = array('seriesId' => $seriesId);
       $params = array_merge($params, $optParams);
@@ -368,34 +187,11 @@
     }
   }
 
-  /**
-   * The "submissions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $submissions = $moderatorService->submissions;
-   *  </code>
-   */
+   
   class Google_SeriesSubmissionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Searches the submissions for the specified series and returns the search results.
-     * (submissions.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string lang The language code for the language the client prefers resuls in.
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param bool includeVotes Specifies whether to include the current user's vote
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @opt_param string author Restricts the results to submissions by a specific author.
-     * @opt_param string sort Sort order.
-     * @opt_param string q Search query.
-     * @opt_param bool hasAttachedVideo Specifies whether to restrict to submissions that have videos attached.
-     * @return Google_SubmissionList
-     */
+     
     public function listSeriesSubmissions($seriesId, $optParams = array()) {
       $params = array('seriesId' => $seriesId);
       $params = array_merge($params, $optParams);
@@ -407,31 +203,11 @@
       }
     }
   }
-  /**
-   * The "responses" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $responses = $moderatorService->responses;
-   *  </code>
-   */
+   
   class Google_SeriesResponsesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Searches the responses for the specified series and returns the search results. (responses.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string sort Sort order.
-     * @opt_param string author Restricts the results to submissions by a specific author.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @opt_param string q Search query.
-     * @opt_param bool hasAttachedVideo Specifies whether to restrict to submissions that have videos attached.
-     * @return Google_SeriesList
-     */
+     
     public function listSeriesResponses($seriesId, $optParams = array()) {
       $params = array('seriesId' => $seriesId);
       $params = array_merge($params, $optParams);
@@ -444,25 +220,11 @@
     }
   }
 
-  /**
-   * The "topics" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $topics = $moderatorService->topics;
-   *  </code>
-   */
+   
   class Google_TopicsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new topic into the specified series. (topics.insert)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param Google_Topic $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Topic
-     */
+     
     public function insert($seriesId, Google_Topic $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -473,18 +235,7 @@
         return $data;
       }
     }
-    /**
-     * Searches the topics within the specified series and returns the search results. (topics.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string q Search query.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @opt_param string mode
-     * @return Google_TopicList
-     */
+     
     public function listTopics($seriesId, $optParams = array()) {
       $params = array('seriesId' => $seriesId);
       $params = array_merge($params, $optParams);
@@ -495,15 +246,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the specified topic within the specified series. (topics.update)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $topicId The decimal ID of the Topic within the Series.
-     * @param Google_Topic $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Topic
-     */
+     
     public function update($seriesId, $topicId, Google_Topic $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'topicId' => $topicId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -514,14 +257,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified topic from the specified series. (topics.get)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $topicId The decimal ID of the Topic within the Series.
-     * @param array $optParams Optional parameters.
-     * @return Google_Topic
-     */
+     
     public function get($seriesId, $topicId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'topicId' => $topicId);
       $params = array_merge($params, $optParams);
@@ -534,34 +270,11 @@
     }
   }
 
-  /**
-   * The "submissions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $submissions = $moderatorService->submissions;
-   *  </code>
-   */
+   
   class Google_TopicsSubmissionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Searches the submissions for the specified topic within the specified series and returns the
-     * search results. (submissions.list)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $topicId The decimal ID of the Topic within the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param bool includeVotes Specifies whether to include the current user's vote
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @opt_param string author Restricts the results to submissions by a specific author.
-     * @opt_param string sort Sort order.
-     * @opt_param string q Search query.
-     * @opt_param bool hasAttachedVideo Specifies whether to restrict to submissions that have videos attached.
-     * @return Google_SubmissionList
-     */
+     
     public function listTopicsSubmissions($seriesId, $topicId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'topicId' => $topicId);
       $params = array_merge($params, $optParams);
@@ -574,40 +287,17 @@
     }
   }
 
-  /**
-   * The "global" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $global = $moderatorService->global;
-   *  </code>
-   */
+   
   class Google_ModeratorGlobalServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "series" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $series = $moderatorService->series;
-   *  </code>
-   */
+   
   class Google_ModeratorGlobalSeriesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Searches the public series and returns the search results. (series.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of results to return.
-     * @opt_param string q Search query.
-     * @opt_param string start-index Index of the first result to be retrieved.
-     * @return Google_SeriesList
-     */
+     
     public function listModeratorGlobalSeries($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -620,25 +310,11 @@
     }
   }
 
-  /**
-   * The "profiles" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $profiles = $moderatorService->profiles;
-   *  </code>
-   */
+   
   class Google_ProfilesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Updates the profile information for the authenticated user. This method supports patch semantics.
-     * (profiles.patch)
-     *
-     * @param Google_Profile $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Profile
-     */
+     
     public function patch(Google_Profile $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -649,13 +325,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the profile information for the authenticated user. (profiles.update)
-     *
-     * @param Google_Profile $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Profile
-     */
+     
     public function update(Google_Profile $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -666,12 +336,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the profile information for the authenticated user. (profiles.get)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_Profile
-     */
+     
     public function get($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -684,36 +349,17 @@
     }
   }
 
-  /**
-   * The "featured" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $featured = $moderatorService->featured;
-   *  </code>
-   */
+   
   class Google_FeaturedServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "series" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $series = $moderatorService->series;
-   *  </code>
-   */
+   
   class Google_FeaturedSeriesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists the featured series. (series.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_SeriesList
-     */
+     
     public function listFeaturedSeries($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -726,36 +372,17 @@
     }
   }
 
-  /**
-   * The "myrecent" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $myrecent = $moderatorService->myrecent;
-   *  </code>
-   */
+   
   class Google_MyrecentServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "series" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $series = $moderatorService->series;
-   *  </code>
-   */
+   
   class Google_MyrecentSeriesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists the series the authenticated user has visited. (series.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_SeriesList
-     */
+     
     public function listMyrecentSeries($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -768,36 +395,17 @@
     }
   }
 
-  /**
-   * The "my" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $my = $moderatorService->my;
-   *  </code>
-   */
+   
   class Google_MyServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "series" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $series = $moderatorService->series;
-   *  </code>
-   */
+   
   class Google_MySeriesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists all series created by the authenticated user. (series.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_SeriesList
-     */
+     
     public function listMySeries($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -810,29 +418,11 @@
     }
   }
 
-  /**
-   * The "submissions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $moderatorService = new Google_ModeratorService(...);
-   *   $submissions = $moderatorService->submissions;
-   *  </code>
-   */
+   
   class Google_SubmissionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new submission in the specified topic within the specified series. (submissions.insert)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $topicId The decimal ID of the Topic within the Series.
-     * @param Google_Submission $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string unauthToken User identifier for unauthenticated usage mode
-     * @opt_param bool anonymous Set to true to mark the new submission as anonymous.
-     * @return Google_Submission
-     */
+     
     public function insert($seriesId, $topicId, Google_Submission $postBody, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'topicId' => $topicId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -843,17 +433,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified submission within the specified series. (submissions.get)
-     *
-     * @param string $seriesId The decimal ID of the Series.
-     * @param string $submissionId The decimal ID of the Submission within the Series.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string lang The language code for the language the client prefers resuls in.
-     * @opt_param bool includeVotes Specifies whether to include the current user's vote
-     * @return Google_Submission
-     */
+     
     public function get($seriesId, $submissionId, $optParams = array()) {
       $params = array('seriesId' => $seriesId, 'submissionId' => $submissionId);
       $params = array_merge($params, $optParams);
@@ -866,20 +446,7 @@
     }
   }
 
-/**
- * Service definition for Google_Moderator (v1).
- *
- * <p>
- * Moderator API
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="http://code.google.com/apis/moderator/v1/using_rest.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_ModeratorService extends Google_Service {
   public $votes;
   public $responses;
@@ -895,11 +462,7 @@ class Google_ModeratorService extends Google_Service {
   public $myrecent_series;
   public $my_series;
   public $submissions;
-  /**
-   * Constructs the internal representation of the Moderator service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'moderator/v1/';
     $this->version = 'v1';
@@ -1218,7 +781,7 @@ class Google_SeriesList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Series) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Series', __METHOD__);
     $this->items = $items;
   }
@@ -1342,7 +905,7 @@ class Google_Submission extends Google_Model {
   public function getText() {
     return $this->text;
   }
-  public function setTopics(/* array(Google_ModeratorTopicsResourcePartial) */ $topics) {
+  public function setTopics(  $topics) {
     $this->assertIsArray($topics, 'Google_ModeratorTopicsResourcePartial', __METHOD__);
     $this->topics = $topics;
   }
@@ -1355,7 +918,7 @@ class Google_Submission extends Google_Model {
   public function getAuthor() {
     return $this->author;
   }
-  public function setTranslations(/* array(Google_SubmissionTranslations) */ $translations) {
+  public function setTranslations(  $translations) {
     $this->assertIsArray($translations, 'Google_SubmissionTranslations', __METHOD__);
     $this->translations = $translations;
   }
@@ -1494,7 +1057,7 @@ class Google_SubmissionList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Submission) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Submission', __METHOD__);
     $this->items = $items;
   }
@@ -1598,7 +1161,7 @@ class Google_TagList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Tag) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Tag', __METHOD__);
     $this->items = $items;
   }
@@ -1747,7 +1310,7 @@ class Google_TopicList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Topic) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Topic', __METHOD__);
     $this->items = $items;
   }
@@ -1872,7 +1435,7 @@ class Google_VoteList extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Vote) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Vote', __METHOD__);
     $this->items = $items;
   }

@@ -1,21 +1,15 @@
-/*!
- * ImageUploader (for jQuery)
- * Version 1.0.0 (10/03/2016)
- * Copyright 2012-* Julien Deniau <julien.deniau@gmail.com>
- * Licensed under MIT (https://github.com/jdeniau/jquery-image-uploader/LICENSE.md)
- */
+ 
 
 if(typeof jQuery !== undefined){
     (function($){
-        // init
+ 
         var ImageUploader = function (params) {
             this.currentThumbnail = null;
             this.options = [];
             this.init(params);
             this.main();
         }
-
-        // default settings
+ 
         ImageUploader.defaults = {
             fileField: null,
             urlField: null,
@@ -53,7 +47,7 @@ if(typeof jQuery !== undefined){
         }
 
         ImageUploader.prototype = {
-            // Init
+ 
             init: function (params) {
                 this.options = $.extend({}, ImageUploader.defaults, params);
 
@@ -63,71 +57,42 @@ if(typeof jQuery !== undefined){
                 this.currentThumbnail = null;
             },
 
-            /**
-             * fileApiSupported check if the file api is supported
-             *
-             * @return void
-             */
+             
             fileApiSupported: function() {
                 return (window.File && window.FileReader && window.FileList && window.FormData);
             },
 
-            /**
-             * onDragLeave
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onDragLeave: function(event) {
                 if ($(event.target)[0] === event.data.instance.options.dropZone[0]) {
-                    //you can remove a style from the drop zone
+ 
                     return event.data.instance.options.onDragLeave(event);
                 }
             },
 
-            /**
-             * onDragEnter
-             *
-             * @param {Event} event
-             * @return void
-             */
+             
             onDragEnter: function (event) {
                 if ($(event.target)[0] === event.data.instance.options.dropZone[0]) {
-                    //you can add a style to the drop zone
+ 
                     return event.data.instance.options.onDragEnter(event);
                 }
             },
 
-            /**
-             * onDragStart
-             *
-             * @param {Event} event
-             * @return void
-             */
+             
             onDragStart: function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 return event.data.instance.options.onDragStart(event);
             },
 
-            /**
-             * onDragEnd
-             *
-             * @param {Event} event
-             * @return void
-             */
+             
             onDragEnd: function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 return event.data.instance.options.onDragEnd(event);
             },
 
-            /**
-             * onDragOver
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onDragOver: function (event) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -135,12 +100,7 @@ if(typeof jQuery !== undefined){
                 return event.data.instance.options.onDragOver(event);
             },
 
-            /**
-             * onDrop
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onDrop: function (event) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -158,12 +118,7 @@ if(typeof jQuery !== undefined){
                 }
             },
 
-            /**
-             * onUploadProgress
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onUploadProgress: function (event) {
                 if (event.lengthComputable) {
                     if (!this.currentThumbnail || this.currentThumbnail.length == 0) {
@@ -178,11 +133,7 @@ if(typeof jQuery !== undefined){
                 return this.options.onUploadProgress(event);
             },
 
-            /**
-             * uploadComplete
-             *
-             * @return void
-             */
+             
             uploadComplete: function (event) {
                 xhr = event.currentTarget;
                 this.canUpload = true;
@@ -201,11 +152,7 @@ if(typeof jQuery !== undefined){
                 }
             },
 
-            /**
-             * uploadFailed
-             *
-             * @return void
-             */
+             
             uploadFailed: function () {
                 this.canUpload = true;
                 if (this.currentThumbnail) {
@@ -216,11 +163,7 @@ if(typeof jQuery !== undefined){
                 this.uploadNextFile();
             },
 
-            /**
-             * uploadCanceled
-             *
-             * @return void
-             */
+             
             uploadCanceled: function () {
                 this.canUpload = true;
                 this.currentThumbnail = null;
@@ -228,26 +171,14 @@ if(typeof jQuery !== undefined){
                 this.uploadNextFile();
             },
 
-            /**
-             * addUploadFile
-             *
-             * @param file $file
-             * @access public
-             * @return void
-             */
+             
             addUploadFile: function (file) {
                 this.allUploadedFileList.push(file);
                 this.uploadFileList.push(file);
                 this.uploadNextFile();
             },
 
-            /**
-             * fileAlreadyUploaded
-             *
-             * @param file $file
-             * @access public
-             * @return boolean
-             */
+             
             fileAlreadyUploaded: function (file) {
                 for (i in this.allUploadedFileList) {
                     f = this.allUploadedFileList[i];
@@ -258,12 +189,7 @@ if(typeof jQuery !== undefined){
                 return false;
             },
 
-            /**
-             * uploadNextFile
-             *
-             * @access public
-             * @return void
-             */
+             
             uploadNextFile: function () {
                 if (this.canUpload && this.uploadFileList.length > 0) {
                     file = this.uploadFileList.shift();
@@ -272,12 +198,7 @@ if(typeof jQuery !== undefined){
                 }
             },
 
-            /**
-             * uploadFile upload the file
-             *
-             * @param file $file
-             * @return void
-             */
+             
             uploadFile: function (file) {
                 xhr = new XMLHttpRequest();
                 if (xhr.upload && this.options.beforeUpload()) {
@@ -292,7 +213,7 @@ if(typeof jQuery !== undefined){
                     }
 
 
-                    /* event listners */
+                     
                     xhr.upload.addEventListener('progress',  this.onUploadProgress.bind(this), false);
                     xhr.addEventListener("loadstart", this.uploadStarted.bind(this), false);
                     xhr.addEventListener("load", this.uploadComplete.bind(this), false);
@@ -305,12 +226,7 @@ if(typeof jQuery !== undefined){
                 }
             },
 
-            /**
-             * onFilesSelected
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onFilesSelected: function (event) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -320,12 +236,7 @@ if(typeof jQuery !== undefined){
                 return event.data.instance.options.onFilesSelected();
             },
 
-            /**
-             * onUrlSelected
-             *
-             * @param event $event
-             * @return void
-             */
+             
             onUrlSelected: function (event) {
                 var instance = event.data.instance;
                 var url = instance.options.urlField.val();
@@ -336,26 +247,17 @@ if(typeof jQuery !== undefined){
                 return instance.options.onUrlSelected();
             },
 
-            /**
-             * add a file by Url
-             */
+             
             addFileByUrl: function (url) {
                 return this.addFile({ name: url });
             },
 
-            /**
-             * addFile add a single file to the file list
-             */
+             
             addFile: function (file) {
                 return this.addFiles([file]);
             },
 
-            /**
-             * addFiles add files to the file list
-             *
-             * @param files $files
-             * @return void
-             */
+             
             addFiles: function (files) {
                 if (this.fileApiSupported()) {
                     var reader = null;
@@ -416,7 +318,7 @@ if(typeof jQuery !== undefined){
                         var wantedRatio = otw / oth;
 
                         if (wantedRatio > ratio) {
-                            // portrait image
+ 
                             if (_this.options.thumbnails.crop == 'zoom') {
                                 thumb.width = otw;
                                 thumb.height = otw / ratio;
@@ -462,11 +364,7 @@ if(typeof jQuery !== undefined){
                 }
             },
 
-            /**
-             * prepare thumbnails div
-             *
-             * @return void
-             */
+             
             prepareThumbnails: function () {
                 if (this.options.thumbnails) {
                     if (typeof this.options.thumbnails != 'object') {
@@ -493,12 +391,11 @@ if(typeof jQuery !== undefined){
             },
 
             main: function() {
-                // ===============================
-                // main process
-                // ===============================
+ 
+ 
+ 
                 var _this = this;
-
-                // Dropzone management
+ 
                 if (this.options.dropZone != null) {
                     this.options.dropZone.on('dragstart', { instance: this }, this.onDragStart);
                     this.options.dropZone.on('dragend',   { instance: this }, this.onDragEnd);
@@ -509,7 +406,7 @@ if(typeof jQuery !== undefined){
                 }
 
                 if (this.options.fileField != null) {
-                    // open fileField on click on the dropZone
+ 
                     if (typeof this.options.fileField == 'string') {
                         this.options.fileField = $(this.options.fileField);
                     }
@@ -541,19 +438,13 @@ if(typeof jQuery !== undefined){
                         this.hide(this.options.urlField);
                     }
                 }
-
-                // preparing thumbnails div
+ 
                 this.prepareThumbnails();
 
                 return this;
             },
 
-            /**
-             * Hide a jquery element. Use size=0x0 instead of native jquery hide()
-             * to avoid safari bugs
-             *
-             * @return void
-             */
+             
             hide: function($element) {
                 $element.css({
                     'width': '0px',

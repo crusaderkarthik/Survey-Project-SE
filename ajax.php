@@ -1,23 +1,5 @@
 <?php
-# -------------------------------------------------#
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-#	¤                                            ¤   #
-#	¤         Puerto Premium Survey 1.0          ¤   #
-#	¤--------------------------------------------¤   #
-#	¤              By Khalid Puerto              ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Facebook : fb.com/prof.puertokhalid       ¤   #
-#	¤  Instagram : instagram.com/khalidpuerto    ¤   #
-#	¤  Site : http://www.puertokhalid.com        ¤   #
-#	¤  Whatsapp: +212 654 211 360                ¤   #
-#	¤                                            ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Last Update: 13/09/2020                   ¤   #
-#	¤                                            ¤   #
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-# -------------------------------------------------#
+
 
 include __DIR__ . "/configs.php";
 
@@ -222,27 +204,21 @@ elseif($pg == "sendsurveyemail"){
 #############################
 
 
-/* ----------------------------
-				Login
- ----------------------------*/
+ 
 
 elseif($pg == 'login') {
 	include __DIR__ . "/ajax/sendsignin.php";
 }
 
 
-/* ----------------------------
-				Signup
- ----------------------------*/
+ 
 
 elseif($pg == 'register') {
 	include __DIR__ . "/ajax/sendsignup.php";
 }
 
 
-/* ----------------------------
-				Logout
- ----------------------------*/
+ 
 
 elseif($pg == 'logout'){
 
@@ -255,9 +231,7 @@ elseif($pg == 'logout'){
 }
 
 
-/* ----------------------------
-				Change Lang
- ----------------------------*/
+ 
 
 elseif($pg == 'lang'){
 
@@ -270,9 +244,7 @@ elseif($pg == 'lang'){
 
 
 
-/* ----------------------------
-				Change User Details
- ----------------------------*/
+ 
 
 elseif($pg == 'senduserdetails'){
 	include __DIR__ . "/ajax/senduserdetails.php";
@@ -280,9 +252,7 @@ elseif($pg == 'senduserdetails'){
 
 
 
-/* ----------------------------
-				Files upload
- ----------------------------*/
+ 
 
 elseif($pg == 'imageupload'){
 
@@ -331,9 +301,7 @@ elseif($pg == 'imageupload'){
 
 
 
-/* ----------------------------
-				Survey Password
- ----------------------------*/
+ 
 
 
 elseif($pg == 'sendsurveypassword'){
@@ -351,9 +319,7 @@ elseif($pg == 'sendsurveypassword'){
 
 
 
-/* ----------------------------
-				Survey Check Response
- ----------------------------*/
+ 
 
 
 elseif($pg == 'checksurveyrequiredresponses'){
@@ -419,9 +385,7 @@ elseif($pg == 'checksurveyrequiredresponses'){
 }
 
 
-/* ----------------------------
-				Survey Add Response
- ----------------------------*/
+ 
 
  elseif($pg == 'sendsurveyresponses'){
  	$stepnum = isset($_POST["stepnum"]) ? (int)($_POST["stepnum"]) : 0;
@@ -558,9 +522,7 @@ elseif($pg == 'checksurveyrequiredresponses'){
  }
 
 
-/* ----------------------------
-				Survey Logics
- ----------------------------*/
+ 
 
 
  elseif($pg == 'surveygetlogics'){
@@ -631,9 +593,7 @@ elseif($pg == 'checksurveyrequiredresponses'){
 
 
 
-/* ----------------------------
-				Export all results
- ----------------------------*/
+ 
 
 
 elseif($pg == "exportall"){
@@ -700,9 +660,7 @@ elseif($pg == "exportall"){
 }
 
 
-/* ----------------------------
-				Export results
- ----------------------------*/
+ 
 
 elseif($pg == 'exexcel'){
 
@@ -728,25 +686,19 @@ elseif($pg == 'exexcel'){
 }
 
 
-/* ----------------------------
-			 Report show results
- ----------------------------*/
+ 
 
 elseif($pg == 'rapport-stats') {
  	include __DIR__ . "/ajax/showrapportdetails.php";
 }
 
-/* ----------------------------
-				Response Modal Show
- ----------------------------*/
+ 
 
 elseif($pg == 'respense') {
  	include __DIR__ . "/ajax/showresponsedetails.php";
 }
 
-/* ----------------------------
-				Report Stats Graph
- ----------------------------*/
+ 
 
 elseif($pg == 'surveystats'){
  	if(us_level == 6 || db_rows("survies WHERE id = '{$id}' && author = '".us_id."'")){
@@ -788,9 +740,7 @@ elseif($pg == 'surveystats'){
 
 
 
-/* ----------------------------
-				User Lang
- ----------------------------*/
+ 
 
 elseif($pg == 'newlang'){
 	if(us_level == 6){
@@ -887,9 +837,7 @@ elseif($pg == 'newlang'){
  }
 
 
-/* ----------------------------
-				User Status
- ----------------------------*/
+ 
 
  elseif($pg == 'changeuserstatus'){
 
@@ -901,9 +849,7 @@ elseif($pg == 'newlang'){
  }
 
 
-/* ----------------------------
-				Plans Send
- ----------------------------*/
+ 
 
  elseif($pg == 'sendplans'){
 
@@ -939,9 +885,7 @@ elseif($pg == 'newlang'){
  }
 
 
-/* ----------------------------
-				Plan Send
- ----------------------------*/
+ 
 
 
  elseif($pg == "sendplan"){
@@ -1008,9 +952,7 @@ elseif($pg == 'newlang'){
  }
 
 
-/* ----------------------------
-				Page Send
- ----------------------------*/
+ 
 
 elseif($pg == "sendpage"){
  	if($_SERVER['REQUEST_METHOD'] === 'POST' && us_level == 6){
@@ -1046,9 +988,7 @@ elseif($pg == "sendpage"){
 }
 
 
-/* ----------------------------
-				Settings Send
- ----------------------------*/
+ 
 
 elseif($pg == 'sendsettings'){
 
@@ -1263,17 +1203,13 @@ elseif($pg == 'choose_template') {
 #############################
 
 
-/* ----------------------------
-				Editor Send
- ----------------------------*/
+ 
 
 elseif($pg == 'surveyeditorsend') {
 	include __DIR__ . "/ajax/surveyeditorsend.php";
 }
 
-/* ----------------------------
-				Editor Logics
- ----------------------------*/
+ 
 
 elseif($pg == 'sendlogics'){
 
@@ -1335,9 +1271,7 @@ elseif($pg == 'sendlogics'){
 }
 
 
-/* ----------------------------
-				Editor Logic Answers
- ----------------------------*/
+ 
 
 elseif($pg == 'getanswers'){
 
@@ -1377,9 +1311,7 @@ elseif($pg == 'getanswers'){
 }
 
 
-/* ----------------------------
-				Editor Preview
- ----------------------------*/
+ 
 
 elseif($pg == 'sendsurveypreview'){
 

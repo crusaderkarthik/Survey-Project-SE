@@ -1,36 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "directDeals" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adexchangebuyerService = new Google_AdexchangebuyerService(...);
-   *   $directDeals = $adexchangebuyerService->directDeals;
-   *  </code>
-   */
+   
   class Google_DirectDealsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the authenticated user's list of direct deals. (directDeals.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_DirectDealsList
-     */
+     
     public function listDirectDeals($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -41,13 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Gets one direct deal by ID. (directDeals.get)
-     *
-     * @param string $id The direct deal id
-     * @param array $optParams Optional parameters.
-     * @return Google_DirectDeal
-     */
+     
     public function get($id, $optParams = array()) {
       $params = array('id' => $id);
       $params = array_merge($params, $optParams);
@@ -60,25 +30,11 @@
     }
   }
 
-  /**
-   * The "accounts" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adexchangebuyerService = new Google_AdexchangebuyerService(...);
-   *   $accounts = $adexchangebuyerService->accounts;
-   *  </code>
-   */
+   
   class Google_AccountsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Updates an existing account. This method supports patch semantics. (accounts.patch)
-     *
-     * @param int $id The account id
-     * @param Google_Account $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Account
-     */
+     
     public function patch($id, Google_Account $postBody, $optParams = array()) {
       $params = array('id' => $id, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -89,12 +45,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the authenticated user's list of accounts. (accounts.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_AccountsList
-     */
+     
     public function listAccounts($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -105,14 +56,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an existing account. (accounts.update)
-     *
-     * @param int $id The account id
-     * @param Google_Account $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Account
-     */
+     
     public function update($id, Google_Account $postBody, $optParams = array()) {
       $params = array('id' => $id, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -123,13 +67,7 @@
         return $data;
       }
     }
-    /**
-     * Gets one account by ID. (accounts.get)
-     *
-     * @param int $id The account id
-     * @param array $optParams Optional parameters.
-     * @return Google_Account
-     */
+     
     public function get($id, $optParams = array()) {
       $params = array('id' => $id);
       $params = array_merge($params, $optParams);
@@ -142,24 +80,11 @@
     }
   }
 
-  /**
-   * The "creatives" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adexchangebuyerService = new Google_AdexchangebuyerService(...);
-   *   $creatives = $adexchangebuyerService->creatives;
-   *  </code>
-   */
+   
   class Google_CreativesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Submit a new creative. (creatives.insert)
-     *
-     * @param Google_Creative $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Creative
-     */
+     
     public function insert(Google_Creative $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -170,15 +95,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves a list of the authenticated user's active creatives. (creatives.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. Optional.
-     * @opt_param string maxResults Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
-     * @return Google_CreativesList
-     */
+     
     public function listCreatives($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -189,15 +106,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the status for a single creative. (creatives.get)
-     *
-     * @param int $accountId The id for the account that will serve this creative.
-     * @param string $buyerCreativeId The buyer-specific id for this creative.
-     * @param string $adgroupId The adgroup this creative belongs to.
-     * @param array $optParams Optional parameters.
-     * @return Google_Creative
-     */
+     
     public function get($accountId, $buyerCreativeId, $adgroupId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'buyerCreativeId' => $buyerCreativeId, 'adgroupId' => $adgroupId);
       $params = array_merge($params, $optParams);
@@ -210,29 +119,12 @@
     }
   }
 
-/**
- * Service definition for Google_Adexchangebuyer (v1).
- *
- * <p>
- * Lets you manage your Ad Exchange Buyer account.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/ad-exchange/buyer-rest" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_AdexchangebuyerService extends Google_Service {
   public $directDeals;
   public $accounts;
   public $creatives;
-  /**
-   * Constructs the internal representation of the Adexchangebuyer service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'adexchangebuyer/v1/';
     $this->version = 'v1';

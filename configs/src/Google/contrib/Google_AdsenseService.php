@@ -1,40 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "urlchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $urlchannels = $adsenseService->urlchannels;
-   *  </code>
-   */
+   
   class Google_UrlchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all URL channels in the specified ad client for this AdSense account. (urlchannels.list)
-     *
-     * @param string $adClientId Ad client for which to list URL channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of URL channels to include in the response, used for paging.
-     * @return Google_UrlChannels
-     */
+     
     public function listUrlchannels($adClientId, $optParams = array()) {
       $params = array('adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -47,28 +19,11 @@
     }
   }
 
-  /**
-   * The "adunits" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adunits = $adsenseService->adunits;
-   *  </code>
-   */
+   
   class Google_AdunitsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad units in the specified ad client for this AdSense account. (adunits.list)
-     *
-     * @param string $adClientId Ad client for which to list ad units.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeInactive Whether to include inactive ad units. Default: true.
-     * @opt_param string pageToken A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of ad units to include in the response, used for paging.
-     * @return Google_AdUnits
-     */
+     
     public function listAdunits($adClientId, $optParams = array()) {
       $params = array('adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -79,14 +34,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the specified ad unit in the specified ad client. (adunits.get)
-     *
-     * @param string $adClientId Ad client for which to get the ad unit.
-     * @param string $adUnitId Ad unit to retrieve.
-     * @param array $optParams Optional parameters.
-     * @return Google_AdUnit
-     */
+     
     public function get($adClientId, $adUnitId, $optParams = array()) {
       $params = array('adClientId' => $adClientId, 'adUnitId' => $adUnitId);
       $params = array_merge($params, $optParams);
@@ -99,28 +47,11 @@
     }
   }
 
-  /**
-   * The "customchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $customchannels = $adsenseService->customchannels;
-   *  </code>
-   */
+   
   class Google_AdunitsCustomchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all custom channels which the specified ad unit belongs to. (customchannels.list)
-     *
-     * @param string $adClientId Ad client which contains the ad unit.
-     * @param string $adUnitId Ad unit for which to list custom channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of custom channels to include in the response, used for paging.
-     * @return Google_CustomChannels
-     */
+     
     public function listAdunitsCustomchannels($adClientId, $adUnitId, $optParams = array()) {
       $params = array('adClientId' => $adClientId, 'adUnitId' => $adUnitId);
       $params = array_merge($params, $optParams);
@@ -133,26 +64,11 @@
     }
   }
 
-  /**
-   * The "adclients" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adclients = $adsenseService->adclients;
-   *  </code>
-   */
+   
   class Google_AdclientsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad clients in this AdSense account. (adclients.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of ad clients to include in the response, used for paging.
-     * @return Google_AdClients
-     */
+     
     public function listAdclients($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -165,37 +81,11 @@
     }
   }
 
-  /**
-   * The "reports" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $reports = $adsenseService->reports;
-   *  </code>
-   */
+   
   class Google_ReportsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Generate an AdSense report based on the report request sent in the query parameters. Returns the
-     * result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
-     * (reports.generate)
-     *
-     * @param string $startDate Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-     * @param string $endDate End of the date range to report on in "YYYY-MM-DD" format, inclusive.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string sort The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-     * @opt_param string locale Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
-     * @opt_param string metric Numeric columns to include in the report.
-     * @opt_param int maxResults The maximum number of rows of report data to return.
-     * @opt_param string filter Filters to be run on the report.
-     * @opt_param string currency Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
-     * @opt_param int startIndex Index of the first row of report data to return.
-     * @opt_param string dimension Dimensions to base the report on.
-     * @opt_param string accountId Accounts upon which to report.
-     * @return Google_AdsenseReportsGenerateResponse
-     */
+     
     public function generate($startDate, $endDate, $optParams = array()) {
       $params = array('startDate' => $startDate, 'endDate' => $endDate);
       $params = array_merge($params, $optParams);
@@ -208,26 +98,11 @@
     }
   }
 
-  /**
-   * The "accounts" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $accounts = $adsenseService->accounts;
-   *  </code>
-   */
+   
   class Google_AccountsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all accounts available to this AdSense account. (accounts.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through accounts. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of accounts to include in the response, used for paging.
-     * @return Google_Accounts
-     */
+     
     public function listAccounts($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -238,15 +113,7 @@
         return $data;
       }
     }
-    /**
-     * Get information about the selected AdSense account. (accounts.get)
-     *
-     * @param string $accountId Account to get information about.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool tree Whether the tree of sub accounts should be returned.
-     * @return Google_Account
-     */
+     
     public function get($accountId, $optParams = array()) {
       $params = array('accountId' => $accountId);
       $params = array_merge($params, $optParams);
@@ -259,28 +126,11 @@
     }
   }
 
-  /**
-   * The "urlchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $urlchannels = $adsenseService->urlchannels;
-   *  </code>
-   */
+   
   class Google_AccountsUrlchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all URL channels in the specified ad client for the specified account. (urlchannels.list)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client for which to list URL channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of URL channels to include in the response, used for paging.
-     * @return Google_UrlChannels
-     */
+     
     public function listAccountsUrlchannels($accountId, $adClientId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -292,29 +142,11 @@
       }
     }
   }
-  /**
-   * The "adunits" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adunits = $adsenseService->adunits;
-   *  </code>
-   */
+   
   class Google_AccountsAdunitsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad units in the specified ad client for the specified account. (adunits.list)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client for which to list ad units.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeInactive Whether to include inactive ad units. Default: true.
-     * @opt_param string pageToken A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of ad units to include in the response, used for paging.
-     * @return Google_AdUnits
-     */
+     
     public function listAccountsAdunits($accountId, $adClientId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -325,15 +157,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the specified ad unit in the specified ad client for the specified account. (adunits.get)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client for which to get the ad unit.
-     * @param string $adUnitId Ad unit to retrieve.
-     * @param array $optParams Optional parameters.
-     * @return Google_AdUnit
-     */
+     
     public function get($accountId, $adClientId, $adUnitId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId, 'adUnitId' => $adUnitId);
       $params = array_merge($params, $optParams);
@@ -346,29 +170,11 @@
     }
   }
 
-  /**
-   * The "customchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $customchannels = $adsenseService->customchannels;
-   *  </code>
-   */
+   
   class Google_AccountsAdunitsCustomchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all custom channels which the specified ad unit belongs to. (customchannels.list)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client which contains the ad unit.
-     * @param string $adUnitId Ad unit for which to list custom channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of custom channels to include in the response, used for paging.
-     * @return Google_CustomChannels
-     */
+     
     public function listAccountsAdunitsCustomchannels($accountId, $adClientId, $adUnitId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId, 'adUnitId' => $adUnitId);
       $params = array_merge($params, $optParams);
@@ -380,27 +186,11 @@
       }
     }
   }
-  /**
-   * The "adclients" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adclients = $adsenseService->adclients;
-   *  </code>
-   */
+   
   class Google_AccountsAdclientsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad clients in the specified account. (adclients.list)
-     *
-     * @param string $accountId Account for which to list ad clients.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of ad clients to include in the response, used for paging.
-     * @return Google_AdClients
-     */
+     
     public function listAccountsAdclients($accountId, $optParams = array()) {
       $params = array('accountId' => $accountId);
       $params = array_merge($params, $optParams);
@@ -412,37 +202,11 @@
       }
     }
   }
-  /**
-   * The "reports" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $reports = $adsenseService->reports;
-   *  </code>
-   */
+   
   class Google_AccountsReportsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Generate an AdSense report based on the report request sent in the query parameters. Returns the
-     * result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
-     * (reports.generate)
-     *
-     * @param string $accountId Account upon which to report.
-     * @param string $startDate Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-     * @param string $endDate End of the date range to report on in "YYYY-MM-DD" format, inclusive.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string sort The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
-     * @opt_param string locale Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
-     * @opt_param string metric Numeric columns to include in the report.
-     * @opt_param int maxResults The maximum number of rows of report data to return.
-     * @opt_param string filter Filters to be run on the report.
-     * @opt_param string currency Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
-     * @opt_param int startIndex Index of the first row of report data to return.
-     * @opt_param string dimension Dimensions to base the report on.
-     * @return Google_AdsenseReportsGenerateResponse
-     */
+     
     public function generate($accountId, $startDate, $endDate, $optParams = array()) {
       $params = array('accountId' => $accountId, 'startDate' => $startDate, 'endDate' => $endDate);
       $params = array_merge($params, $optParams);
@@ -454,29 +218,11 @@
       }
     }
   }
-  /**
-   * The "customchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $customchannels = $adsenseService->customchannels;
-   *  </code>
-   */
+   
   class Google_AccountsCustomchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all custom channels in the specified ad client for the specified account.
-     * (customchannels.list)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client for which to list custom channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of custom channels to include in the response, used for paging.
-     * @return Google_CustomChannels
-     */
+     
     public function listAccountsCustomchannels($accountId, $adClientId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -487,16 +233,7 @@
         return $data;
       }
     }
-    /**
-     * Get the specified custom channel from the specified ad client for the specified account.
-     * (customchannels.get)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client which contains the custom channel.
-     * @param string $customChannelId Custom channel to retrieve.
-     * @param array $optParams Optional parameters.
-     * @return Google_CustomChannel
-     */
+     
     public function get($accountId, $adClientId, $customChannelId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId, 'customChannelId' => $customChannelId);
       $params = array_merge($params, $optParams);
@@ -509,30 +246,11 @@
     }
   }
 
-  /**
-   * The "adunits" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adunits = $adsenseService->adunits;
-   *  </code>
-   */
+   
   class Google_AccountsCustomchannelsAdunitsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad units in the specified custom channel. (adunits.list)
-     *
-     * @param string $accountId Account to which the ad client belongs.
-     * @param string $adClientId Ad client which contains the custom channel.
-     * @param string $customChannelId Custom channel for which to list ad units.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeInactive Whether to include inactive ad units. Default: true.
-     * @opt_param int maxResults The maximum number of ad units to include in the response, used for paging.
-     * @opt_param string pageToken A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @return Google_AdUnits
-     */
+     
     public function listAccountsCustomchannelsAdunits($accountId, $adClientId, $customChannelId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'adClientId' => $adClientId, 'customChannelId' => $customChannelId);
       $params = array_merge($params, $optParams);
@@ -545,28 +263,11 @@
     }
   }
 
-  /**
-   * The "customchannels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $customchannels = $adsenseService->customchannels;
-   *  </code>
-   */
+   
   class Google_CustomchannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all custom channels in the specified ad client for this AdSense account.
-     * (customchannels.list)
-     *
-     * @param string $adClientId Ad client for which to list custom channels.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of custom channels to include in the response, used for paging.
-     * @return Google_CustomChannels
-     */
+     
     public function listCustomchannels($adClientId, $optParams = array()) {
       $params = array('adClientId' => $adClientId);
       $params = array_merge($params, $optParams);
@@ -577,14 +278,7 @@
         return $data;
       }
     }
-    /**
-     * Get the specified custom channel from the specified ad client. (customchannels.get)
-     *
-     * @param string $adClientId Ad client which contains the custom channel.
-     * @param string $customChannelId Custom channel to retrieve.
-     * @param array $optParams Optional parameters.
-     * @return Google_CustomChannel
-     */
+     
     public function get($adClientId, $customChannelId, $optParams = array()) {
       $params = array('adClientId' => $adClientId, 'customChannelId' => $customChannelId);
       $params = array_merge($params, $optParams);
@@ -597,29 +291,11 @@
     }
   }
 
-  /**
-   * The "adunits" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $adsenseService = new Google_AdsenseService(...);
-   *   $adunits = $adsenseService->adunits;
-   *  </code>
-   */
+   
   class Google_CustomchannelsAdunitsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all ad units in the specified custom channel. (adunits.list)
-     *
-     * @param string $adClientId Ad client which contains the custom channel.
-     * @param string $customChannelId Custom channel for which to list ad units.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeInactive Whether to include inactive ad units. Default: true.
-     * @opt_param string pageToken A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param int maxResults The maximum number of ad units to include in the response, used for paging.
-     * @return Google_AdUnits
-     */
+     
     public function listCustomchannelsAdunits($adClientId, $customChannelId, $optParams = array()) {
       $params = array('adClientId' => $adClientId, 'customChannelId' => $customChannelId);
       $params = array_merge($params, $optParams);
@@ -632,20 +308,7 @@
     }
   }
 
-/**
- * Service definition for Google_Adsense (v1.1).
- *
- * <p>
- * Gives AdSense publishers access to their inventory and the ability to generate reports
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/adsense/management/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_AdsenseService extends Google_Service {
   public $urlchannels;
   public $adunits;
@@ -662,11 +325,7 @@ class Google_AdsenseService extends Google_Service {
   public $accounts_customchannels_adunits;
   public $customchannels;
   public $customchannels_adunits;
-  /**
-   * Constructs the internal representation of the Adsense service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'adsense/v1.1/';
     $this->version = 'v1.1';

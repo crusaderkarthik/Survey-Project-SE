@@ -1,11 +1,10 @@
 ( function ( $ ) {
     'use strict';
-
-//####################################
-//#####                          #####
-//#####         General          #####
-//#####                          #####
-//####################################
+ 
+ 
+ 
+ 
+ 
 
 $.puertosend = function(Fid, Faj, Fty = 'modal', Fred = ''){
 	$(Fid).on("submit", function(){
@@ -63,8 +62,7 @@ $.puertosend = function(Fid, Faj, Fty = 'modal', Fred = ''){
 		return false;
 	});
 }
-
-//- Droped menu
+ 
 
 $.puerto_droped = function( prtclick, prtlist = "ul.pt-drop" ){
 	$(prtclick).livequery('click', function(){
@@ -92,9 +90,7 @@ $.puerto_droped = function( prtclick, prtlist = "ul.pt-drop" ){
 $.puerto_droped(".pt-options-link");
 $.puerto_droped(".pt-user");
 $.puerto_droped(".pt-mobile-menu");
-
-
-//- Textarea auto resize
+ 
 
 
 if($(".pt-countries select").length){
@@ -102,8 +98,7 @@ $(".pt-countries select").livequery("change", function(){
 	$(".pt-countries").find('.pt-icon i').attr('class', 'flag-icon flag-icon-'+$(this).val().toLowerCase().replace(/<[^>]+>/g, ''));
 });
 }
-
-//- Datepicker
+ 
 if($('#datepicker, .datepicker-here, [id^=datepicker]').length){
 $('#datepicker, .datepicker-here, [id^=datepicker]').datepicker({ language:'en', timepicker: true, timeFormat:"hh:ii aa" });
 if($('#datepicker, .datepicker-here, [id^=datepicker]').val()){
@@ -116,8 +111,7 @@ if($('#datepicker, .datepicker-here, [id^=datepicker]').val()){
 	});
 }
 }
-
-//- Phone Mask
+ 
 if($('[type=phone], [type=email]').length){
 $('[type=phone]').mask(phonemask);
 $('[type=email]').mask("A", {
@@ -126,8 +120,7 @@ $('[type=email]').mask("A", {
 	}
 });
 }
-
-//- Puerto Confirm
+ 
 
 $.puerto_confirm = function( tit, aler, col) {
 	$.confirm({
@@ -141,29 +134,20 @@ $.puerto_confirm = function( tit, aler, col) {
 			buttons: false
 	});
 }
-
-
-//- Scroll Bar
+ 
 if($('.pt-scroll').length){
 $(document).ready(function(){
   $('.pt-scroll').scrollbar();
 });
 }
-
-
-//- Tooltip
+ 
 $('[data-toggle="tooltip"]').tooltip();
-
-
-
-//####################################
-//#####                          #####
-//#####       New Survey         #####
-//#####                          #####
-//####################################
-
-
-//- Wysibb Editor
+ 
+ 
+ 
+ 
+ 
+ 
 if($("#wysibb-editor").length){
 	var textarea = document.getElementById('wysibb-editor');
 	sceditor.create(textarea, {
@@ -213,10 +197,7 @@ $("[id^='wysibbs']").each(function(){
 	console.log(id);
 	sceditor.create(document.getElementById(id), {style: path+'/assets/js/minified/themes/content/default.min.css',format: 'bbcode', toolbar: 'bold,italic,underline,strike,|,left,center,right,justify,|,copy,paste,|,size,color,|,bulletlist,orderedlist,|,image,link,unlink,|,source',icons: 'material',height: 200});
 });
-
-
-
-//- Icon Picker
+ 
 
 if($('.my').length){
  $('.my').iconpicker({placement: 'bottom'});
@@ -228,9 +209,7 @@ if($('.pt-editsurveypage').length){
  	 	$('span[role="'+$(this).attr('name')+'"]').html('<i class="'+$( this ).val().replace(/<[^>]+>/g, '')+'"></i>');
   });
 }
-
-
-//- Design Color Picker
+ 
 
 var ptLinkSp = $(".pt-surveybg .pt-link a");
 if($("#colorpicker-popup, .colorpicker-popup").length){
@@ -308,9 +287,7 @@ $("#colorpicker-popup, .colorpicker-popup").spectrum({
 		}
 });
 }
-
-
-//- Design Change
+ 
 $("[name=button_shadow]").on("change", function(){
 	if($(this).val() == 1){
 		$(".pt-link .fancy-button").addClass("noshadow");
@@ -342,17 +319,11 @@ $("[name='design[bg_gradient]']").on("change", function(){
 	}
 
 });
-
-
-
-
-
-
-//####################################
-//#####                          #####
-//#####      4) Index Page       #####
-//#####                          #####
-//####################################
+ 
+ 
+ 
+ 
+ 
 
 if($(".js-example-tokenizer").length){
 $(".js-example-tokenizer").select2({
@@ -360,8 +331,7 @@ $(".js-example-tokenizer").select2({
     tokenSeparators: [',', ' ']
 })
 }
-
-//- Update Status
+ 
 
 $(".pt-status input").on('change', function() {
 	$.get(path+"/ajax.php?pg=changesurveystatus&id="+ $(this).val(),function(puerto){console.log(puerto);});
@@ -389,24 +359,18 @@ $(".pt-userstatus input").on('change', function() {
 	});
 
 });
-
-
-
-//- Lang
+ 
 
 $(".pt-lang a").on('click', function() {
 	$.post(path+"/ajax.php?pg=lang", {id:$(this).attr('rel')}, function(puerto){ location.reload(); console.log(puerto);});
 	return false;
 });
-
-
-//####################################
-//#####                          #####
-//#####      Responses Page      #####
-//#####                          #####
-//####################################
-
-//- responses
+ 
+ 
+ 
+ 
+ 
+ 
 
 $(".pt-response").on("click", function(){
 	var ths = $(this);
@@ -426,13 +390,11 @@ $(".pt-response").on("click", function(){
 
 	});
 });
-
-
-//####################################
-//#####                          #####
-//#####       Report Page        #####
-//#####                          #####
-//####################################
+ 
+ 
+ 
+ 
+ 
 
 $(".showchart, .showpie, .showresults").on("click", function(){
 	var id = $(this).parent().parent().next('.pt-content').data('answer');
@@ -618,9 +580,7 @@ $('.pt-tmps-click').on("click", function(e){
 	return false;
 
 });
-
-
-//- Rapport Stats
+ 
 
 $.barChart = function(ChartID, DataLabelss, DataCnts, DataClrs, DataTitle){
 	new Chart(document.getElementById(ChartID), {
@@ -677,15 +637,12 @@ $(".pt-surveystatslinks a").on("click", function(){
 	});
 	return false;
 });
-
-
-//####################################
-//#####                          #####
-//#####        Login Page        #####
-//#####                          #####
-//####################################
-
-//- Sign in & up
+ 
+ 
+ 
+ 
+ 
+ 
 
 $( ".clickme" ).on("click",function() {
   $( ".pt-signin" ).animate({ opacity: 0, left: "50%" }, 200).css("z-index","0");
@@ -767,7 +724,7 @@ $("#pt-send-signin").on("submit", function(){
 	return false;
 });
 
-/** Logout **/
+ 
 $('.pt-logout').livequery('click', function(){
 	$.confirm({
 		icon: 'fas fa-exclamation-triangle', type: 'orange', typeAnimated: true,
@@ -784,15 +741,11 @@ $('.pt-logout').livequery('click', function(){
 		}
 	});
 });
-
-
-
-
-//####################################
-//#####                          #####
-//#####       User Details       #####
-//#####                          #####
-//####################################
+ 
+ 
+ 
+ 
+ 
 
 
 $('#chooseFile').bind('change', function () {
@@ -806,9 +759,7 @@ $('#chooseFile').bind('change', function () {
     $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
   }
 });
-
-
-//- Image Upload
+ 
 if($('#dropZone').length){
 $('#dropZone').imageUploader({
   fileField: '#chooseFile',
@@ -834,11 +785,7 @@ $('#dropZone').imageUploader({
   error: function(msg) { alert(msg); },
 });
 }
-
-
-
-
-//- Send User Details
+ 
 
 $(".pt-senduserdetails").on("submit", function(){
 	$.post(path+"/ajax.php?pg=senduserdetails", $(this).serialize(), function(puerto) {
@@ -855,15 +802,11 @@ $(".pt-senduserdetails").on("submit", function(){
 	});
 	return false;
 });
-
-
-
-
-//####################################
-//#####                          #####
-//#####        Dashboard         #####
-//#####                          #####
-//####################################
+ 
+ 
+ 
+ 
+ 
 
 $.puertoAnswerImage = function(id, choose, thumb, thumb2, crop = true, type=false){
 	var id = id, choose = choose, name = $("input[rel='"+choose+"']"), thumb = thumb;
@@ -1403,22 +1346,12 @@ $(".pt-images-up").each(function(){
 	$.puertoAnswerImage("#answerImageZoneirel"+e, "#answerImageInpirel"+e, "#answerImageTmbirel"+e, "#answerImageTmbirel"+e, false, t);
 });
 }
-
-
-
-
-
-
-
-
-//####################################
-//#####                          #####
-//#####        SURVEY           #####
-//#####                          #####
-//####################################
-
-
-//- Send Survey to Email
+ 
+ 
+ 
+ 
+ 
+ 
 
 $(".sendtoemail").on("click", function(){
 	$('[name=id]').val($(this).attr('rel'));
@@ -1462,9 +1395,7 @@ $(".choice").livequery('change', function() {
 		$("input[name='"+rel+"']").val(fii);
 	}
 });
-
-
-//- Steps Nav
+ 
 
 $("form button[type=submit]").livequery('click', function() {
    $("button[type=submit]").removeAttr("clicked");

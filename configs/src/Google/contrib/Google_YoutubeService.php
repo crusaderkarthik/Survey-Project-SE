@@ -1,41 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "channels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $youtubeService = new Google_YoutubeService(...);
-   *   $channels = $youtubeService->channels;
-   *  </code>
-   */
+   
   class Google_ChannelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Browse the YouTube channel collection. Either the 'id' or 'mine' parameter must be set.
-     * (channels.list)
-     *
-     * @param string $part Parts of the channel resource to be returned.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string id YouTube IDs of the channels to be returned.
-     * @opt_param string mine Flag indicating only return the channel ids of the authenticated user.
-     * @return Google_ChannelListResponse
-     */
+     
     public function listChannels($part, $optParams = array()) {
       $params = array('part' => $part);
       $params = array_merge($params, $optParams);
@@ -48,29 +19,11 @@
     }
   }
 
-  /**
-   * The "search" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $youtubeService = new Google_YoutubeService(...);
-   *   $search = $youtubeService->search;
-   *  </code>
-   */
+   
   class Google_SearchServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Universal search for youtube. (search.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string q Query to search in Youtube.
-     * @opt_param string startIndex Index of the first search result to return.
-     * @opt_param string type Type of resource to search.
-     * @opt_param string order Sort order.
-     * @opt_param string maxResults Maximum number of search results to return per page.
-     * @return Google_SearchListResponse
-     */
+     
     public function listSearch($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -83,29 +36,11 @@
     }
   }
 
-  /**
-   * The "playlistitems" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $youtubeService = new Google_YoutubeService(...);
-   *   $playlistitems = $youtubeService->playlistitems;
-   *  </code>
-   */
+   
   class Google_PlaylistitemsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Browse the YouTube playlist collection. (playlistitems.list)
-     *
-     * @param string $part Parts of the playlist resource to be returned.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string startIndex Index of the first element to return (starts at 0)
-     * @opt_param string playlistId Retrieves playlist items from the given playlist id.
-     * @opt_param string id YouTube IDs of the playlists to be returned.
-     * @opt_param string maxResults Maximum number of results to return
-     * @return Google_PlaylistItemListResponse
-     */
+     
     public function listPlaylistitems($part, $optParams = array()) {
       $params = array('part' => $part);
       $params = array_merge($params, $optParams);
@@ -118,25 +53,11 @@
     }
   }
 
-  /**
-   * The "playlists" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $youtubeService = new Google_YoutubeService(...);
-   *   $playlists = $youtubeService->playlists;
-   *  </code>
-   */
+   
   class Google_PlaylistsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Browse the YouTube playlist collection. (playlists.list)
-     *
-     * @param string $id YouTube IDs of the playlists to be returned.
-     * @param string $part Parts of the playlist resource to be returned.
-     * @param array $optParams Optional parameters.
-     * @return Google_PlaylistListResponse
-     */
+     
     public function listPlaylists($id, $part, $optParams = array()) {
       $params = array('id' => $id, 'part' => $part);
       $params = array_merge($params, $optParams);
@@ -149,25 +70,11 @@
     }
   }
 
-  /**
-   * The "videos" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $youtubeService = new Google_YoutubeService(...);
-   *   $videos = $youtubeService->videos;
-   *  </code>
-   */
+   
   class Google_VideosServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Browse the YouTube video collection. (videos.list)
-     *
-     * @param string $id YouTube IDs of the videos to be returned.
-     * @param string $part Parts of the video resource to be returned.
-     * @param array $optParams Optional parameters.
-     * @return Google_VideoListResponse
-     */
+     
     public function listVideos($id, $part, $optParams = array()) {
       $params = array('id' => $id, 'part' => $part);
       $params = array_merge($params, $optParams);
@@ -180,31 +87,14 @@
     }
   }
 
-/**
- * Service definition for Google_Youtube (v3alpha).
- *
- * <p>
- * Programmatic access to YouTube features.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/youtube" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_YoutubeService extends Google_Service {
   public $channels;
   public $search;
   public $playlistitems;
   public $playlists;
   public $videos;
-  /**
-   * Constructs the internal representation of the Youtube service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'youtube/v3alpha/';
     $this->version = 'v3alpha';
@@ -597,7 +487,7 @@ class Google_PlaylistSnippet extends Google_Model {
   public function getPublishedAt() {
     return $this->publishedAt;
   }
-  public function setTags(/* array(Google_string) */ $tags) {
+  public function setTags(  $tags) {
     $this->assertIsArray($tags, 'Google_string', __METHOD__);
     $this->tags = $tags;
   }
@@ -646,7 +536,7 @@ class Google_SearchListResponse extends Google_Model {
   protected $__pageInfoType = 'Google_PageInfo';
   protected $__pageInfoDataType = '';
   public $pageInfo;
-  public function setSearchResults(/* array(Google_SearchResult) */ $searchResults) {
+  public function setSearchResults(  $searchResults) {
     $this->assertIsArray($searchResults, 'Google_SearchResult', __METHOD__);
     $this->searchResults = $searchResults;
   }
@@ -887,7 +777,7 @@ class Google_VideoSnippet extends Google_Model {
   public function getThumbnails() {
     return $this->thumbnails;
   }
-  public function setTags(/* array(Google_string) */ $tags) {
+  public function setTags(  $tags) {
     $this->assertIsArray($tags, 'Google_string', __METHOD__);
     $this->tags = $tags;
   }

@@ -1,53 +1,18 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "management" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $management = $analyticsService->management;
-   *  </code>
-   */
+   
   class Google_ManagementServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "webproperties" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $webproperties = $analyticsService->webproperties;
-   *  </code>
-   */
+   
   class Google_ManagementWebpropertiesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists web properties to which the user has access. (webproperties.list)
-     *
-     * @param string $accountId Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of web properties to include in this response.
-     * @opt_param int start-index An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @return Google_Webproperties
-     */
+     
     public function listManagementWebproperties($accountId, $optParams = array()) {
       $params = array('accountId' => $accountId);
       $params = array_merge($params, $optParams);
@@ -59,26 +24,11 @@
       }
     }
   }
-  /**
-   * The "segments" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $segments = $analyticsService->segments;
-   *  </code>
-   */
+   
   class Google_ManagementSegmentsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists advanced segments to which the user has access. (segments.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of advanced segments to include in this response.
-     * @opt_param int start-index An index of the first advanced segment to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @return Google_Segments
-     */
+     
     public function listManagementSegments($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -90,26 +40,11 @@
       }
     }
   }
-  /**
-   * The "accounts" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $accounts = $analyticsService->accounts;
-   *  </code>
-   */
+   
   class Google_ManagementAccountsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists all accounts to which the user has access. (accounts.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of accounts to include in this response.
-     * @opt_param int start-index An index of the first account to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @return Google_Accounts
-     */
+     
     public function listManagementAccounts($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -121,29 +56,11 @@
       }
     }
   }
-  /**
-   * The "goals" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $goals = $analyticsService->goals;
-   *  </code>
-   */
+   
   class Google_ManagementGoalsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists goals to which the user has access. (goals.list)
-     *
-     * @param string $accountId Account ID to retrieve goals for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to.
-     * @param string $webPropertyId Web property ID to retrieve goals for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to.
-     * @param string $profileId Profile ID to retrieve goals for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of goals to include in this response.
-     * @opt_param int start-index An index of the first goal to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @return Google_Goals
-     */
+     
     public function listManagementGoals($accountId, $webPropertyId, $profileId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'profileId' => $profileId);
       $params = array_merge($params, $optParams);
@@ -155,28 +72,11 @@
       }
     }
   }
-  /**
-   * The "profiles" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $profiles = $analyticsService->profiles;
-   *  </code>
-   */
+   
   class Google_ManagementProfilesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists profiles to which the user has access. (profiles.list)
-     *
-     * @param string $accountId Account ID for the profiles to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has access.
-     * @param string $webPropertyId Web property ID for the profiles to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties to which the user has access.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of profiles to include in this response.
-     * @opt_param int start-index An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @return Google_Profiles
-     */
+     
     public function listManagementProfiles($accountId, $webPropertyId, $optParams = array()) {
       $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId);
       $params = array_merge($params, $optParams);
@@ -189,46 +89,17 @@
     }
   }
 
-  /**
-   * The "data" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $data = $analyticsService->data;
-   *  </code>
-   */
+   
   class Google_DataServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "mcf" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $mcf = $analyticsService->mcf;
-   *  </code>
-   */
+   
   class Google_DataMcfServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Returns Analytics Multi-Channel Funnels data for a profile. (mcf.get)
-     *
-     * @param string $ids Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics profile ID.
-     * @param string $start_date Start date for fetching Analytics data. All requests should specify a start date formatted as YYYY-MM-DD.
-     * @param string $end_date End date for fetching Analytics data. All requests should specify an end date formatted as YYYY-MM-DD.
-     * @param string $metrics A comma-separated list of Multi-Channel Funnels metrics. E.g., 'mcf:totalConversions,mcf:totalConversionValue'. At least one metric must be specified.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of entries to include in this feed.
-     * @opt_param string sort A comma-separated list of dimensions or metrics that determine the sort order for the Analytics data.
-     * @opt_param string dimensions A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'.
-     * @opt_param int start-index An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @opt_param string filters A comma-separated list of dimension or metric filters to be applied to the Analytics data.
-     * @return Google_McfData
-     */
+     
     public function get($ids, $start_date, $end_date, $metrics, $optParams = array()) {
       $params = array('ids' => $ids, 'start-date' => $start_date, 'end-date' => $end_date, 'metrics' => $metrics);
       $params = array_merge($params, $optParams);
@@ -240,34 +111,11 @@
       }
     }
   }
-  /**
-   * The "ga" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $analyticsService = new Google_AnalyticsService(...);
-   *   $ga = $analyticsService->ga;
-   *  </code>
-   */
+   
   class Google_DataGaServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Returns Analytics data for a profile. (ga.get)
-     *
-     * @param string $ids Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics profile ID.
-     * @param string $start_date Start date for fetching Analytics data. All requests should specify a start date formatted as YYYY-MM-DD.
-     * @param string $end_date End date for fetching Analytics data. All requests should specify an end date formatted as YYYY-MM-DD.
-     * @param string $metrics A comma-separated list of Analytics metrics. E.g., 'ga:visits,ga:pageviews'. At least one metric must be specified.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int max-results The maximum number of entries to include in this feed.
-     * @opt_param string sort A comma-separated list of dimensions or metrics that determine the sort order for Analytics data.
-     * @opt_param string dimensions A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
-     * @opt_param int start-index An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
-     * @opt_param string segment An Analytics advanced segment to be applied to data.
-     * @opt_param string filters A comma-separated list of dimension or metric filters to be applied to Analytics data.
-     * @return Google_GaData
-     */
+     
     public function get($ids, $start_date, $end_date, $metrics, $optParams = array()) {
       $params = array('ids' => $ids, 'start-date' => $start_date, 'end-date' => $end_date, 'metrics' => $metrics);
       $params = array_merge($params, $optParams);
@@ -280,20 +128,7 @@
     }
   }
 
-/**
- * Service definition for Google_Analytics (v3).
- *
- * <p>
- * View and manage your Google Analytics data
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="http://code.google.com/apis/analytics" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_AnalyticsService extends Google_Service {
   public $management_webproperties;
   public $management_segments;
@@ -302,11 +137,7 @@ class Google_AnalyticsService extends Google_Service {
   public $management_profiles;
   public $data_mcf;
   public $data_ga;
-  /**
-   * Constructs the internal representation of the Analytics service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'analytics/v3/';
     $this->version = 'v3';
@@ -418,7 +249,7 @@ class Google_Accounts extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Account) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Account', __METHOD__);
     $this->items = $items;
   }
@@ -483,7 +314,7 @@ class Google_GaData extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setRows(/* array(Google_string) */ $rows) {
+  public function setRows(  $rows) {
     $this->assertIsArray($rows, 'Google_string', __METHOD__);
     $this->rows = $rows;
   }
@@ -544,7 +375,7 @@ class Google_GaData extends Google_Model {
   public function getProfileInfo() {
     return $this->profileInfo;
   }
-  public function setColumnHeaders(/* array(Google_GaDataColumnHeaders) */ $columnHeaders) {
+  public function setColumnHeaders(  $columnHeaders) {
     $this->assertIsArray($columnHeaders, 'Google_GaDataColumnHeaders', __METHOD__);
     $this->columnHeaders = $columnHeaders;
   }
@@ -645,7 +476,7 @@ class Google_GaDataQuery extends Google_Model {
   public function getMax_results() {
     return $this->max_results;
   }
-  public function setSort(/* array(Google_string) */ $sort) {
+  public function setSort(  $sort) {
     $this->assertIsArray($sort, 'Google_string', __METHOD__);
     $this->sort = $sort;
   }
@@ -682,7 +513,7 @@ class Google_GaDataQuery extends Google_Model {
   public function getIds() {
     return $this->ids;
   }
-  public function setMetrics(/* array(Google_string) */ $metrics) {
+  public function setMetrics(  $metrics) {
     $this->assertIsArray($metrics, 'Google_string', __METHOD__);
     $this->metrics = $metrics;
   }
@@ -847,7 +678,7 @@ class Google_GoalEventDetails extends Google_Model {
   protected $__eventConditionsDataType = 'array';
   public $eventConditions;
   public $useEventValue;
-  public function setEventConditions(/* array(Google_GoalEventDetailsEventConditions) */ $eventConditions) {
+  public function setEventConditions(  $eventConditions) {
     $this->assertIsArray($eventConditions, 'Google_GoalEventDetailsEventConditions', __METHOD__);
     $this->eventConditions = $eventConditions;
   }
@@ -943,7 +774,7 @@ class Google_GoalUrlDestinationDetails extends Google_Model {
   public function getMatchType() {
     return $this->matchType;
   }
-  public function setSteps(/* array(Google_GoalUrlDestinationDetailsSteps) */ $steps) {
+  public function setSteps(  $steps) {
     $this->assertIsArray($steps, 'Google_GoalUrlDestinationDetailsSteps', __METHOD__);
     $this->steps = $steps;
   }
@@ -1039,7 +870,7 @@ class Google_Goals extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Goal) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Goal', __METHOD__);
     $this->items = $items;
   }
@@ -1106,7 +937,7 @@ class Google_McfData extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setRows(/* array(Google_McfDataRows) */ $rows) {
+  public function setRows(  $rows) {
     $this->assertIsArray($rows, 'Google_McfDataRows', __METHOD__);
     $this->rows = $rows;
   }
@@ -1167,7 +998,7 @@ class Google_McfData extends Google_Model {
   public function getProfileInfo() {
     return $this->profileInfo;
   }
-  public function setColumnHeaders(/* array(Google_McfDataColumnHeaders) */ $columnHeaders) {
+  public function setColumnHeaders(  $columnHeaders) {
     $this->assertIsArray($columnHeaders, 'Google_McfDataColumnHeaders', __METHOD__);
     $this->columnHeaders = $columnHeaders;
   }
@@ -1268,7 +1099,7 @@ class Google_McfDataQuery extends Google_Model {
   public function getMax_results() {
     return $this->max_results;
   }
-  public function setSort(/* array(Google_string) */ $sort) {
+  public function setSort(  $sort) {
     $this->assertIsArray($sort, 'Google_string', __METHOD__);
     $this->sort = $sort;
   }
@@ -1305,7 +1136,7 @@ class Google_McfDataQuery extends Google_Model {
   public function getIds() {
     return $this->ids;
   }
-  public function setMetrics(/* array(Google_string) */ $metrics) {
+  public function setMetrics(  $metrics) {
     $this->assertIsArray($metrics, 'Google_string', __METHOD__);
     $this->metrics = $metrics;
   }
@@ -1337,7 +1168,7 @@ class Google_McfDataRows extends Google_Model {
   public function getPrimitiveValue() {
     return $this->primitiveValue;
   }
-  public function setConversionPathValue(/* array(Google_McfDataRowsConversionPathValue) */ $conversionPathValue) {
+  public function setConversionPathValue(  $conversionPathValue) {
     $this->assertIsArray($conversionPathValue, 'Google_McfDataRowsConversionPathValue', __METHOD__);
     $this->conversionPathValue = $conversionPathValue;
   }
@@ -1546,7 +1377,7 @@ class Google_Profiles extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Profile) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Profile', __METHOD__);
     $this->items = $items;
   }
@@ -1667,7 +1498,7 @@ class Google_Segments extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Segment) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Segment', __METHOD__);
     $this->items = $items;
   }
@@ -1729,7 +1560,7 @@ class Google_Webproperties extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Webproperty) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Webproperty', __METHOD__);
     $this->items = $items;
   }

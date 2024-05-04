@@ -1,42 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "pagespeedapi" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $pagespeedonlineService = new Google_PagespeedonlineService(...);
-   *   $pagespeedapi = $pagespeedonlineService->pagespeedapi;
-   *  </code>
-   */
+   
   class Google_PagespeedapiServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Runs Page Speed analysis on the page at the specified URL, and returns a Page Speed score, a list
-     * of suggestions to make that page faster, and other information. (pagespeedapi.runpagespeed)
-     *
-     * @param string $url The URL to fetch and analyze
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string locale The locale used to localize formatted results
-     * @opt_param string rule A Page Speed rule to run; if none are given, all rules are run
-     * @opt_param string strategy The analysis strategy to use
-     * @return Google_Result
-     */
+     
     public function runpagespeed($url, $optParams = array()) {
       $params = array('url' => $url);
       $params = array_merge($params, $optParams);
@@ -49,27 +19,10 @@
     }
   }
 
-/**
- * Service definition for Google_Pagespeedonline (v1).
- *
- * <p>
- * Lets you analyze the performance of a web page and get tailored suggestions to make that page faster.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://code.google.com/apis/pagespeedonline/v1/getting_started.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_PagespeedonlineService extends Google_Service {
   public $pagespeedapi;
-  /**
-   * Constructs the internal representation of the Pagespeedonline service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'pagespeedonline/v1/';
     $this->version = 'v1';
@@ -133,7 +86,7 @@ class Google_Result extends Google_Model {
   public function getResponseCode() {
     return $this->responseCode;
   }
-  public function setInvalidRules(/* array(Google_string) */ $invalidRules) {
+  public function setInvalidRules(  $invalidRules) {
     $this->assertIsArray($invalidRules, 'Google_string', __METHOD__);
     $this->invalidRules = $invalidRules;
   }
@@ -186,7 +139,7 @@ class Google_ResultFormattedResultsRuleResults extends Google_Model {
   public function getLocalizedRuleName() {
     return $this->localizedRuleName;
   }
-  public function setUrlBlocks(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocks) */ $urlBlocks) {
+  public function setUrlBlocks(  $urlBlocks) {
     $this->assertIsArray($urlBlocks, 'Google_ResultFormattedResultsRuleResultsUrlBlocks', __METHOD__);
     $this->urlBlocks = $urlBlocks;
   }
@@ -220,7 +173,7 @@ class Google_ResultFormattedResultsRuleResultsUrlBlocks extends Google_Model {
   public function getHeader() {
     return $this->header;
   }
-  public function setUrls(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocksUrls) */ $urls) {
+  public function setUrls(  $urls) {
     $this->assertIsArray($urls, 'Google_ResultFormattedResultsRuleResultsUrlBlocksUrls', __METHOD__);
     $this->urls = $urls;
   }
@@ -234,7 +187,7 @@ class Google_ResultFormattedResultsRuleResultsUrlBlocksHeader extends Google_Mod
   protected $__argsDataType = 'array';
   public $args;
   public $format;
-  public function setArgs(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocksHeaderArgs) */ $args) {
+  public function setArgs(  $args) {
     $this->assertIsArray($args, 'Google_ResultFormattedResultsRuleResultsUrlBlocksHeaderArgs', __METHOD__);
     $this->args = $args;
   }
@@ -273,7 +226,7 @@ class Google_ResultFormattedResultsRuleResultsUrlBlocksUrls extends Google_Model
   protected $__resultType = 'Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsResult';
   protected $__resultDataType = '';
   public $result;
-  public function setDetails(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsDetails) */ $details) {
+  public function setDetails(  $details) {
     $this->assertIsArray($details, 'Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsDetails', __METHOD__);
     $this->details = $details;
   }
@@ -293,7 +246,7 @@ class Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsDetails extends Googl
   protected $__argsDataType = 'array';
   public $args;
   public $format;
-  public function setArgs(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsDetailsArgs) */ $args) {
+  public function setArgs(  $args) {
     $this->assertIsArray($args, 'Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsDetailsArgs', __METHOD__);
     $this->args = $args;
   }
@@ -330,7 +283,7 @@ class Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsResult extends Google
   protected $__argsDataType = 'array';
   public $args;
   public $format;
-  public function setArgs(/* array(Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsResultArgs) */ $args) {
+  public function setArgs(  $args) {
     $this->assertIsArray($args, 'Google_ResultFormattedResultsRuleResultsUrlBlocksUrlsResultArgs', __METHOD__);
     $this->args = $args;
   }

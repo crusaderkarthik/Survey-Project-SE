@@ -1,38 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "trainedmodels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $predictionService = new Google_PredictionService(...);
-   *   $trainedmodels = $predictionService->trainedmodels;
-   *  </code>
-   */
+   
   class Google_TrainedmodelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Submit model id and request a prediction (trainedmodels.predict)
-     *
-     * @param string $id The unique name for the predictive model.
-     * @param Google_Input $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Output
-     */
+     
     public function predict($id, Google_Input $postBody, $optParams = array()) {
       $params = array('id' => $id, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -43,13 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Begin training your model. (trainedmodels.insert)
-     *
-     * @param Google_Training $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Training
-     */
+     
     public function insert(Google_Training $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -60,13 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Check training status of your model. (trainedmodels.get)
-     *
-     * @param string $id The unique name for the predictive model.
-     * @param array $optParams Optional parameters.
-     * @return Google_Training
-     */
+     
     public function get($id, $optParams = array()) {
       $params = array('id' => $id);
       $params = array_merge($params, $optParams);
@@ -77,14 +39,7 @@
         return $data;
       }
     }
-    /**
-     * Add new data to a trained model. (trainedmodels.update)
-     *
-     * @param string $id The unique name for the predictive model.
-     * @param Google_Update $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Training
-     */
+     
     public function update($id, Google_Update $postBody, $optParams = array()) {
       $params = array('id' => $id, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -95,12 +50,7 @@
         return $data;
       }
     }
-    /**
-     * Delete a trained model. (trainedmodels.delete)
-     *
-     * @param string $id The unique name for the predictive model.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($id, $optParams = array()) {
       $params = array('id' => $id);
       $params = array_merge($params, $optParams);
@@ -109,25 +59,11 @@
     }
   }
 
-  /**
-   * The "hostedmodels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $predictionService = new Google_PredictionService(...);
-   *   $hostedmodels = $predictionService->hostedmodels;
-   *  </code>
-   */
+   
   class Google_HostedmodelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Submit input and request an output against a hosted model. (hostedmodels.predict)
-     *
-     * @param string $hostedModelName The name of a hosted model.
-     * @param Google_Input $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Output
-     */
+     
     public function predict($hostedModelName, Google_Input $postBody, $optParams = array()) {
       $params = array('hostedModelName' => $hostedModelName, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -140,28 +76,11 @@
     }
   }
 
-/**
- * Service definition for Google_Prediction (v1.4).
- *
- * <p>
- * Lets you access a cloud hosted machine learning service that makes it easy to build smart apps
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="http://code.google.com/apis/predict/docs/developer-guide.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_PredictionService extends Google_Service {
   public $trainedmodels;
   public $hostedmodels;
-  /**
-   * Constructs the internal representation of the Prediction service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'prediction/v1.4/';
     $this->version = 'v1.4';
@@ -188,7 +107,7 @@ class Google_Input extends Google_Model {
 
 class Google_InputInput extends Google_Model {
   public $csvInstance;
-  public function setCsvInstance(/* array(Google_object) */ $csvInstance) {
+  public function setCsvInstance(  $csvInstance) {
     $this->assertIsArray($csvInstance, 'Google_object', __METHOD__);
     $this->csvInstance = $csvInstance;
   }
@@ -224,7 +143,7 @@ class Google_Output extends Google_Model {
   public function getId() {
     return $this->id;
   }
-  public function setOutputMulti(/* array(Google_OutputOutputMulti) */ $outputMulti) {
+  public function setOutputMulti(  $outputMulti) {
     $this->assertIsArray($outputMulti, 'Google_OutputOutputMulti', __METHOD__);
     $this->outputMulti = $outputMulti;
   }
@@ -331,7 +250,7 @@ class Google_Training extends Google_Model {
   public function getSelfLink() {
     return $this->selfLink;
   }
-  public function setUtility(/* array(Google_double) */ $utility) {
+  public function setUtility(  $utility) {
     $this->assertIsArray($utility, 'Google_double', __METHOD__);
     $this->utility = $utility;
   }
@@ -342,7 +261,7 @@ class Google_Training extends Google_Model {
 
 class Google_TrainingDataAnalysis extends Google_Model {
   public $warnings;
-  public function setWarnings(/* array(Google_string) */ $warnings) {
+  public function setWarnings(  $warnings) {
     $this->assertIsArray($warnings, 'Google_string', __METHOD__);
     $this->warnings = $warnings;
   }
@@ -413,7 +332,7 @@ class Google_TrainingModelInfo extends Google_Model {
 class Google_Update extends Google_Model {
   public $csvInstance;
   public $label;
-  public function setCsvInstance(/* array(Google_object) */ $csvInstance) {
+  public function setCsvInstance(  $csvInstance) {
     $this->assertIsArray($csvInstance, 'Google_object', __METHOD__);
     $this->csvInstance = $csvInstance;
   }

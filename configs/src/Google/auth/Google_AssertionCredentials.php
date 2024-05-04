@@ -1,25 +1,7 @@
 <?php
-/*
- * Copyright 2012 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ 
 
-/**
- * Credentials object used for OAuth 2.0 Signed JWT assertion grants.
- *
- * @author Chirag Shah <chirags@google.com>
- */
+ 
 class Google_AssertionCredentials {
   const MAX_TOKEN_LIFETIME_SECS = 3600;
 
@@ -30,15 +12,7 @@ class Google_AssertionCredentials {
   public $assertionType;
   public $prn;
 
-  /**
-   * @param $serviceAccountName
-   * @param $scopes array List of scopes
-   * @param $privateKey
-   * @param string $privateKeyPassword
-   * @param string $assertionType
-   * @param bool|string $prn The email address of the user for which the
-   *               application is requesting delegated access.
-   */
+   
   public function __construct(
       $serviceAccountName,
       $scopes,
@@ -72,11 +46,7 @@ class Google_AssertionCredentials {
     return $this->makeSignedJwt($jwtParams);
   }
 
-  /**
-   * Creates a signed JWT.
-   * @param array $payload
-   * @return string The signed JWT.
-   */
+   
   private function makeSignedJwt($payload) {
     $header = array('typ' => 'JWT', 'alg' => 'RS256');
 

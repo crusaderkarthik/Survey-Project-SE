@@ -5,7 +5,7 @@ html, body {
 }
 *, html, body, a, h1, h2, h3, h4, h5, h6 {
 	font-family: "El Messiri" !important;
-	/*font-family: "Harmattan";*/
+	 
 }
 
 .fa, .far, .fas {
@@ -266,7 +266,7 @@ html, body {
 }
 .pt-editorpage .form-group + .form-group {
     margin-right: 0;
-    /* margin-left: 0; */
+     
 }
 .bootstrap-select .dropdown-toggle .filter-option {
 	right: 0;

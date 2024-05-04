@@ -1,57 +1,34 @@
 <?php
-/**
- * Copyright 2012 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ 
 
-/**
- * @author Chirag Shah <chirags@google.com>
- *
- */
+ 
 class Google_MediaFileUpload {
   const UPLOAD_MEDIA_TYPE = 'media';
   const UPLOAD_MULTIPART_TYPE = 'multipart';
   const UPLOAD_RESUMABLE_TYPE = 'resumable';
 
-  /** @var string $mimeType */
+   
   public $mimeType;
 
-  /** @var string $data */
+   
   public $data;
 
-  /** @var bool $resumable */
+   
   public $resumable;
 
-  /** @var int $chunkSize */
+   
   public $chunkSize;
 
-  /** @var int $size */
+   
   public $size;
 
-  /** @var string $resumeUri */
+   
   public $resumeUri;
 
-  /** @var int $progress */
+   
   public $progress;
 
-  /**
-   * @param $mimeType string
-   * @param $data string The bytes you want to upload.
-   * @param $resumable bool
-   * @param bool $chunkSize File will be uploaded in chunks of this many bytes.
-   * only used if resumable=True
-   */
+   
   public function __construct($mimeType, $data, $resumable=false, $chunkSize=false) {
     $this->mimeType = $mimeType;
     $this->data = $data;
@@ -64,22 +41,16 @@ class Google_MediaFileUpload {
     $this->progress = 0;
   }
 
-  /**
-   * @static
-   * @param $meta
-   * @param $params
-   * @return array|bool
-   */
+   
   public static function process($meta, &$params) {
     $payload = array();
     $meta = is_string($meta) ? json_decode($meta, true) : $meta;
     $uploadType = self::getUploadType($meta, $payload, $params);
     if (!$uploadType) {
-      // Process as a normal API request.
+ 
       return false;
     }
-
-    // Process as a media upload request.
+ 
     $params['uploadType'] = array(
         'type' => 'string',
         'location' => 'query',
@@ -87,7 +58,7 @@ class Google_MediaFileUpload {
     );
 
     if (isset($params['file'])) {
-      // This is a standard file upload with curl.
+ 
       $file = $params['file']['value'];
       unset($params['file']);
       return self::processFileUpload($file);
@@ -107,13 +78,13 @@ class Google_MediaFileUpload {
       $payload['content-type'] = $mimeType;
 
     } elseif (self::UPLOAD_MEDIA_TYPE == $uploadType) {
-      // This is a simple media upload.
+ 
       $payload['content-type'] = $mimeType;
       $payload['postBody'] = $data;
     }
 
     elseif (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
-      // This is a multipart/related upload.
+ 
       $boundary = isset($params['boundary']['value']) ? $params['boundary']['value'] : mt_rand();
       $boundary = str_replace('"', '', $boundary);
       $payload['content-type'] = 'multipart/related; boundary=' . $boundary;
@@ -131,34 +102,17 @@ class Google_MediaFileUpload {
     return $payload;
   }
 
-  /**
-   * Process standard file uploads.
-   * @param $file
-   * @internal param $fileName
-   * @return array Inclues the processed file name.
-   * @visible For testing.
-   */
+   
   public static function processFileUpload($file) {
     if (!$file) return array();
     if (substr($file, 0, 1) != '@') {
       $file = '@' . $file;
     }
-
-    // This is a standard file upload with curl.
+ 
     return array('postBody' => array('file' => $file));
   }
 
-  /**
-   * Valid upload types:
-   * - resumable (UPLOAD_RESUMABLE_TYPE)
-   * - media (UPLOAD_MEDIA_TYPE)
-   * - multipart (UPLOAD_MULTIPART_TYPE)
-   * - none (false)
-   * @param $meta
-   * @param $payload
-   * @param $params
-   * @return bool|string
-   */
+   
   public static function getUploadType($meta, &$payload, &$params) {
     if (isset($params['mediaUpload'])
         && get_class($params['mediaUpload']['value']) == 'Google_MediaFileUpload') {
@@ -169,8 +123,7 @@ class Google_MediaFileUpload {
         return self::UPLOAD_RESUMABLE_TYPE;
       }
     }
-
-    // Allow the developer to override the upload type.
+ 
     if (isset($params['uploadType'])) {
       return $params['uploadType']['value'];
     }
@@ -179,7 +132,7 @@ class Google_MediaFileUpload {
         ? $params['data']['value'] : false;
 
     if (false == $data && false == isset($params['file'])) {
-      // No upload data available.
+ 
       return false;
     }
 

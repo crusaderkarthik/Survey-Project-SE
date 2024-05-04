@@ -1,23 +1,5 @@
 <?php
-# -------------------------------------------------#
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-#	¤                                            ¤   #
-#	¤         Puerto Premium Survey 1.0          ¤   #
-#	¤--------------------------------------------¤   #
-#	¤              By Khalid Puerto              ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Facebook : fb.com/prof.puertokhalid       ¤   #
-#	¤  Instagram : instagram.com/khalidpuerto    ¤   #
-#	¤  Site : http://www.puertokhalid.com        ¤   #
-#	¤  Whatsapp: +212 654 211 360                ¤   #
-#	¤                                            ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Last Update: 10/02/2022                   ¤   #
-#	¤                                            ¤   #
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-# -------------------------------------------------#
+
 
 include __DIR__."/header.php";
 
@@ -83,9 +65,7 @@ $questionColors["file"]     = "bro";
 
 
 		<?php
-			/* ----------------------------
-							SURVEY details
-			 ----------------------------*/?>
+			 ?>
 			 <div class="pt-editorheader">
 
 								 <div class="pt-editornavs">
@@ -184,9 +164,7 @@ $questionColors["file"]     = "bro";
 
 
 		<?php
-			/* ----------------------------
-							Editor FORM
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorbody pt-editornavform pt-active">
 			<div class="pt-editorbuttons">
@@ -376,36 +354,28 @@ $questionColors["file"]     = "bro";
 
 
 		<?php
-			/* ----------------------------
-							Editor Preview
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorbody pt-editornavpreview">
 			<p class="pt-drageinfo"><?php echo $lang['editor']["nofound"] ?></p>
 		</div>
 
 		<?php
-			/* ----------------------------
-							Editor Logics
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorbody pt-editornavlogics">
 			<?php include __DIR__.'/editor/logics.php'; ?>
 		</div>
 
 		<?php
-			/* ----------------------------
-							Editor Options
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorbody pt-editornavoptions">
 			<?php include __DIR__.'/editor/options.php'; ?>
 		</div>
 
 		<?php
-			/* ----------------------------
-							Editor Options
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorbody pt-editornavdesign">
 			<?php include __DIR__.'/editor/design.php'; ?>
@@ -413,9 +383,7 @@ $questionColors["file"]     = "bro";
 
 
 		<?php
-			/* ----------------------------
-							Submit
-			 ----------------------------*/?>
+			 ?>
 
 		<div class="pt-editorsubmit">
 			<div class="row">

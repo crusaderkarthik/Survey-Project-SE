@@ -341,8 +341,8 @@ pre.radius {
   background-image: linear-gradient(to top, #2ee934 0%, #07b81e 100%);
 }
 
-/* Mixins */
-/* bg shortcodes */
+ 
+ 
 .bg-gradient1 span,
 .bg-gradient1:before {
   background: #52A0FD;
@@ -393,8 +393,8 @@ pre.radius {
   color: #25564d;
 }
 
-/* General */
-/* fancy Button */
+ 
+ 
 .fancy-button {
   display: inline-block;
   font-family: "Raleway" !important;
@@ -1035,7 +1035,7 @@ pre.radius {
   margin-right: -12px;
   font-size: 8px;
   font-family: "Raleway";
-  /* font-weight: 400; */
+   
   padding: 3px 3px;
   color: #FFF;
   border-radius: 10px;
@@ -1152,8 +1152,7 @@ pre.radius {
   font-size: 15px;
   color: #447cfb;
   box-shadow: 0px 1px 6px 0px rgba(42, 43, 74, 0.18);
-  /* visibility: hidden;
-  opacity: 0; */
+   
   transition: all 0.4s;
 }
 .pt-body .table .pt-options .pt-options-link.active {
@@ -1424,13 +1423,13 @@ pre.radius {
 .pt-breadcrump {
   position: relative;
   margin: 8px 68px 0 68px;
-  /* background: rgba(247, 247, 247, 0.66); */
-  /* box-shadow: -1px 3px 12px 0px rgb(42 43 74 / 9%); */
+   
+   
   border-radius: 8px 8px 0 0;
   height: 50px;
   padding: 0 18px;
   overflow: hidden;
-  /* background: #fafbff; */
+   
   border-bottom: 2px solid #e1ebff;
 }
 .pt-breadcrump li {
@@ -1626,7 +1625,7 @@ pre.radius {
 .pt-survey.pt-newsurvey {
   width: 90%;
   margin: 10px 68px;
-  /* display: block; */
+   
   box-shadow: 0 10px 10px rgba(42, 43, 74, 0.09);
   text-align: left;
 }
@@ -2779,8 +2778,8 @@ body.pt-nouser {
 .pt-dashboardpage .pt-admin-nav ul li a b {
   font-size: 10px;
   position: absolute;
-  /* z-index: 11111182; */
-  /* color: #000; */
+   
+   
   left: -13px;
   top: 0px;
   font-weight: 200;
@@ -3120,12 +3119,12 @@ body.pt-nouser {
   border-radius: 10px;
   border: 1px solid #EEE;
   border-bottom: 2px solid #e1ebff;
-  /* font-size: 14px; */
-  /* display: block; */
-  /* width: 100%; */
+   
+   
+   
   padding: 2px 0px;
-  /* background: #FFF; */
-  /* resize: none; */
+   
+   
   height: 56px;
   color: #3c3c58;
   margin: 32px 0 0 !important;
@@ -3223,11 +3222,11 @@ body.pt-nouser {
   display: block;
 }
 .pt-surveyeditor .pt-editorbuttons {
-  /* width: 24%; */
+   
   background: #F7F7F7;
-  /* position: absolute; */
+   
   height: 100%;
-  /* left: 12px; */
+   
   padding: 4px 16px;
 }
 .pt-surveyeditor .pt-editorbuttons ul {
@@ -3235,7 +3234,7 @@ body.pt-nouser {
   margin: 0;
   padding: 0;
   position: relative;
-  /* width: 292px; */
+   
   top: 12px;
 	z-index: 10;
 	text-align: center;
@@ -3256,12 +3255,12 @@ body.pt-nouser {
   display: block;
 }
 .pt-surveyeditor .pt-editorbuttons ul li {
-  /* float: left; */
+   
 	display: inline-block;
 }
 .pt-surveyeditor .pt-editorbuttons ul li a {
   display: block;
-  /* width: 140px; */
+   
   padding: 6px 12px;
   text-align: center;
   background: #FFF;
@@ -3273,9 +3272,7 @@ body.pt-nouser {
 	border-radius: 4px;
 }
 .pt-surveyeditor .pt-editorbuttons ul li a span {
-  /* display: block;
-  font-size: 22px;
-  padding: 3px 0; */
+   
 
 	display: inline-block;
 	font-size: 16px;
@@ -3284,8 +3281,7 @@ body.pt-nouser {
 .pt-surveyeditor .pt-editorbuttons ul li a b {
   font-weight: 400;
   font-family: "Raleway";
-  /* display: block;
-  padding: 3px 0; */
+   
 	display: inline-block;
 }
 .pt-surveyeditor .pt-editornavs {
@@ -3352,8 +3348,8 @@ body.pt-nouser {
 .pt-surveyeditor .pt-editorcontents {
   min-height: 300px;
   border: 2px dashed #EEE;
-  /* width: 76%; */
-  /* float: right; */
+   
+   
   margin-bottom: -48px;
 }
 .pt-surveyeditor .pt-editorcontents .pt-new-break {
@@ -3679,15 +3675,15 @@ body.pt-nouser {
 }
 
 .full-stars-example-two, .pt-likertscale {
-  /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
-  /* make hover effect work properly in IE */
-  /* hide radio inputs */
-  /* hide 'none' input from screenreaders */
-  /* set icon padding and size */
-  /* set default star color */
-  /* if any input is checked, make its following siblings grey */
-  /* make all stars orange on rating group hover */
-  /* make hovered input's following siblings grey on hover */
+   
+   
+   
+   
+   
+   
+   
+   
+   
 }
 .full-stars-example-two .rating-group, .pt-likertscale .rating-group {
   display: inline-flex;
@@ -4082,9 +4078,7 @@ body.pt-nouser {
   background: #F7F7F7;
 }
 
-/**
- * Tooltip Styles
- */
+ 
 .tooltip {
   font-size: 10px !important;
 }

@@ -1,42 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "layers" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $layers = $booksService->layers;
-   *  </code>
-   */
+   
   class Google_LayersServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List the layer summaries for a volume. (layers.list)
-     *
-     * @param string $volumeId The volume to retrieve layers for.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken The value of the nextToken from the previous page.
-     * @opt_param string contentVersion The content version for the requested volume.
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Layersummaries
-     */
+     
     public function listLayers($volumeId, $optParams = array()) {
       $params = array('volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
@@ -47,17 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the layer summary for a volume. (layers.get)
-     *
-     * @param string $volumeId The volume to retrieve layers for.
-     * @param string $summaryId The ID for the layer to get the summary for.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string contentVersion The content version for the requested volume.
-     * @return Google_Layersummary
-     */
+     
     public function get($volumeId, $summaryId, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'summaryId' => $summaryId);
       $params = array_merge($params, $optParams);
@@ -70,37 +30,11 @@
     }
   }
 
-  /**
-   * The "annotationData" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $annotationData = $booksService->annotationData;
-   *  </code>
-   */
+   
   class Google_LayersAnnotationDataServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Gets the annotation data for a volume and layer. (annotationData.list)
-     *
-     * @param string $volumeId The volume to retrieve annotation data for.
-     * @param string $layerId The ID for the layer to get the annotation data.
-     * @param string $contentVersion The content version for the requested volume.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int scale The requested scale for the image.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string locale The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
-     * @opt_param int h The requested pixel height for any images. If height is provided width must also be provided.
-     * @opt_param string updatedMax RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string annotationDataId The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set.
-     * @opt_param string pageToken The value of the nextToken from the previous page.
-     * @opt_param int w The requested pixel width for any images. If width is provided height must also be provided.
-     * @opt_param string updatedMin RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
-     * @return Google_Annotationsdata
-     */
+     
     public function listLayersAnnotationData($volumeId, $layerId, $contentVersion, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'layerId' => $layerId, 'contentVersion' => $contentVersion);
       $params = array_merge($params, $optParams);
@@ -111,22 +45,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the annotation data. (annotationData.get)
-     *
-     * @param string $volumeId The volume to retrieve annotations for.
-     * @param string $layerId The ID for the layer to get the annotations.
-     * @param string $annotationDataId The ID of the annotation data to retrieve.
-     * @param string $contentVersion The content version for the volume you are trying to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param int scale The requested scale for the image.
-     * @opt_param string locale The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
-     * @opt_param int h The requested pixel height for any images. If height is provided width must also be provided.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param int w The requested pixel width for any images. If width is provided height must also be provided.
-     * @return Google_Annotationdata
-     */
+     
     public function get($volumeId, $layerId, $annotationDataId, $contentVersion, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'layerId' => $layerId, 'annotationDataId' => $annotationDataId, 'contentVersion' => $contentVersion);
       $params = array_merge($params, $optParams);
@@ -138,38 +57,11 @@
       }
     }
   }
-  /**
-   * The "volumeAnnotations" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $volumeAnnotations = $booksService->volumeAnnotations;
-   *  </code>
-   */
+   
   class Google_LayersVolumeAnnotationsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Gets the volume annotations for a volume and layer. (volumeAnnotations.list)
-     *
-     * @param string $volumeId The volume to retrieve annotations for.
-     * @param string $layerId The ID for the layer to get the annotations.
-     * @param string $contentVersion The content version for the requested volume.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool showDeleted Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false.
-     * @opt_param string endPosition The end position to end retrieving data from.
-     * @opt_param string endOffset The end offset to end retrieving data from.
-     * @opt_param string locale The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
-     * @opt_param string updatedMin RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
-     * @opt_param string updatedMax RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string pageToken The value of the nextToken from the previous page.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string startOffset The start offset to start retrieving data from.
-     * @opt_param string startPosition The start position to start retrieving data from.
-     * @return Google_Volumeannotations
-     */
+     
     public function listLayersVolumeAnnotations($volumeId, $layerId, $contentVersion, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'layerId' => $layerId, 'contentVersion' => $contentVersion);
       $params = array_merge($params, $optParams);
@@ -180,18 +72,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the volume annotation. (volumeAnnotations.get)
-     *
-     * @param string $volumeId The volume to retrieve annotations for.
-     * @param string $layerId The ID for the layer to get the annotations.
-     * @param string $annotationId The ID of the volume annotation to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string locale The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Volumeannotation
-     */
+     
     public function get($volumeId, $layerId, $annotationId, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'layerId' => $layerId, 'annotationId' => $annotationId);
       $params = array_merge($params, $optParams);
@@ -204,26 +85,11 @@
     }
   }
 
-  /**
-   * The "bookshelves" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $bookshelves = $booksService->bookshelves;
-   *  </code>
-   */
+   
   class Google_BookshelvesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves a list of public bookshelves for the specified user. (bookshelves.list)
-     *
-     * @param string $userId ID of user for whom to retrieve bookshelves.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Bookshelves
-     */
+     
     public function listBookshelves($userId, $optParams = array()) {
       $params = array('userId' => $userId);
       $params = array_merge($params, $optParams);
@@ -234,16 +100,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves metadata for a specific bookshelf for the specified user. (bookshelves.get)
-     *
-     * @param string $userId ID of user for whom to retrieve bookshelves.
-     * @param string $shelf ID of bookshelf to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Bookshelf
-     */
+     
     public function get($userId, $shelf, $optParams = array()) {
       $params = array('userId' => $userId, 'shelf' => $shelf);
       $params = array_merge($params, $optParams);
@@ -256,30 +113,11 @@
     }
   }
 
-  /**
-   * The "volumes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $volumes = $booksService->volumes;
-   *  </code>
-   */
+   
   class Google_BookshelvesVolumesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves volumes in a specific bookshelf for the specified user. (volumes.list)
-     *
-     * @param string $userId ID of user for whom to retrieve bookshelf volumes.
-     * @param string $shelf ID of bookshelf to retrieve volumes.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool showPreorders Set to true to show pre-ordered books. Defaults to false.
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string startIndex Index of the first element to return (starts at 0)
-     * @return Google_Volumes
-     */
+     
     public function listBookshelvesVolumes($userId, $shelf, $optParams = array()) {
       $params = array('userId' => $userId, 'shelf' => $shelf);
       $params = array_merge($params, $optParams);
@@ -292,28 +130,11 @@
     }
   }
 
-  /**
-   * The "myconfig" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $myconfig = $booksService->myconfig;
-   *  </code>
-   */
+   
   class Google_MyconfigServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Release downloaded content access restriction. (myconfig.releaseDownloadAccess)
-     *
-     * @param string $volumeIds The volume(s) to release restrictions for.
-     * @param string $cpksver The device/version ID from which to release the restriction.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string locale ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_DownloadAccesses
-     */
+     
     public function releaseDownloadAccess($volumeIds, $cpksver, $optParams = array()) {
       $params = array('volumeIds' => $volumeIds, 'cpksver' => $cpksver);
       $params = array_merge($params, $optParams);
@@ -324,18 +145,7 @@
         return $data;
       }
     }
-    /**
-     * Request concurrent and download access restrictions. (myconfig.requestAccess)
-     *
-     * @param string $source String to identify the originator of this request.
-     * @param string $volumeId The volume to request concurrent/download restrictions for.
-     * @param string $nonce The client nonce value.
-     * @param string $cpksver The device/version ID from which to request the restrictions.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string locale ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
-     * @return Google_RequestAccess
-     */
+     
     public function requestAccess($source, $volumeId, $nonce, $cpksver, $optParams = array()) {
       $params = array('source' => $source, 'volumeId' => $volumeId, 'nonce' => $nonce, 'cpksver' => $cpksver);
       $params = array_merge($params, $optParams);
@@ -346,20 +156,7 @@
         return $data;
       }
     }
-    /**
-     * Request downloaded content access for specified volumes on the My eBooks shelf.
-     * (myconfig.syncVolumeLicenses)
-     *
-     * @param string $source String to identify the originator of this request.
-     * @param string $nonce The client nonce value.
-     * @param string $cpksver The device/version ID from which to release the restriction.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string locale ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
-     * @opt_param bool showPreorders Set to true to show pre-ordered books. Defaults to false.
-     * @opt_param string volumeIds The volume(s) to request download restrictions for.
-     * @return Google_Volumes
-     */
+     
     public function syncVolumeLicenses($source, $nonce, $cpksver, $optParams = array()) {
       $params = array('source' => $source, 'nonce' => $nonce, 'cpksver' => $cpksver);
       $params = array_merge($params, $optParams);
@@ -372,37 +169,11 @@
     }
   }
 
-  /**
-   * The "volumes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $volumes = $booksService->volumes;
-   *  </code>
-   */
+   
   class Google_VolumesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Performs a book search. (volumes.list)
-     *
-     * @param string $q Full-text search query string.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string orderBy Sort search results.
-     * @opt_param string projection Restrict information returned to a set of selected fields.
-     * @opt_param string libraryRestrict Restrict search to this user's library.
-     * @opt_param string langRestrict Restrict results to books with this language code.
-     * @opt_param bool showPreorders Set to true to show books available for preorder. Defaults to false.
-     * @opt_param string printType Restrict to books or magazines.
-     * @opt_param string maxResults Maximum number of results to return.
-     * @opt_param string filter Filter search results.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string startIndex Index of the first result to return (starts at 0)
-     * @opt_param string download Restrict to volumes by download availability.
-     * @opt_param string partner Restrict and brand results for partner ID.
-     * @return Google_Volumes
-     */
+     
     public function listVolumes($q, $optParams = array()) {
       $params = array('q' => $q);
       $params = array_merge($params, $optParams);
@@ -413,18 +184,7 @@
         return $data;
       }
     }
-    /**
-     * Gets volume information for a single volume. (volumes.get)
-     *
-     * @param string $volumeId ID of volume to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string country ISO-3166-1 code to override the IP-based location.
-     * @opt_param string projection Restrict information returned to a set of selected fields.
-     * @opt_param string partner Brand results for partner ID.
-     * @return Google_Volume
-     */
+     
     public function get($volumeId, $optParams = array()) {
       $params = array('volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
@@ -437,31 +197,11 @@
     }
   }
 
-  /**
-   * The "associated" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $associated = $booksService->associated;
-   *  </code>
-   */
+   
   class Google_VolumesAssociatedServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Return a list of associated books. (associated.list)
-     *
-     * @param string $volumeId ID of the source volume.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string projection Restrict information returned to a set of selected fields.
-     * @opt_param string maxResults Maximum number of results to return.
-     * @opt_param string filter Filter search results.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string startIndex Index of the first result to return (starts at 0)
-     * @opt_param string association Association type.
-     * @return Google_Volumes
-     */
+     
     public function listVolumesAssociated($volumeId, $optParams = array()) {
       $params = array('volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
@@ -474,55 +214,24 @@
     }
   }
 
-  /**
-   * The "mylibrary" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $mylibrary = $booksService->mylibrary;
-   *  </code>
-   */
+   
   class Google_MylibraryServiceResource extends Google_ServiceResource {
 
 
   }
 
-  /**
-   * The "bookshelves" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $bookshelves = $booksService->bookshelves;
-   *  </code>
-   */
+   
   class Google_MylibraryBookshelvesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Removes a volume from a bookshelf. (bookshelves.removeVolume)
-     *
-     * @param string $shelf ID of bookshelf from which to remove a volume.
-     * @param string $volumeId ID of volume to remove.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     */
+     
     public function removeVolume($shelf, $volumeId, $optParams = array()) {
       $params = array('shelf' => $shelf, 'volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
       $data = $this->__call('removeVolume', array($params));
       return $data;
     }
-    /**
-     * Retrieves metadata for a specific bookshelf belonging to the authenticated user.
-     * (bookshelves.get)
-     *
-     * @param string $shelf ID of bookshelf to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Bookshelf
-     */
+     
     public function get($shelf, $optParams = array()) {
       $params = array('shelf' => $shelf);
       $params = array_merge($params, $optParams);
@@ -533,28 +242,14 @@
         return $data;
       }
     }
-    /**
-     * Clears all volumes from a bookshelf. (bookshelves.clearVolumes)
-     *
-     * @param string $shelf ID of bookshelf from which to remove a volume.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     */
+     
     public function clearVolumes($shelf, $optParams = array()) {
       $params = array('shelf' => $shelf);
       $params = array_merge($params, $optParams);
       $data = $this->__call('clearVolumes', array($params));
       return $data;
     }
-    /**
-     * Retrieves a list of bookshelves belonging to the authenticated user. (bookshelves.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Bookshelves
-     */
+     
     public function listMylibraryBookshelves($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -565,31 +260,14 @@
         return $data;
       }
     }
-    /**
-     * Adds a volume to a bookshelf. (bookshelves.addVolume)
-     *
-     * @param string $shelf ID of bookshelf to which to add a volume.
-     * @param string $volumeId ID of volume to add.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     */
+     
     public function addVolume($shelf, $volumeId, $optParams = array()) {
       $params = array('shelf' => $shelf, 'volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
       $data = $this->__call('addVolume', array($params));
       return $data;
     }
-    /**
-     * Moves a volume within a bookshelf. (bookshelves.moveVolume)
-     *
-     * @param string $shelf ID of bookshelf with the volume.
-     * @param string $volumeId ID of volume to move.
-     * @param int $volumePosition Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.)
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     */
+     
     public function moveVolume($shelf, $volumeId, $volumePosition, $optParams = array()) {
       $params = array('shelf' => $shelf, 'volumeId' => $volumeId, 'volumePosition' => $volumePosition);
       $params = array_merge($params, $optParams);
@@ -598,32 +276,11 @@
     }
   }
 
-  /**
-   * The "volumes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $volumes = $booksService->volumes;
-   *  </code>
-   */
+   
   class Google_MylibraryBookshelvesVolumesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Gets volume information for volumes on a bookshelf. (volumes.list)
-     *
-     * @param string $shelf The bookshelf ID or name retrieve volumes for.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string projection Restrict information returned to a set of selected fields.
-     * @opt_param string country ISO-3166-1 code to override the IP-based location.
-     * @opt_param bool showPreorders Set to true to show pre-ordered books. Defaults to false.
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string q Full-text search query string in this bookshelf.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string startIndex Index of the first element to return (starts at 0)
-     * @return Google_Volumes
-     */
+     
     public function listMylibraryBookshelvesVolumes($shelf, $optParams = array()) {
       $params = array('shelf' => $shelf);
       $params = array_merge($params, $optParams);
@@ -635,45 +292,18 @@
       }
     }
   }
-  /**
-   * The "readingpositions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $readingpositions = $booksService->readingpositions;
-   *  </code>
-   */
+   
   class Google_MylibraryReadingpositionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Sets my reading position information for a volume. (readingpositions.setPosition)
-     *
-     * @param string $volumeId ID of volume for which to update the reading position.
-     * @param string $timestamp RFC 3339 UTC format timestamp associated with this reading position.
-     * @param string $position Position string for the new volume reading position.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string contentVersion Volume content version for which this reading position applies.
-     * @opt_param string action Action that caused this reading position to be set.
-     */
+     
     public function setPosition($volumeId, $timestamp, $position, $optParams = array()) {
       $params = array('volumeId' => $volumeId, 'timestamp' => $timestamp, 'position' => $position);
       $params = array_merge($params, $optParams);
       $data = $this->__call('setPosition', array($params));
       return $data;
     }
-    /**
-     * Retrieves my reading position information for a volume. (readingpositions.get)
-     *
-     * @param string $volumeId ID of volume for which to retrieve a reading position.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string contentVersion Volume content version for which this reading position is requested.
-     * @return Google_ReadingPosition
-     */
+     
     public function get($volumeId, $optParams = array()) {
       $params = array('volumeId' => $volumeId);
       $params = array_merge($params, $optParams);
@@ -685,26 +315,11 @@
       }
     }
   }
-  /**
-   * The "annotations" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $booksService = new Google_BooksService(...);
-   *   $annotations = $booksService->annotations;
-   *  </code>
-   */
+   
   class Google_MylibraryAnnotationsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new annotation. (annotations.insert)
-     *
-     * @param Google_Annotation $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Annotation
-     */
+     
     public function insert(Google_Annotation $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -715,15 +330,7 @@
         return $data;
       }
     }
-    /**
-     * Gets an annotation by its ID. (annotations.get)
-     *
-     * @param string $annotationId The ID for the annotation to retrieve.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Annotation
-     */
+     
     public function get($annotationId, $optParams = array()) {
       $params = array('annotationId' => $annotationId);
       $params = array_merge($params, $optParams);
@@ -734,23 +341,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves a list of annotations, possibly filtered. (annotations.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool showDeleted Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false.
-     * @opt_param string updatedMin RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
-     * @opt_param string updatedMax RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
-     * @opt_param string volumeId The volume to restrict annotations to.
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string pageToken The value of the nextToken from the previous page.
-     * @opt_param string pageIds The page ID(s) for the volume that is being queried.
-     * @opt_param string contentVersion The content version for the requested volume.
-     * @opt_param string source String to identify the originator of this request.
-     * @opt_param string layerId The layer ID to limit annotation by.
-     * @return Google_Annotations
-     */
+     
     public function listMylibraryAnnotations($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -761,16 +352,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an existing annotation. (annotations.update)
-     *
-     * @param string $annotationId The ID for the annotation to update.
-     * @param Google_Annotation $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     * @return Google_Annotation
-     */
+     
     public function update($annotationId, Google_Annotation $postBody, $optParams = array()) {
       $params = array('annotationId' => $annotationId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -781,14 +363,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes an annotation. (annotations.delete)
-     *
-     * @param string $annotationId The ID for the annotation to delete.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string source String to identify the originator of this request.
-     */
+     
     public function delete($annotationId, $optParams = array()) {
       $params = array('annotationId' => $annotationId);
       $params = array_merge($params, $optParams);
@@ -797,20 +372,7 @@
     }
   }
 
-/**
- * Service definition for Google_Books (v1).
- *
- * <p>
- * Lets you search for books and manage your Google Books library.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://code.google.com/apis/books/docs/v1/getting_started.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_BooksService extends Google_Service {
   public $layers;
   public $layers_annotationData;
@@ -824,11 +386,7 @@ class Google_BooksService extends Google_Service {
   public $mylibrary_bookshelves_volumes;
   public $mylibrary_readingpositions;
   public $mylibrary_annotations;
-  /**
-   * Constructs the internal representation of the Books service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'books/v1/';
     $this->version = 'v1';
@@ -926,7 +484,7 @@ class Google_Annotation extends Google_Model {
   public function getVolumeId() {
     return $this->volumeId;
   }
-  public function setPageIds(/* array(Google_string) */ $pageIds) {
+  public function setPageIds(  $pageIds) {
     $this->assertIsArray($pageIds, 'Google_string', __METHOD__);
     $this->pageIds = $pageIds;
   }
@@ -1126,7 +684,7 @@ class Google_Annotations extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_Annotation) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Annotation', __METHOD__);
     $this->items = $items;
   }
@@ -1160,7 +718,7 @@ class Google_Annotationsdata extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_Annotationdata) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Annotationdata', __METHOD__);
     $this->items = $items;
   }
@@ -1314,7 +872,7 @@ class Google_BooksLayerGeoDataGeo extends Google_Model {
   public function getLatitude() {
     return $this->latitude;
   }
-  public function setBoundary(/* array(Google_BooksLayerGeoDataGeoBoundary) */ $boundary) {
+  public function setBoundary(  $boundary) {
     $this->assertIsArray($boundary, 'Google_BooksLayerGeoDataGeoBoundary', __METHOD__);
     $this->boundary = $boundary;
   }
@@ -1485,7 +1043,7 @@ class Google_Bookshelves extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Bookshelf) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Bookshelf', __METHOD__);
     $this->items = $items;
   }
@@ -1672,7 +1230,7 @@ class Google_DownloadAccesses extends Google_Model {
   protected $__downloadAccessListDataType = 'array';
   public $downloadAccessList;
   public $kind;
-  public function setDownloadAccessList(/* array(Google_DownloadAccessRestriction) */ $downloadAccessList) {
+  public function setDownloadAccessList(  $downloadAccessList) {
     $this->assertIsArray($downloadAccessList, 'Google_DownloadAccessRestriction', __METHOD__);
     $this->downloadAccessList = $downloadAccessList;
   }
@@ -1699,7 +1257,7 @@ class Google_Layersummaries extends Google_Model {
   public function getTotalItems() {
     return $this->totalItems;
   }
-  public function setItems(/* array(Google_Layersummary) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Layersummary', __METHOD__);
     $this->items = $items;
   }
@@ -1769,7 +1327,7 @@ class Google_Layersummary extends Google_Model {
   public function getId() {
     return $this->id;
   }
-  public function setAnnotationTypes(/* array(Google_string) */ $annotationTypes) {
+  public function setAnnotationTypes(  $annotationTypes) {
     $this->assertIsArray($annotationTypes, 'Google_string', __METHOD__);
     $this->annotationTypes = $annotationTypes;
   }
@@ -2457,14 +2015,14 @@ class Google_VolumeVolumeInfo extends Google_Model {
   public function getContentVersion() {
     return $this->contentVersion;
   }
-  public function setIndustryIdentifiers(/* array(Google_VolumeVolumeInfoIndustryIdentifiers) */ $industryIdentifiers) {
+  public function setIndustryIdentifiers(  $industryIdentifiers) {
     $this->assertIsArray($industryIdentifiers, 'Google_VolumeVolumeInfoIndustryIdentifiers', __METHOD__);
     $this->industryIdentifiers = $industryIdentifiers;
   }
   public function getIndustryIdentifiers() {
     return $this->industryIdentifiers;
   }
-  public function setAuthors(/* array(Google_string) */ $authors) {
+  public function setAuthors(  $authors) {
     $this->assertIsArray($authors, 'Google_string', __METHOD__);
     $this->authors = $authors;
   }
@@ -2489,7 +2047,7 @@ class Google_VolumeVolumeInfo extends Google_Model {
   public function getInfoLink() {
     return $this->infoLink;
   }
-  public function setCategories(/* array(Google_string) */ $categories) {
+  public function setCategories(  $categories) {
     $this->assertIsArray($categories, 'Google_string', __METHOD__);
     $this->categories = $categories;
   }
@@ -2661,7 +2219,7 @@ class Google_Volumeannotation extends Google_Model {
   public function getAnnotationDataLink() {
     return $this->annotationDataLink;
   }
-  public function setPageIds(/* array(Google_string) */ $pageIds) {
+  public function setPageIds(  $pageIds) {
     $this->assertIsArray($pageIds, 'Google_string', __METHOD__);
     $this->pageIds = $pageIds;
   }
@@ -2744,7 +2302,7 @@ class Google_Volumeannotations extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_Volumeannotation) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Volumeannotation', __METHOD__);
     $this->items = $items;
   }
@@ -2777,7 +2335,7 @@ class Google_Volumes extends Google_Model {
   public function getTotalItems() {
     return $this->totalItems;
   }
-  public function setItems(/* array(Google_Volume) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Volume', __METHOD__);
     $this->items = $items;
   }

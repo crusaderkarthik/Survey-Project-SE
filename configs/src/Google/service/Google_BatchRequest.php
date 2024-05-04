@@ -1,28 +1,12 @@
 <?php
-/*
- * Copyright 2012 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ 
 
-/**
- * @author Chirag Shah <chirags@google.com>
- */
+ 
 class Google_BatchRequest {
-  /** @var string Multipart Boundary. */
+   
   private $boundary;
 
-  /** @var array service requests to be executed. */
+   
   private $requests = array();
 
   public function __construct($boundary = false) {
@@ -41,7 +25,7 @@ class Google_BatchRequest {
   public function execute() {
     $body = '';
 
-    /** @var Google_HttpRequest $req */
+     
     foreach($this->requests as $key => $req) {
       $body .= "--{$this->boundary}\n";
       $body .= $req->toBatchString($key) . "\n";
@@ -96,8 +80,7 @@ class Google_BatchRequest {
           $response->setResponseHeaders($partHeaders);
           $response->setResponseBody($partBody);
           $response = Google_REST::decodeHttpResponse($response);
-
-          // Need content id.
+ 
           $responses[$metaHeaders['content-id']] = $response;
         }
       }

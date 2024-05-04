@@ -1,37 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "freebusy" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $freebusy = $calendarService->freebusy;
-   *  </code>
-   */
+   
   class Google_FreebusyServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Returns free/busy information for a set of calendars. (freebusy.query)
-     *
-     * @param Google_FreeBusyRequest $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_FreeBusyResponse
-     */
+     
     public function query(Google_FreeBusyRequest $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -44,23 +19,11 @@
     }
   }
 
-  /**
-   * The "settings" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $settings = $calendarService->settings;
-   *  </code>
-   */
+   
   class Google_SettingsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Returns all user settings for the authenticated user. (settings.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_Settings
-     */
+     
     public function listSettings($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -71,13 +34,7 @@
         return $data;
       }
     }
-    /**
-     * Returns a single user setting. (settings.get)
-     *
-     * @param string $setting Name of the user setting.
-     * @param array $optParams Optional parameters.
-     * @return Google_Setting
-     */
+     
     public function get($setting, $optParams = array()) {
       $params = array('setting' => $setting);
       $params = array_merge($params, $optParams);
@@ -90,26 +47,11 @@
     }
   }
 
-  /**
-   * The "calendarList" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $calendarList = $calendarService->calendarList;
-   *  </code>
-   */
+   
   class Google_CalendarListServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Adds an entry to the user's calendar list. (calendarList.insert)
-     *
-     * @param Google_CalendarListEntry $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool colorRgbFormat Whether to use the 'frontendColor' and 'backgroundColor' fields to write the calendar colors (RGB). If this feature is used, the index-based 'color' field will be set to the best matching option automatically. Optional. The default is False.
-     * @return Google_CalendarListEntry
-     */
+     
     public function insert(Google_CalendarListEntry $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -120,13 +62,7 @@
         return $data;
       }
     }
-    /**
-     * Returns an entry on the user's calendar list. (calendarList.get)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     * @return Google_CalendarListEntry
-     */
+     
     public function get($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -137,17 +73,7 @@
         return $data;
       }
     }
-    /**
-     * Returns entries on the user's calendar list. (calendarList.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken Token specifying which result page to return. Optional.
-     * @opt_param bool showHidden Whether to show hidden entries. Optional. The default is False.
-     * @opt_param int maxResults Maximum number of entries returned on one result page. Optional.
-     * @opt_param string minAccessRole The minimum access role for the user in the returned entires. Optional. The default is no restriction.
-     * @return Google_CalendarList
-     */
+     
     public function listCalendarList($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -158,16 +84,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an entry on the user's calendar list. (calendarList.update)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_CalendarListEntry $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool colorRgbFormat Whether to use the 'frontendColor' and 'backgroundColor' fields to write the calendar colors (RGB). If this feature is used, the index-based 'color' field will be set to the best matching option automatically. Optional. The default is False.
-     * @return Google_CalendarListEntry
-     */
+     
     public function update($calendarId, Google_CalendarListEntry $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -178,17 +95,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an entry on the user's calendar list. This method supports patch semantics.
-     * (calendarList.patch)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_CalendarListEntry $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool colorRgbFormat Whether to use the 'frontendColor' and 'backgroundColor' fields to write the calendar colors (RGB). If this feature is used, the index-based 'color' field will be set to the best matching option automatically. Optional. The default is False.
-     * @return Google_CalendarListEntry
-     */
+     
     public function patch($calendarId, Google_CalendarListEntry $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -199,12 +106,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes an entry on the user's calendar list. (calendarList.delete)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -213,24 +115,11 @@
     }
   }
 
-  /**
-   * The "calendars" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $calendars = $calendarService->calendars;
-   *  </code>
-   */
+   
   class Google_CalendarsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a secondary calendar. (calendars.insert)
-     *
-     * @param Google_Calendar $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Calendar
-     */
+     
     public function insert(Google_Calendar $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -241,13 +130,7 @@
         return $data;
       }
     }
-    /**
-     * Returns metadata for a calendar. (calendars.get)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     * @return Google_Calendar
-     */
+     
     public function get($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -258,27 +141,14 @@
         return $data;
       }
     }
-    /**
-     * Clears a primary calendar. This operation deletes all data associated with the primary calendar
-     * of an account and cannot be undone. (calendars.clear)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function clear($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
       $data = $this->__call('clear', array($params));
       return $data;
     }
-    /**
-     * Updates metadata for a calendar. (calendars.update)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_Calendar $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Calendar
-     */
+     
     public function update($calendarId, Google_Calendar $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -289,14 +159,7 @@
         return $data;
       }
     }
-    /**
-     * Updates metadata for a calendar. This method supports patch semantics. (calendars.patch)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_Calendar $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Calendar
-     */
+     
     public function patch($calendarId, Google_Calendar $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -307,12 +170,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes a secondary calendar. (calendars.delete)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -321,25 +179,11 @@
     }
   }
 
-  /**
-   * The "acl" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $acl = $calendarService->acl;
-   *  </code>
-   */
+   
   class Google_AclServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates an access control rule. (acl.insert)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_AclRule $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_AclRule
-     */
+     
     public function insert($calendarId, Google_AclRule $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -350,14 +194,7 @@
         return $data;
       }
     }
-    /**
-     * Returns an access control rule. (acl.get)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $ruleId ACL rule identifier.
-     * @param array $optParams Optional parameters.
-     * @return Google_AclRule
-     */
+     
     public function get($calendarId, $ruleId, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'ruleId' => $ruleId);
       $params = array_merge($params, $optParams);
@@ -368,13 +205,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the rules in the access control list for the calendar. (acl.list)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     * @return Google_Acl
-     */
+     
     public function listAcl($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -385,15 +216,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an access control rule. (acl.update)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $ruleId ACL rule identifier.
-     * @param Google_AclRule $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_AclRule
-     */
+     
     public function update($calendarId, $ruleId, Google_AclRule $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'ruleId' => $ruleId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -404,15 +227,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an access control rule. This method supports patch semantics. (acl.patch)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $ruleId ACL rule identifier.
-     * @param Google_AclRule $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_AclRule
-     */
+     
     public function patch($calendarId, $ruleId, Google_AclRule $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'ruleId' => $ruleId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -423,13 +238,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes an access control rule. (acl.delete)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $ruleId ACL rule identifier.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($calendarId, $ruleId, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'ruleId' => $ruleId);
       $params = array_merge($params, $optParams);
@@ -438,23 +247,11 @@
     }
   }
 
-  /**
-   * The "colors" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $colors = $calendarService->colors;
-   *  </code>
-   */
+   
   class Google_ColorsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Returns the color definitions for calendars and events. (colors.get)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_Colors
-     */
+     
     public function get($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -467,27 +264,11 @@
     }
   }
 
-  /**
-   * The "events" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $calendarService = new Google_CalendarService(...);
-   *   $events = $calendarService->events;
-   *  </code>
-   */
+   
   class Google_EventsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates an event. (events.insert)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_Event $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool sendNotifications Whether to send notifications about the creation of the new event. Optional. The default is False.
-     * @return Google_Event
-     */
+     
     public function insert($calendarId, Google_Event $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -498,18 +279,7 @@
         return $data;
       }
     }
-    /**
-     * Returns an event. (events.get)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $eventId Event identifier.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string timeZone Time zone used in the response. Optional. The default is the time zone of the calendar.
-     * @opt_param bool alwaysIncludeEmail Whether to always include a value in the "email" field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-     * @opt_param int maxAttendees The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-     * @return Google_Event
-     */
+     
     public function get($calendarId, $eventId, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId);
       $params = array_merge($params, $optParams);
@@ -520,17 +290,7 @@
         return $data;
       }
     }
-    /**
-     * Moves an event to another calendar, i.e. changes an event's organizer. (events.move)
-     *
-     * @param string $calendarId Calendar identifier of the source calendar where the event currently is on.
-     * @param string $eventId Event identifier.
-     * @param string $destination Calendar identifier of the target calendar where the event is to be moved to.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool sendNotifications Whether to send notifications about the change of the event's organizer. Optional. The default is False.
-     * @return Google_Event
-     */
+     
     public function move($calendarId, $eventId, $destination, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId, 'destination' => $destination);
       $params = array_merge($params, $optParams);
@@ -541,28 +301,7 @@
         return $data;
       }
     }
-    /**
-     * Returns events on the specified calendar. (events.list)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string orderBy The order of the events returned in the result. Optional. The default is an unspecified, stable order.
-     * @opt_param bool showHiddenInvitations Whether to include hidden invitations in the result. Optional. The default is False.
-     * @opt_param bool showDeleted Whether to include deleted events (with 'eventStatus' equals 'cancelled') in the result. Optional. The default is False.
-     * @opt_param string iCalUID Specifies iCalendar UID (iCalUID) of events to be included in the response. Optional.
-     * @opt_param string updatedMin Lower bound for an event's last modification time (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by last modification time.
-     * @opt_param bool singleEvents Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.
-     * @opt_param bool alwaysIncludeEmail Whether to always include a value in the "email" field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-     * @opt_param int maxResults Maximum number of events returned on one result page. Optional.
-     * @opt_param string q Free text search terms to find events that match these terms in any field, except for extended properties. Optional.
-     * @opt_param string pageToken Token specifying which result page to return. Optional.
-     * @opt_param string timeMin Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time.
-     * @opt_param string timeZone Time zone used in the response. Optional. The default is the time zone of the calendar.
-     * @opt_param string timeMax Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time.
-     * @opt_param int maxAttendees The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-     * @return Google_Events
-     */
+     
     public function listEvents($calendarId, $optParams = array()) {
       $params = array('calendarId' => $calendarId);
       $params = array_merge($params, $optParams);
@@ -573,18 +312,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an event. (events.update)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $eventId Event identifier.
-     * @param Google_Event $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool alwaysIncludeEmail Whether to always include a value in the "email" field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-     * @opt_param bool sendNotifications Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
-     * @return Google_Event
-     */
+     
     public function update($calendarId, $eventId, Google_Event $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -595,18 +323,7 @@
         return $data;
       }
     }
-    /**
-     * Updates an event. This method supports patch semantics. (events.patch)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $eventId Event identifier.
-     * @param Google_Event $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool alwaysIncludeEmail Whether to always include a value in the "email" field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-     * @opt_param bool sendNotifications Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
-     * @return Google_Event
-     */
+     
     public function patch($calendarId, $eventId, Google_Event $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -617,22 +334,7 @@
         return $data;
       }
     }
-    /**
-     * Returns instances of the specified recurring event. (events.instances)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $eventId Recurring event identifier.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool showDeleted Whether to include deleted events (with 'eventStatus' equals 'cancelled') in the result. Optional. The default is False.
-     * @opt_param bool alwaysIncludeEmail Whether to always include a value in the "email" field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
-     * @opt_param int maxResults Maximum number of events returned on one result page. Optional.
-     * @opt_param string pageToken Token specifying which result page to return. Optional.
-     * @opt_param string timeZone Time zone used in the response. Optional. The default is the time zone of the calendar.
-     * @opt_param string originalStart The original start time of the instance in the result. Optional.
-     * @opt_param int maxAttendees The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
-     * @return Google_Events
-     */
+     
     public function instances($calendarId, $eventId, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId);
       $params = array_merge($params, $optParams);
@@ -643,14 +345,7 @@
         return $data;
       }
     }
-    /**
-     * Imports an event. (events.import)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param Google_Event $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Event
-     */
+     
     public function import($calendarId, Google_Event $postBody, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -661,16 +356,7 @@
         return $data;
       }
     }
-    /**
-     * Creates an event based on a simple text string. (events.quickAdd)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $text The text describing the event to be created.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool sendNotifications Whether to send notifications about the creation of the event. Optional. The default is False.
-     * @return Google_Event
-     */
+     
     public function quickAdd($calendarId, $text, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'text' => $text);
       $params = array_merge($params, $optParams);
@@ -681,15 +367,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes an event. (events.delete)
-     *
-     * @param string $calendarId Calendar identifier.
-     * @param string $eventId Event identifier.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool sendNotifications Whether to send notifications about the deletion of the event. Optional. The default is False.
-     */
+     
     public function delete($calendarId, $eventId, $optParams = array()) {
       $params = array('calendarId' => $calendarId, 'eventId' => $eventId);
       $params = array_merge($params, $optParams);
@@ -698,20 +376,7 @@
     }
   }
 
-/**
- * Service definition for Google_Calendar (v3).
- *
- * <p>
- * Lets you manipulate events and other calendar data.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="http://code.google.com/apis/calendar/v3/using.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_CalendarService extends Google_Service {
   public $freebusy;
   public $settings;
@@ -720,11 +385,7 @@ class Google_CalendarService extends Google_Service {
   public $acl;
   public $colors;
   public $events;
-  /**
-   * Constructs the internal representation of the Calendar service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'calendar/v3/';
     $this->version = 'v3';
@@ -755,7 +416,7 @@ class Google_Acl extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_AclRule) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_AclRule', __METHOD__);
     $this->items = $items;
   }
@@ -898,7 +559,7 @@ class Google_CalendarList extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setItems(/* array(Google_CalendarListEntry) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_CalendarListEntry', __METHOD__);
     $this->items = $items;
   }
@@ -949,7 +610,7 @@ class Google_CalendarListEntry extends Google_Model {
   public function getForegroundColor() {
     return $this->foregroundColor;
   }
-  public function setDefaultReminders(/* array(Google_EventReminder) */ $defaultReminders) {
+  public function setDefaultReminders(  $defaultReminders) {
     $this->assertIsArray($defaultReminders, 'Google_EventReminder', __METHOD__);
     $this->defaultReminders = $defaultReminders;
   }
@@ -1176,7 +837,7 @@ class Google_Event extends Google_Model {
   public function getId() {
     return $this->id;
   }
-  public function setAttendees(/* array(Google_EventAttendee) */ $attendees) {
+  public function setAttendees(  $attendees) {
     $this->assertIsArray($attendees, 'Google_EventAttendee', __METHOD__);
     $this->attendees = $attendees;
   }
@@ -1189,7 +850,7 @@ class Google_Event extends Google_Model {
   public function getHtmlLink() {
     return $this->htmlLink;
   }
-  public function setRecurrence(/* array(Google_string) */ $recurrence) {
+  public function setRecurrence(  $recurrence) {
     $this->assertIsArray($recurrence, 'Google_string', __METHOD__);
     $this->recurrence = $recurrence;
   }
@@ -1617,7 +1278,7 @@ class Google_EventReminders extends Google_Model {
   protected $__overridesDataType = 'array';
   public $overrides;
   public $useDefault;
-  public function setOverrides(/* array(Google_EventReminder) */ $overrides) {
+  public function setOverrides(  $overrides) {
     $this->assertIsArray($overrides, 'Google_EventReminder', __METHOD__);
     $this->overrides = $overrides;
   }
@@ -1659,7 +1320,7 @@ class Google_Events extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setDefaultReminders(/* array(Google_EventReminder) */ $defaultReminders) {
+  public function setDefaultReminders(  $defaultReminders) {
     $this->assertIsArray($defaultReminders, 'Google_EventReminder', __METHOD__);
     $this->defaultReminders = $defaultReminders;
   }
@@ -1672,7 +1333,7 @@ class Google_Events extends Google_Model {
   public function getDescription() {
     return $this->description;
   }
-  public function setItems(/* array(Google_Event) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Event', __METHOD__);
     $this->items = $items;
   }
@@ -1718,14 +1379,14 @@ class Google_FreeBusyCalendar extends Google_Model {
   protected $__errorsType = 'Google_Error';
   protected $__errorsDataType = 'array';
   public $errors;
-  public function setBusy(/* array(Google_TimePeriod) */ $busy) {
+  public function setBusy(  $busy) {
     $this->assertIsArray($busy, 'Google_TimePeriod', __METHOD__);
     $this->busy = $busy;
   }
   public function getBusy() {
     return $this->busy;
   }
-  public function setErrors(/* array(Google_Error) */ $errors) {
+  public function setErrors(  $errors) {
     $this->assertIsArray($errors, 'Google_Error', __METHOD__);
     $this->errors = $errors;
   }
@@ -1739,14 +1400,14 @@ class Google_FreeBusyGroup extends Google_Model {
   protected $__errorsDataType = 'array';
   public $errors;
   public $calendars;
-  public function setErrors(/* array(Google_Error) */ $errors) {
+  public function setErrors(  $errors) {
     $this->assertIsArray($errors, 'Google_Error', __METHOD__);
     $this->errors = $errors;
   }
   public function getErrors() {
     return $this->errors;
   }
-  public function setCalendars(/* array(Google_string) */ $calendars) {
+  public function setCalendars(  $calendars) {
     $this->assertIsArray($calendars, 'Google_string', __METHOD__);
     $this->calendars = $calendars;
   }
@@ -1782,7 +1443,7 @@ class Google_FreeBusyRequest extends Google_Model {
   public function getTimeMax() {
     return $this->timeMax;
   }
-  public function setItems(/* array(Google_FreeBusyRequestItem) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_FreeBusyRequestItem', __METHOD__);
     $this->items = $items;
   }
@@ -1892,7 +1553,7 @@ class Google_Settings extends Google_Model {
   public $items;
   public $kind;
   public $etag;
-  public function setItems(/* array(Google_Setting) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Setting', __METHOD__);
     $this->items = $items;
   }

@@ -1,46 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "files" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $files = $driveService->files;
-   *  </code>
-   */
+   
   class Google_FilesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Insert a new file. (files.insert)
-     *
-     * @param Google_DriveFile $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool convert Whether to convert this file to the corresponding Google Docs format.
-     * @opt_param string targetLanguage Target language to translate the file to. If no sourceLanguage is provided, the API will attempt to detect the language.
-     * @opt_param string sourceLanguage The language of the original file to be translated.
-     * @opt_param string ocrLanguage If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
-     * @opt_param bool pinned Whether to pin the head revision of the uploaded file.
-     * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, or .gif uploads.
-     * @opt_param string timedTextTrackName The timed text track name.
-     * @opt_param string timedTextLanguage The language of the timed text.
-     * @return Google_DriveFile
-     */
+     
     public function insert(Google_DriveFile $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -51,13 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Restores a file from the trash. (files.untrash)
-     *
-     * @param string $fileId The ID of the file to untrash.
-     * @param array $optParams Optional parameters.
-     * @return Google_DriveFile
-     */
+     
     public function untrash($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -68,13 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Moves a file to the trash. (files.trash)
-     *
-     * @param string $fileId The ID of the file to trash.
-     * @param array $optParams Optional parameters.
-     * @return Google_DriveFile
-     */
+     
     public function trash($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -85,16 +39,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a file's metadata by ID. (files.get)
-     *
-     * @param string $fileId The ID for the file in question.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool updateViewedDate Whether to update the view date after successfully retrieving the file.
-     * @opt_param string projection This parameter is deprecated and has no function.
-     * @return Google_DriveFile
-     */
+     
     public function get($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -105,17 +50,7 @@
         return $data;
       }
     }
-    /**
-     * Lists the user's files. (files.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string q Query string for searching files.
-     * @opt_param string pageToken Page token for files.
-     * @opt_param string projection This parameter is deprecated and has no function.
-     * @opt_param int maxResults Maximum number of files to return.
-     * @return Google_FileList
-     */
+     
     public function listFiles($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -126,26 +61,7 @@
         return $data;
       }
     }
-    /**
-     * Updates file metadata and/or content (files.update)
-     *
-     * @param string $fileId The ID of the file to update.
-     * @param Google_DriveFile $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool convert Whether to convert this file to the corresponding Google Docs format.
-     * @opt_param string targetLanguage Target language to translate the file to. If no sourceLanguage is provided, the API will attempt to detect the language.
-     * @opt_param bool setModifiedDate Whether to set the modified date with the supplied modified date.
-     * @opt_param bool updateViewedDate Whether to update the view date after successfully updating the file.
-     * @opt_param string sourceLanguage The language of the original file to be translated.
-     * @opt_param string ocrLanguage If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
-     * @opt_param bool pinned Whether to pin the new revision.
-     * @opt_param bool newRevision Whether a blob upload should create a new revision. If false, the blob data in the current head revision will be replaced.
-     * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, or .gif uploads.
-     * @opt_param string timedTextLanguage The language of the timed text.
-     * @opt_param string timedTextTrackName The timed text track name.
-     * @return Google_DriveFile
-     */
+     
     public function update($fileId, Google_DriveFile $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -156,26 +72,7 @@
         return $data;
       }
     }
-    /**
-     * Updates file metadata and/or content. This method supports patch semantics. (files.patch)
-     *
-     * @param string $fileId The ID of the file to update.
-     * @param Google_DriveFile $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool convert Whether to convert this file to the corresponding Google Docs format.
-     * @opt_param string targetLanguage Target language to translate the file to. If no sourceLanguage is provided, the API will attempt to detect the language.
-     * @opt_param bool setModifiedDate Whether to set the modified date with the supplied modified date.
-     * @opt_param bool updateViewedDate Whether to update the view date after successfully updating the file.
-     * @opt_param string sourceLanguage The language of the original file to be translated.
-     * @opt_param string ocrLanguage If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
-     * @opt_param bool pinned Whether to pin the new revision.
-     * @opt_param bool newRevision Whether a blob upload should create a new revision. If false, the blob data in the current head revision will be replaced.
-     * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, or .gif uploads.
-     * @opt_param string timedTextLanguage The language of the timed text.
-     * @opt_param string timedTextTrackName The timed text track name.
-     * @return Google_DriveFile
-     */
+     
     public function patch($fileId, Google_DriveFile $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -186,13 +83,7 @@
         return $data;
       }
     }
-    /**
-     * Set the file's updated time to the current server time. (files.touch)
-     *
-     * @param string $fileId The ID of the file to update.
-     * @param array $optParams Optional parameters.
-     * @return Google_DriveFile
-     */
+     
     public function touch($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -203,23 +94,7 @@
         return $data;
       }
     }
-    /**
-     * Creates a copy of the specified file. (files.copy)
-     *
-     * @param string $fileId The ID of the file to copy.
-     * @param Google_DriveFile $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool convert Whether to convert this file to the corresponding Google Docs format.
-     * @opt_param string targetLanguage Target language to translate the file to. If no sourceLanguage is provided, the API will attempt to detect the language.
-     * @opt_param string sourceLanguage The language of the original file to be translated.
-     * @opt_param string ocrLanguage If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
-     * @opt_param bool pinned Whether to pin the head revision of the new copy.
-     * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, or .gif uploads.
-     * @opt_param string timedTextLanguage The language of the timed text.
-     * @opt_param string timedTextTrackName The timed text track name.
-     * @return Google_DriveFile
-     */
+     
     public function copy($fileId, Google_DriveFile $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -230,12 +105,7 @@
         return $data;
       }
     }
-    /**
-     * Permanently deletes a file by ID. Skips the trash. (files.delete)
-     *
-     * @param string $fileId The ID of the file to delete.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -244,27 +114,11 @@
     }
   }
 
-  /**
-   * The "about" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $about = $driveService->about;
-   *  </code>
-   */
+   
   class Google_AboutServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Gets the information about the current user along with Drive API settings (about.get)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeSubscribed Whether to include subscribed items when calculating the number of remaining change IDs
-     * @opt_param string maxChangeIdCount Maximum number of remaining change IDs to count
-     * @opt_param string startChangeId Change ID to start counting from when calculating number of remaining change IDs
-     * @return Google_About
-     */
+     
     public function get($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -277,23 +131,11 @@
     }
   }
 
-  /**
-   * The "apps" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $apps = $driveService->apps;
-   *  </code>
-   */
+   
   class Google_AppsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists a user's apps. (apps.list)
-     *
-     * @param array $optParams Optional parameters.
-     * @return Google_AppList
-     */
+     
     public function listApps($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -304,13 +146,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a specific app. (apps.get)
-     *
-     * @param string $appId The ID of the app.
-     * @param array $optParams Optional parameters.
-     * @return Google_App
-     */
+     
     public function get($appId, $optParams = array()) {
       $params = array('appId' => $appId);
       $params = array_merge($params, $optParams);
@@ -323,25 +159,11 @@
     }
   }
 
-  /**
-   * The "parents" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $parents = $driveService->parents;
-   *  </code>
-   */
+   
   class Google_ParentsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Adds a parent folder for a file. (parents.insert)
-     *
-     * @param string $fileId The ID of the file.
-     * @param Google_ParentReference $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_ParentReference
-     */
+     
     public function insert($fileId, Google_ParentReference $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -352,14 +174,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a specific parent reference. (parents.get)
-     *
-     * @param string $fileId The ID of the file.
-     * @param string $parentId The ID of the parent.
-     * @param array $optParams Optional parameters.
-     * @return Google_ParentReference
-     */
+     
     public function get($fileId, $parentId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'parentId' => $parentId);
       $params = array_merge($params, $optParams);
@@ -370,13 +185,7 @@
         return $data;
       }
     }
-    /**
-     * Lists a file's parents. (parents.list)
-     *
-     * @param string $fileId The ID of the file.
-     * @param array $optParams Optional parameters.
-     * @return Google_ParentList
-     */
+     
     public function listParents($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -387,13 +196,7 @@
         return $data;
       }
     }
-    /**
-     * Removes a parent from a file. (parents.delete)
-     *
-     * @param string $fileId The ID of the file.
-     * @param string $parentId The ID of the parent.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($fileId, $parentId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'parentId' => $parentId);
       $params = array_merge($params, $optParams);
@@ -402,26 +205,11 @@
     }
   }
 
-  /**
-   * The "revisions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $revisions = $driveService->revisions;
-   *  </code>
-   */
+   
   class Google_RevisionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Updates a revision. This method supports patch semantics. (revisions.patch)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $revisionId The ID for the revision.
-     * @param Google_Revision $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Revision
-     */
+     
     public function patch($fileId, $revisionId, Google_Revision $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'revisionId' => $revisionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -432,14 +220,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a specific revision. (revisions.get)
-     *
-     * @param string $fileId The ID of the file.
-     * @param string $revisionId The ID of the revision.
-     * @param array $optParams Optional parameters.
-     * @return Google_Revision
-     */
+     
     public function get($fileId, $revisionId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'revisionId' => $revisionId);
       $params = array_merge($params, $optParams);
@@ -450,13 +231,7 @@
         return $data;
       }
     }
-    /**
-     * Lists a file's revisions. (revisions.list)
-     *
-     * @param string $fileId The ID of the file.
-     * @param array $optParams Optional parameters.
-     * @return Google_RevisionList
-     */
+     
     public function listRevisions($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -467,15 +242,7 @@
         return $data;
       }
     }
-    /**
-     * Updates a revision. (revisions.update)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $revisionId The ID for the revision.
-     * @param Google_Revision $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Revision
-     */
+     
     public function update($fileId, $revisionId, Google_Revision $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'revisionId' => $revisionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -486,13 +253,7 @@
         return $data;
       }
     }
-    /**
-     * Removes a revision. (revisions.delete)
-     *
-     * @param string $fileId The ID of the file.
-     * @param string $revisionId The ID of the revision.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($fileId, $revisionId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'revisionId' => $revisionId);
       $params = array_merge($params, $optParams);
@@ -501,29 +262,11 @@
     }
   }
 
-  /**
-   * The "changes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $changes = $driveService->changes;
-   *  </code>
-   */
+   
   class Google_ChangesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists the changes for a user. (changes.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool includeSubscribed Whether to include subscribed items.
-     * @opt_param string startChangeId Change ID to start listing changes from.
-     * @opt_param bool includeDeleted Whether to include deleted items.
-     * @opt_param int maxResults Maximum number of changes to return.
-     * @opt_param string pageToken Page token for changes.
-     * @return Google_ChangeList
-     */
+     
     public function listChanges($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -534,13 +277,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a specific change. (changes.get)
-     *
-     * @param string $changeId The ID of the change.
-     * @param array $optParams Optional parameters.
-     * @return Google_Change
-     */
+     
     public function get($changeId, $optParams = array()) {
       $params = array('changeId' => $changeId);
       $params = array_merge($params, $optParams);
@@ -553,25 +290,11 @@
     }
   }
 
-  /**
-   * The "children" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $children = $driveService->children;
-   *  </code>
-   */
+   
   class Google_ChildrenServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a file into a folder. (children.insert)
-     *
-     * @param string $folderId The ID of the folder.
-     * @param Google_ChildReference $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_ChildReference
-     */
+     
     public function insert($folderId, Google_ChildReference $postBody, $optParams = array()) {
       $params = array('folderId' => $folderId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -582,14 +305,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a specific child reference. (children.get)
-     *
-     * @param string $folderId The ID of the folder.
-     * @param string $childId The ID of the child.
-     * @param array $optParams Optional parameters.
-     * @return Google_ChildReference
-     */
+     
     public function get($folderId, $childId, $optParams = array()) {
       $params = array('folderId' => $folderId, 'childId' => $childId);
       $params = array_merge($params, $optParams);
@@ -600,17 +316,7 @@
         return $data;
       }
     }
-    /**
-     * Lists a folder's children. (children.list)
-     *
-     * @param string $folderId The ID of the folder.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string q Query string for searching children.
-     * @opt_param string pageToken Page token for children.
-     * @opt_param int maxResults Maximum number of children to return.
-     * @return Google_ChildList
-     */
+     
     public function listChildren($folderId, $optParams = array()) {
       $params = array('folderId' => $folderId);
       $params = array_merge($params, $optParams);
@@ -621,13 +327,7 @@
         return $data;
       }
     }
-    /**
-     * Removes a child from a folder. (children.delete)
-     *
-     * @param string $folderId The ID of the folder.
-     * @param string $childId The ID of the child.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($folderId, $childId, $optParams = array()) {
       $params = array('folderId' => $folderId, 'childId' => $childId);
       $params = array_merge($params, $optParams);
@@ -636,27 +336,11 @@
     }
   }
 
-  /**
-   * The "permissions" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $driveService = new Google_DriveService(...);
-   *   $permissions = $driveService->permissions;
-   *  </code>
-   */
+   
   class Google_PermissionsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a permission for a file. (permissions.insert)
-     *
-     * @param string $fileId The ID for the file.
-     * @param Google_Permission $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool sendNotificationEmails Whether to send notification emails.
-     * @return Google_Permission
-     */
+     
     public function insert($fileId, Google_Permission $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -667,14 +351,7 @@
         return $data;
       }
     }
-    /**
-     * Gets a permission by ID. (permissions.get)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $permissionId The ID for the permission.
-     * @param array $optParams Optional parameters.
-     * @return Google_Permission
-     */
+     
     public function get($fileId, $permissionId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'permissionId' => $permissionId);
       $params = array_merge($params, $optParams);
@@ -685,13 +362,7 @@
         return $data;
       }
     }
-    /**
-     * Lists a file's permissions. (permissions.list)
-     *
-     * @param string $fileId The ID for the file.
-     * @param array $optParams Optional parameters.
-     * @return Google_PermissionList
-     */
+     
     public function listPermissions($fileId, $optParams = array()) {
       $params = array('fileId' => $fileId);
       $params = array_merge($params, $optParams);
@@ -702,15 +373,7 @@
         return $data;
       }
     }
-    /**
-     * Updates a permission. (permissions.update)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $permissionId The ID for the permission.
-     * @param Google_Permission $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Permission
-     */
+     
     public function update($fileId, $permissionId, Google_Permission $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'permissionId' => $permissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -721,15 +384,7 @@
         return $data;
       }
     }
-    /**
-     * Updates a permission. This method supports patch semantics. (permissions.patch)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $permissionId The ID for the permission.
-     * @param Google_Permission $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Permission
-     */
+     
     public function patch($fileId, $permissionId, Google_Permission $postBody, $optParams = array()) {
       $params = array('fileId' => $fileId, 'permissionId' => $permissionId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -740,13 +395,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes a permission from a file. (permissions.delete)
-     *
-     * @param string $fileId The ID for the file.
-     * @param string $permissionId The ID for the permission.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($fileId, $permissionId, $optParams = array()) {
       $params = array('fileId' => $fileId, 'permissionId' => $permissionId);
       $params = array_merge($params, $optParams);
@@ -755,20 +404,7 @@
     }
   }
 
-/**
- * Service definition for Google_Drive (v2).
- *
- * <p>
- * The API to interact with Drive.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/drive/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_DriveService extends Google_Service {
   public $files;
   public $about;
@@ -778,18 +414,14 @@ class Google_DriveService extends Google_Service {
   public $changes;
   public $children;
   public $permissions;
-  /**
-   * Constructs the internal representation of the Drive service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'drive/v2/';
     $this->version = 'v2';
     $this->serviceName = 'drive';
 
     $client->addService($this->serviceName, $this->version);
-    $this->files = new Google_FilesServiceResource($this, $this->serviceName, 'files', json_decode('{"methods": {"insert": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}}, "supportsMediaUpload": true, "request": {"$ref": "File"}, "mediaUpload": {"maxSize": "10GB", "protocols": {"simple": {"path": "/upload/drive/v2/files", "multipart": true}, "resumable": {"path": "/resumable/upload/drive/v2/files", "multipart": true}}, "accept": ["*/*"]}, "response": {"$ref": "File"}, "httpMethod": "POST", "path": "files", "id": "drive.files.insert"}, "untrash": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.files.untrash", "httpMethod": "POST", "path": "files/{fileId}/untrash", "response": {"$ref": "File"}}, "trash": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.files.trash", "httpMethod": "POST", "path": "files/{fileId}/trash", "response": {"$ref": "File"}}, "get": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive.metadata.readonly", "https://www.googleapis.com/auth/drive.readonly"], "parameters": {"updateViewedDate": {"default": "false", "type": "boolean", "location": "query"}, "projection": {"enum": ["BASIC", "FULL"], "type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.files.get", "httpMethod": "GET", "path": "files/{fileId}", "response": {"$ref": "File"}}, "list": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive.metadata.readonly", "https://www.googleapis.com/auth/drive.readonly"], "parameters": {"q": {"type": "string", "location": "query"}, "pageToken": {"type": "string", "location": "query"}, "projection": {"enum": ["BASIC", "FULL"], "type": "string", "location": "query"}, "maxResults": {"default": "100", "minimum": "0", "type": "integer", "location": "query", "format": "int32"}}, "response": {"$ref": "FileList"}, "httpMethod": "GET", "path": "files", "id": "drive.files.list"}, "update": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "setModifiedDate": {"default": "false", "type": "boolean", "location": "query"}, "updateViewedDate": {"default": "true", "type": "boolean", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "newRevision": {"default": "true", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "supportsMediaUpload": true, "request": {"$ref": "File"}, "mediaUpload": {"maxSize": "10GB", "protocols": {"simple": {"path": "/upload/drive/v2/files/{fileId}", "multipart": true}, "resumable": {"path": "/resumable/upload/drive/v2/files/{fileId}", "multipart": true}}, "accept": ["*/*"]}, "response": {"$ref": "File"}, "httpMethod": "PUT", "path": "files/{fileId}", "id": "drive.files.update"}, "patch": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "setModifiedDate": {"default": "false", "type": "boolean", "location": "query"}, "updateViewedDate": {"default": "true", "type": "boolean", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "newRevision": {"default": "true", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "request": {"$ref": "File"}, "response": {"$ref": "File"}, "httpMethod": "PATCH", "path": "files/{fileId}", "id": "drive.files.patch"}, "touch": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.files.touch", "httpMethod": "POST", "path": "files/{fileId}/touch", "response": {"$ref": "File"}}, "copy": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "request": {"$ref": "File"}, "response": {"$ref": "File"}, "httpMethod": "POST", "path": "files/{fileId}/copy", "id": "drive.files.copy"}, "delete": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "path": "files/{fileId}", "id": "drive.files.delete", "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "httpMethod": "DELETE"}}}', true));
+    $this->files = new Google_FilesServiceResource($this, $this->serviceName, 'files', json_decode('{"methods": {"insert": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}}, "supportsMediaUpload": true, "request": {"$ref": "File"}, "mediaUpload": {"maxSize": "10GB", "protocols": {"simple": {"path": "/upload/drive/v2/files", "multipart": true}, "resumable": {"path": "/resumable/upload/drive/v2/files", "multipart": true}}, "accept": ["* *"]}, "response": {"$ref": "File"}, "httpMethod": "PUT", "path": "files/{fileId}", "id": "drive.files.update"}, "patch": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "setModifiedDate": {"default": "false", "type": "boolean", "location": "query"}, "updateViewedDate": {"default": "true", "type": "boolean", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "newRevision": {"default": "true", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "request": {"$ref": "File"}, "response": {"$ref": "File"}, "httpMethod": "PATCH", "path": "files/{fileId}", "id": "drive.files.patch"}, "touch": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.files.touch", "httpMethod": "POST", "path": "files/{fileId}/touch", "response": {"$ref": "File"}}, "copy": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"convert": {"default": "false", "type": "boolean", "location": "query"}, "ocr": {"default": "false", "type": "boolean", "location": "query"}, "sourceLanguage": {"type": "string", "location": "query"}, "ocrLanguage": {"type": "string", "location": "query"}, "pinned": {"default": "false", "type": "boolean", "location": "query"}, "targetLanguage": {"type": "string", "location": "query"}, "timedTextLanguage": {"type": "string", "location": "query"}, "timedTextTrackName": {"type": "string", "location": "query"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "request": {"$ref": "File"}, "response": {"$ref": "File"}, "httpMethod": "POST", "path": "files/{fileId}/copy", "id": "drive.files.copy"}, "delete": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "path": "files/{fileId}", "id": "drive.files.delete", "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "httpMethod": "DELETE"}}}', true));
     $this->about = new Google_AboutServiceResource($this, $this->serviceName, 'about', json_decode('{"methods": {"get": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive.metadata.readonly", "https://www.googleapis.com/auth/drive.readonly"], "parameters": {"includeSubscribed": {"default": "true", "type": "boolean", "location": "query"}, "maxChangeIdCount": {"default": "1", "type": "string", "location": "query", "format": "int64"}, "startChangeId": {"type": "string", "location": "query", "format": "int64"}}, "response": {"$ref": "About"}, "httpMethod": "GET", "path": "about", "id": "drive.about.get"}}}', true));
     $this->apps = new Google_AppsServiceResource($this, $this->serviceName, 'apps', json_decode('{"methods": {"list": {"scopes": ["https://www.googleapis.com/auth/drive.apps.readonly"], "path": "apps", "response": {"$ref": "AppList"}, "id": "drive.apps.list", "httpMethod": "GET"}, "get": {"scopes": ["https://www.googleapis.com/auth/drive.apps.readonly"], "parameters": {"appId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.apps.get", "httpMethod": "GET", "path": "apps/{appId}", "response": {"$ref": "App"}}}}', true));
     $this->parents = new Google_ParentsServiceResource($this, $this->serviceName, 'parents', json_decode('{"methods": {"insert": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "request": {"$ref": "ParentReference"}, "response": {"$ref": "ParentReference"}, "httpMethod": "POST", "path": "files/{fileId}/parents", "id": "drive.parents.insert"}, "get": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive.metadata.readonly", "https://www.googleapis.com/auth/drive.readonly"], "parameters": {"parentId": {"required": true, "type": "string", "location": "path"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.parents.get", "httpMethod": "GET", "path": "files/{fileId}/parents/{parentId}", "response": {"$ref": "ParentReference"}}, "list": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive.metadata.readonly", "https://www.googleapis.com/auth/drive.readonly"], "parameters": {"fileId": {"required": true, "type": "string", "location": "path"}}, "id": "drive.parents.list", "httpMethod": "GET", "path": "files/{fileId}/parents", "response": {"$ref": "ParentList"}}, "delete": {"scopes": ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"], "path": "files/{fileId}/parents/{parentId}", "id": "drive.parents.delete", "parameters": {"parentId": {"required": true, "type": "string", "location": "path"}, "fileId": {"required": true, "type": "string", "location": "path"}}, "httpMethod": "DELETE"}}}', true));
@@ -836,7 +468,7 @@ class Google_About extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setFeatures(/* array(Google_AboutFeatures) */ $features) {
+  public function setFeatures(  $features) {
     $this->assertIsArray($features, 'Google_AboutFeatures', __METHOD__);
     $this->features = $features;
   }
@@ -855,7 +487,7 @@ class Google_About extends Google_Model {
   public function getPermissionId() {
     return $this->permissionId;
   }
-  public function setMaxUploadSizes(/* array(Google_AboutMaxUploadSizes) */ $maxUploadSizes) {
+  public function setMaxUploadSizes(  $maxUploadSizes) {
     $this->assertIsArray($maxUploadSizes, 'Google_AboutMaxUploadSizes', __METHOD__);
     $this->maxUploadSizes = $maxUploadSizes;
   }
@@ -874,7 +506,7 @@ class Google_About extends Google_Model {
   public function getRemainingChangeIds() {
     return $this->remainingChangeIds;
   }
-  public function setAdditionalRoleInfo(/* array(Google_AboutAdditionalRoleInfo) */ $additionalRoleInfo) {
+  public function setAdditionalRoleInfo(  $additionalRoleInfo) {
     $this->assertIsArray($additionalRoleInfo, 'Google_AboutAdditionalRoleInfo', __METHOD__);
     $this->additionalRoleInfo = $additionalRoleInfo;
   }
@@ -887,7 +519,7 @@ class Google_About extends Google_Model {
   public function getEtag() {
     return $this->etag;
   }
-  public function setImportFormats(/* array(Google_AboutImportFormats) */ $importFormats) {
+  public function setImportFormats(  $importFormats) {
     $this->assertIsArray($importFormats, 'Google_AboutImportFormats', __METHOD__);
     $this->importFormats = $importFormats;
   }
@@ -918,7 +550,7 @@ class Google_About extends Google_Model {
   public function getQuotaBytesUsedInTrash() {
     return $this->quotaBytesUsedInTrash;
   }
-  public function setExportFormats(/* array(Google_AboutExportFormats) */ $exportFormats) {
+  public function setExportFormats(  $exportFormats) {
     $this->assertIsArray($exportFormats, 'Google_AboutExportFormats', __METHOD__);
     $this->exportFormats = $exportFormats;
   }
@@ -950,7 +582,7 @@ class Google_AboutAdditionalRoleInfo extends Google_Model {
   protected $__roleSetsDataType = 'array';
   public $roleSets;
   public $type;
-  public function setRoleSets(/* array(Google_AboutAdditionalRoleInfoRoleSets) */ $roleSets) {
+  public function setRoleSets(  $roleSets) {
     $this->assertIsArray($roleSets, 'Google_AboutAdditionalRoleInfoRoleSets', __METHOD__);
     $this->roleSets = $roleSets;
   }
@@ -974,7 +606,7 @@ class Google_AboutAdditionalRoleInfoRoleSets extends Google_Model {
   public function getPrimaryRole() {
     return $this->primaryRole;
   }
-  public function setAdditionalRoles(/* array(Google_string) */ $additionalRoles) {
+  public function setAdditionalRoles(  $additionalRoles) {
     $this->assertIsArray($additionalRoles, 'Google_string', __METHOD__);
     $this->additionalRoles = $additionalRoles;
   }
@@ -992,7 +624,7 @@ class Google_AboutExportFormats extends Google_Model {
   public function getSource() {
     return $this->source;
   }
-  public function setTargets(/* array(Google_string) */ $targets) {
+  public function setTargets(  $targets) {
     $this->assertIsArray($targets, 'Google_string', __METHOD__);
     $this->targets = $targets;
   }
@@ -1027,7 +659,7 @@ class Google_AboutImportFormats extends Google_Model {
   public function getSource() {
     return $this->source;
   }
-  public function setTargets(/* array(Google_string) */ $targets) {
+  public function setTargets(  $targets) {
     $this->assertIsArray($targets, 'Google_string', __METHOD__);
     $this->targets = $targets;
   }
@@ -1077,7 +709,7 @@ class Google_App extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setPrimaryFileExtensions(/* array(Google_string) */ $primaryFileExtensions) {
+  public function setPrimaryFileExtensions(  $primaryFileExtensions) {
     $this->assertIsArray($primaryFileExtensions, 'Google_string', __METHOD__);
     $this->primaryFileExtensions = $primaryFileExtensions;
   }
@@ -1096,14 +728,14 @@ class Google_App extends Google_Model {
   public function getName() {
     return $this->name;
   }
-  public function setIcons(/* array(Google_AppIcons) */ $icons) {
+  public function setIcons(  $icons) {
     $this->assertIsArray($icons, 'Google_AppIcons', __METHOD__);
     $this->icons = $icons;
   }
   public function getIcons() {
     return $this->icons;
   }
-  public function setSecondaryFileExtensions(/* array(Google_string) */ $secondaryFileExtensions) {
+  public function setSecondaryFileExtensions(  $secondaryFileExtensions) {
     $this->assertIsArray($secondaryFileExtensions, 'Google_string', __METHOD__);
     $this->secondaryFileExtensions = $secondaryFileExtensions;
   }
@@ -1122,7 +754,7 @@ class Google_App extends Google_Model {
   public function getProductUrl() {
     return $this->productUrl;
   }
-  public function setSecondaryMimeTypes(/* array(Google_string) */ $secondaryMimeTypes) {
+  public function setSecondaryMimeTypes(  $secondaryMimeTypes) {
     $this->assertIsArray($secondaryMimeTypes, 'Google_string', __METHOD__);
     $this->secondaryMimeTypes = $secondaryMimeTypes;
   }
@@ -1147,7 +779,7 @@ class Google_App extends Google_Model {
   public function getSupportsImport() {
     return $this->supportsImport;
   }
-  public function setPrimaryMimeTypes(/* array(Google_string) */ $primaryMimeTypes) {
+  public function setPrimaryMimeTypes(  $primaryMimeTypes) {
     $this->assertIsArray($primaryMimeTypes, 'Google_string', __METHOD__);
     $this->primaryMimeTypes = $primaryMimeTypes;
   }
@@ -1199,7 +831,7 @@ class Google_AppList extends Google_Model {
   public $kind;
   public $etag;
   public $selfLink;
-  public function setItems(/* array(Google_App) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_App', __METHOD__);
     $this->items = $items;
   }
@@ -1295,7 +927,7 @@ class Google_ChangeList extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_Change) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Change', __METHOD__);
     $this->items = $items;
   }
@@ -1349,7 +981,7 @@ class Google_ChildList extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_ChildReference) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_ChildReference', __METHOD__);
     $this->items = $items;
   }
@@ -1511,7 +1143,7 @@ class Google_DriveFile extends Google_Model {
   public function getTitle() {
     return $this->title;
   }
-  public function setOwnerNames(/* array(Google_string) */ $ownerNames) {
+  public function setOwnerNames(  $ownerNames) {
     $this->assertIsArray($ownerNames, 'Google_string', __METHOD__);
     $this->ownerNames = $ownerNames;
   }
@@ -1530,7 +1162,7 @@ class Google_DriveFile extends Google_Model {
   public function getLastViewedByMeDate() {
     return $this->lastViewedByMeDate;
   }
-  public function setParents(/* array(Google_ParentReference) */ $parents) {
+  public function setParents(  $parents) {
     $this->assertIsArray($parents, 'Google_ParentReference', __METHOD__);
     $this->parents = $parents;
   }
@@ -1779,7 +1411,7 @@ class Google_FileList extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setItems(/* array(Google_DriveFile) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_DriveFile', __METHOD__);
     $this->items = $items;
   }
@@ -1813,7 +1445,7 @@ class Google_ParentList extends Google_Model {
   public $kind;
   public $etag;
   public $selfLink;
-  public function setItems(/* array(Google_ParentReference) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_ParentReference', __METHOD__);
     $this->items = $items;
   }
@@ -1951,7 +1583,7 @@ class Google_Permission extends Google_Model {
   public function getType() {
     return $this->type;
   }
-  public function setAdditionalRoles(/* array(Google_string) */ $additionalRoles) {
+  public function setAdditionalRoles(  $additionalRoles) {
     $this->assertIsArray($additionalRoles, 'Google_string', __METHOD__);
     $this->additionalRoles = $additionalRoles;
   }
@@ -1973,7 +1605,7 @@ class Google_PermissionList extends Google_Model {
   public $kind;
   public $etag;
   public $selfLink;
-  public function setItems(/* array(Google_Permission) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Permission', __METHOD__);
     $this->items = $items;
   }
@@ -2129,7 +1761,7 @@ class Google_RevisionList extends Google_Model {
   public $kind;
   public $etag;
   public $selfLink;
-  public function setItems(/* array(Google_Revision) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Revision', __METHOD__);
     $this->items = $items;
   }

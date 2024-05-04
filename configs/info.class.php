@@ -130,7 +130,7 @@ class UserInfo{
 
 		if (strpos(strtolower(self::get_user_agent()),'opera mini') > 0) {
 			$mobile_browser++;
-	            //Check for tablets on opera mini alternative headers
+ 
 			$stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA'])?$_SERVER['HTTP_X_OPERAMINI_PHONE_UA']:(isset($_SERVER['HTTP_DEVICE_STOCK_UA'])?$_SERVER['HTTP_DEVICE_STOCK_UA']:''));
 			if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {
 				$tablet_browser++;
@@ -138,15 +138,15 @@ class UserInfo{
 		}
 
 		if ($tablet_browser > 0) {
-	           // do something for tablet devices
+ 
 			return 'Tablet';
 		}
 		else if ($mobile_browser > 0) {
-	           // do something for mobile devices
+ 
 			return 'Mobile';
 		}
 		else {
-	           // do something for everything else
+ 
 			return 'Computer';
 		}
 	}

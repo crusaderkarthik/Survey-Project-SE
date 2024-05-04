@@ -1,42 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "activities" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $plusService = new Google_PlusService(...);
-   *   $activities = $plusService->activities;
-   *  </code>
-   */
+   
   class Google_ActivitiesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Search public activities. (activities.search)
-     *
-     * @param string $query Full-text search query string.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string orderBy Specifies how to order search results.
-     * @opt_param string pageToken The continuation token, used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response. This token may be of any length.
-     * @opt_param string maxResults The maximum number of activities to include in the response, used for paging. For any response, the actual number returned may be less than the specified maxResults.
-     * @opt_param string language Specify the preferred language to search with. See search language codes for available values.
-     * @return Google_ActivityFeed
-     */
+     
     public function search($query, $optParams = array()) {
       $params = array('query' => $query);
       $params = array_merge($params, $optParams);
@@ -47,17 +17,7 @@
         return $data;
       }
     }
-    /**
-     * List all of the activities in the specified collection for a particular user. (activities.list)
-     *
-     * @param string $userId The ID of the user to get activities for. The special value "me" can be used to indicate the authenticated user.
-     * @param string $collection The collection of activities to list.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken The continuation token, used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param string maxResults The maximum number of activities to include in the response, used for paging. For any response, the actual number returned may be less than the specified maxResults.
-     * @return Google_ActivityFeed
-     */
+     
     public function listActivities($userId, $collection, $optParams = array()) {
       $params = array('userId' => $userId, 'collection' => $collection);
       $params = array_merge($params, $optParams);
@@ -68,13 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Get an activity. (activities.get)
-     *
-     * @param string $activityId The ID of the activity to get.
-     * @param array $optParams Optional parameters.
-     * @return Google_Activity
-     */
+     
     public function get($activityId, $optParams = array()) {
       $params = array('activityId' => $activityId);
       $params = array_merge($params, $optParams);
@@ -87,28 +41,11 @@
     }
   }
 
-  /**
-   * The "comments" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $plusService = new Google_PlusService(...);
-   *   $comments = $plusService->comments;
-   *  </code>
-   */
+   
   class Google_CommentsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all of the comments for an activity. (comments.list)
-     *
-     * @param string $activityId The ID of the activity to get comments for.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken The continuation token, used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param string maxResults The maximum number of comments to include in the response, used for paging. For any response, the actual number returned may be less than the specified maxResults.
-     * @opt_param string sortOrder The order in which to sort the list of comments.
-     * @return Google_CommentFeed
-     */
+     
     public function listComments($activityId, $optParams = array()) {
       $params = array('activityId' => $activityId);
       $params = array_merge($params, $optParams);
@@ -119,13 +56,7 @@
         return $data;
       }
     }
-    /**
-     * Get a comment. (comments.get)
-     *
-     * @param string $commentId The ID of the comment to get.
-     * @param array $optParams Optional parameters.
-     * @return Google_Comment
-     */
+     
     public function get($commentId, $optParams = array()) {
       $params = array('commentId' => $commentId);
       $params = array_merge($params, $optParams);
@@ -138,29 +69,11 @@
     }
   }
 
-  /**
-   * The "people" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $plusService = new Google_PlusService(...);
-   *   $people = $plusService->people;
-   *  </code>
-   */
+   
   class Google_PeopleServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * List all of the people in the specified collection for a particular activity.
-     * (people.listByActivity)
-     *
-     * @param string $activityId The ID of the activity to get the list of people for.
-     * @param string $collection The collection of people to list.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken The continuation token, used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
-     * @opt_param string maxResults The maximum number of people to include in the response, used for paging. For any response, the actual number returned may be less than the specified maxResults.
-     * @return Google_PeopleFeed
-     */
+     
     public function listByActivity($activityId, $collection, $optParams = array()) {
       $params = array('activityId' => $activityId, 'collection' => $collection);
       $params = array_merge($params, $optParams);
@@ -171,17 +84,7 @@
         return $data;
       }
     }
-    /**
-     * Search all public profiles. (people.search)
-     *
-     * @param string $query Specify a query string for full text search of public text in all profiles.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken The continuation token, used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response. This token may be of any length.
-     * @opt_param string maxResults The maximum number of people to include in the response, used for paging. For any response, the actual number returned may be less than the specified maxResults.
-     * @opt_param string language Specify the preferred language to search with. See search language codes for available values.
-     * @return Google_PeopleFeed
-     */
+     
     public function search($query, $optParams = array()) {
       $params = array('query' => $query);
       $params = array_merge($params, $optParams);
@@ -192,13 +95,7 @@
         return $data;
       }
     }
-    /**
-     * Get a person's profile. (people.get)
-     *
-     * @param string $userId The ID of the person to get the profile for. The special value "me" can be used to indicate the authenticated user.
-     * @param array $optParams Optional parameters.
-     * @return Google_Person
-     */
+     
     public function get($userId, $optParams = array()) {
       $params = array('userId' => $userId);
       $params = array_merge($params, $optParams);
@@ -211,29 +108,12 @@
     }
   }
 
-/**
- * Service definition for Google_Plus (v1).
- *
- * <p>
- * The Google+ API enables developers to build on top of the Google+ platform.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/+/api/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_PlusService extends Google_Service {
   public $activities;
   public $comments;
   public $people;
-  /**
-   * Constructs the internal representation of the Plus service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'plus/v1/';
     $this->version = 'v1';

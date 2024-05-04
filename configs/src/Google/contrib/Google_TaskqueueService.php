@@ -1,40 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "taskqueues" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $taskqueueService = new Google_TaskqueueService(...);
-   *   $taskqueues = $taskqueueService->taskqueues;
-   *  </code>
-   */
+   
   class Google_TaskqueuesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Get detailed information about a TaskQueue. (taskqueues.get)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue The id of the taskqueue to get the properties of.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool getStats Whether to get stats. Optional.
-     * @return Google_TaskQueue
-     */
+     
     public function get($project, $taskqueue, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue);
       $params = array_merge($params, $optParams);
@@ -47,26 +19,11 @@
     }
   }
 
-  /**
-   * The "tasks" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $taskqueueService = new Google_TaskqueueService(...);
-   *   $tasks = $taskqueueService->tasks;
-   *  </code>
-   */
+   
   class Google_TasksServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Insert a new task in a TaskQueue (tasks.insert)
-     *
-     * @param string $project The project under which the queue lies
-     * @param string $taskqueue The taskqueue to insert the task into
-     * @param Google_Task $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Task
-     */
+     
     public function insert($project, $taskqueue, Google_Task $postBody, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -77,15 +34,7 @@
         return $data;
       }
     }
-    /**
-     * Get a particular task from a TaskQueue. (tasks.get)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue The taskqueue in which the task belongs.
-     * @param string $task The task to get properties of.
-     * @param array $optParams Optional parameters.
-     * @return Google_Task
-     */
+     
     public function get($project, $taskqueue, $task, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'task' => $task);
       $params = array_merge($params, $optParams);
@@ -96,14 +45,7 @@
         return $data;
       }
     }
-    /**
-     * List Tasks in a TaskQueue (tasks.list)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue The id of the taskqueue to list tasks from.
-     * @param array $optParams Optional parameters.
-     * @return Google_Tasks2
-     */
+     
     public function listTasks($project, $taskqueue, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue);
       $params = array_merge($params, $optParams);
@@ -114,17 +56,7 @@
         return $data;
       }
     }
-    /**
-     * Update tasks that are leased out of a TaskQueue. (tasks.update)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue
-     * @param string $task
-     * @param int $newLeaseSeconds The new lease in seconds.
-     * @param Google_Task $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Task
-     */
+     
     public function update($project, $taskqueue, $task, $newLeaseSeconds, Google_Task $postBody, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'task' => $task, 'newLeaseSeconds' => $newLeaseSeconds, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -135,18 +67,7 @@
         return $data;
       }
     }
-    /**
-     * Update tasks that are leased out of a TaskQueue. This method supports patch semantics.
-     * (tasks.patch)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue
-     * @param string $task
-     * @param int $newLeaseSeconds The new lease in seconds.
-     * @param Google_Task $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Task
-     */
+     
     public function patch($project, $taskqueue, $task, $newLeaseSeconds, Google_Task $postBody, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'task' => $task, 'newLeaseSeconds' => $newLeaseSeconds, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -157,33 +78,14 @@
         return $data;
       }
     }
-    /**
-     * Delete a task from a TaskQueue. (tasks.delete)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue The taskqueue to delete a task from.
-     * @param string $task The id of the task to delete.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($project, $taskqueue, $task, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'task' => $task);
       $params = array_merge($params, $optParams);
       $data = $this->__call('delete', array($params));
       return $data;
     }
-    /**
-     * Lease 1 or more tasks from a TaskQueue. (tasks.lease)
-     *
-     * @param string $project The project under which the queue lies.
-     * @param string $taskqueue The taskqueue to lease a task from.
-     * @param int $numTasks The number of tasks to lease.
-     * @param int $leaseSecs The lease in seconds.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool groupByTag When true, all returned tasks will have the same tag
-     * @opt_param string tag The tag allowed for tasks in the response. Must only be specified if group_by_tag is true. If group_by_tag is true and tag is not specified the tag will be that of the oldest task by eta, i.e. the first available tag
-     * @return Google_Tasks
-     */
+     
     public function lease($project, $taskqueue, $numTasks, $leaseSecs, $optParams = array()) {
       $params = array('project' => $project, 'taskqueue' => $taskqueue, 'numTasks' => $numTasks, 'leaseSecs' => $leaseSecs);
       $params = array_merge($params, $optParams);
@@ -196,28 +98,11 @@
     }
   }
 
-/**
- * Service definition for Google_Taskqueue (v1beta2).
- *
- * <p>
- * Lets you access a Google App Engine Pull Task Queue over REST.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="http://code.google.com/appengine/docs/python/taskqueue/rest.html" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_TaskqueueService extends Google_Service {
   public $taskqueues;
   public $tasks;
-  /**
-   * Constructs the internal representation of the Taskqueue service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'taskqueue/v1beta2/projects/';
     $this->version = 'v1beta2';
@@ -328,21 +213,21 @@ class Google_TaskQueueAcl extends Google_Model {
   public $consumerEmails;
   public $producerEmails;
   public $adminEmails;
-  public function setConsumerEmails(/* array(Google_string) */ $consumerEmails) {
+  public function setConsumerEmails(  $consumerEmails) {
     $this->assertIsArray($consumerEmails, 'Google_string', __METHOD__);
     $this->consumerEmails = $consumerEmails;
   }
   public function getConsumerEmails() {
     return $this->consumerEmails;
   }
-  public function setProducerEmails(/* array(Google_string) */ $producerEmails) {
+  public function setProducerEmails(  $producerEmails) {
     $this->assertIsArray($producerEmails, 'Google_string', __METHOD__);
     $this->producerEmails = $producerEmails;
   }
   public function getProducerEmails() {
     return $this->producerEmails;
   }
-  public function setAdminEmails(/* array(Google_string) */ $adminEmails) {
+  public function setAdminEmails(  $adminEmails) {
     $this->assertIsArray($adminEmails, 'Google_string', __METHOD__);
     $this->adminEmails = $adminEmails;
   }
@@ -387,7 +272,7 @@ class Google_Tasks extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Task) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Task', __METHOD__);
     $this->items = $items;
   }
@@ -407,7 +292,7 @@ class Google_Tasks2 extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Task) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Task', __METHOD__);
     $this->items = $items;
   }

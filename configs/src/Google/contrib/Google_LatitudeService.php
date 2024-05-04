@@ -1,37 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "currentLocation" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $latitudeService = new Google_LatitudeService(...);
-   *   $currentLocation = $latitudeService->currentLocation;
-   *  </code>
-   */
+   
   class Google_CurrentLocationServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Updates or creates the user's current location. (currentLocation.insert)
-     *
-     * @param Google_Location $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Location
-     */
+     
     public function insert(Google_Location $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -42,14 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the authenticated user's current location. (currentLocation.get)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string granularity Granularity of the requested location.
-     * @return Google_Location
-     */
+     
     public function get($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -60,11 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the authenticated user's current location. (currentLocation.delete)
-     *
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -73,24 +37,11 @@
     }
   }
 
-  /**
-   * The "location" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $latitudeService = new Google_LatitudeService(...);
-   *   $location = $latitudeService->location;
-   *  </code>
-   */
+   
   class Google_LocationServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts or updates a location in the user's location history. (location.insert)
-     *
-     * @param Google_Location $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Location
-     */
+     
     public function insert(Google_Location $postBody, $optParams = array()) {
       $params = array('postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -101,15 +52,7 @@
         return $data;
       }
     }
-    /**
-     * Reads a location from the user's location history. (location.get)
-     *
-     * @param string $locationId Timestamp of the location to read (ms since epoch).
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string granularity Granularity of the location to return.
-     * @return Google_Location
-     */
+     
     public function get($locationId, $optParams = array()) {
       $params = array('locationId' => $locationId);
       $params = array_merge($params, $optParams);
@@ -120,17 +63,7 @@
         return $data;
       }
     }
-    /**
-     * Lists the user's location history. (location.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string max-results Maximum number of locations to return.
-     * @opt_param string max-time Maximum timestamp of locations to return (ms since epoch).
-     * @opt_param string min-time Minimum timestamp of locations to return (ms since epoch).
-     * @opt_param string granularity Granularity of the requested locations.
-     * @return Google_LocationFeed
-     */
+     
     public function listLocation($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -141,12 +74,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes a location from the user's location history. (location.delete)
-     *
-     * @param string $locationId Timestamp of the location to delete (ms since epoch).
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($locationId, $optParams = array()) {
       $params = array('locationId' => $locationId);
       $params = array_merge($params, $optParams);
@@ -155,28 +83,11 @@
     }
   }
 
-/**
- * Service definition for Google_Latitude (v1).
- *
- * <p>
- * Lets you read and update your current location and work with your location history
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/latitude/v1/using" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_LatitudeService extends Google_Service {
   public $currentLocation;
   public $location;
-  /**
-   * Constructs the internal representation of the Latitude service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'latitude/v1/';
     $this->version = 'v1';
@@ -267,7 +178,7 @@ class Google_LocationFeed extends Google_Model {
   protected $__itemsDataType = 'array';
   public $items;
   public $kind;
-  public function setItems(/* array(Google_Location) */ $items) {
+  public function setItems(  $items) {
     $this->assertIsArray($items, 'Google_Location', __METHOD__);
     $this->items = $items;
   }

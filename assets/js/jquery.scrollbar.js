@@ -1,16 +1,4 @@
-/**
- * jQuery CSS Customizable Scrollbar
- *
- * Copyright 2015, Yuriy Khabarov
- * Dual licensed under the MIT or GPL Version 2 licenses.
- *
- * If you found bug, please contact me via email <13real008@gmail.com>
- *
- * @author Yuriy Khabarov aka Gromo
- * @version 0.2.10
- * @url https://github.com/gromo/jquery.scrollbar/
- *
- */
+ 
 ;
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -20,8 +8,7 @@
     }
 }(this, function ($) {
     'use strict';
-
-    // init flags & variables
+ 
     var debug = false;
 
     var browser = {
@@ -110,8 +97,7 @@
 
             this.container.removeData(browser.data.name);
             browser.scrolls.remove(this);
-
-            // init variables
+ 
             var scrollLeft = this.container.scrollLeft();
             var scrollTop = this.container.scrollTop();
 
@@ -137,8 +123,7 @@
             }
         },
         init: function (options) {
-
-            // init variables
+ 
             var S = this,
                 c = this.container,
                 cw = this.containerWrapper || c,
@@ -151,16 +136,14 @@
                 "scrollLeft": c.scrollLeft(),
                 "scrollTop": c.scrollTop()
             };
-
-            // do not init if in ignorable browser
+ 
             if ((browser.mobile && o.ignoreMobile)
                 || (browser.overlay && o.ignoreOverlay)
                 || (browser.macosx && !browser.webkit) // still required to ignore nonWebKit browsers on Mac
                 ) {
                 return false;
             }
-
-            // init scroll container
+ 
             if (!w) {
                 this.wrapper = w = $('<div>').addClass('scroll-wrapper').addClass(c.attr('class'))
                     .css('position', c.css('position') == 'absolute' ? 'absolute' : 'relative')
@@ -196,7 +179,7 @@
                     s.y.isVisible && s.y.scroll.bar.css('top', c.scrollTop() * s.y.kx + 'px');
                 });
 
-                /* prevent native scrollbars to be visible on #anchor click */
+                 
                 w.on('scroll' + namespace, function () {
                     w.scrollTop(0).scrollLeft(0);
                 });
@@ -244,8 +227,7 @@
                     "max-height": ""
                 });
             }
-
-            // init scrollbars & recalculate sizes
+ 
             $.each(s, function (d, scrollx) {
 
                 var scrollCallback = null;
@@ -315,8 +297,7 @@
                         .on('mouseenter' + namespace, function () {
                             scrollToValue = c[scrollOffset]();
                         });
-
-                    // handle arrows & scroll inner mousedown event
+ 
                     scrollx.scroll.find('.scroll-arrow, .scroll-element_track')
                         .on('mousedown' + namespace, function (event) {
 
@@ -372,8 +353,7 @@
 
                             return S._handleMouseDown(scrollCallback, event);
                         });
-
-                    // handle scrollbar drag'n'drop
+ 
                     scrollx.scroll.bar.on('mousedown' + namespace, function (event) {
 
                         if (event.which != 1) // lmb
@@ -396,8 +376,7 @@
                     });
                 }
             });
-
-            // remove classes & reset applied styles
+ 
             $.each(s, function (d, scrollx) {
                 var scrollClass = 'scroll-scroll' + d + '_visible';
                 var scrolly = (d == "x") ? s.y : s.x;
@@ -406,8 +385,7 @@
                 scrolly.scroll.removeClass(scrollClass);
                 cw.removeClass(scrollClass);
             });
-
-            // calculate init sizes
+ 
             $.each(s, function (d, scrollx) {
                 $.extend(scrollx, (d == "x") ? {
                     "offset": parseInt(c.css('left'), 10) || 0,
@@ -419,16 +397,14 @@
                     "visible": w.height()
                 });
             });
-
-            // update scrollbar visibility/dimensions
+ 
             this._updateScroll('x', this.scrollx);
             this._updateScroll('y', this.scrolly);
 
             if ($.isFunction(o.onUpdate)){
                 o.onUpdate.apply(this, [c]);
             }
-
-            // calculate scroll size
+ 
             $.each(s, function (d, scrollx) {
 
                 var cssOffset = (d === 'x') ? 'left' : 'top';
@@ -454,12 +430,7 @@
             c.scrollLeft(initScroll.scrollLeft).scrollTop(initScroll.scrollTop).trigger('scroll');
         },
 
-        /**
-         * Get scrollx/scrolly object
-         *
-         * @param {Mixed} scroll
-         * @returns {jQuery} scroll object
-         */
+         
         _getScroll: function (scroll) {
             var types = {
                 advanced: [
@@ -569,7 +540,7 @@
                     });
                 } else {
                     containerWrapper.css({
-                        //"height": "auto", // do not reset height value: issue with height:100%!
+ 
                         "max-height": (AreaVisible + browser.scroll.height) + 'px'
                     });
                 }
@@ -599,13 +570,7 @@
 
     var CustomScrollbar = BaseScrollbar;
 
-    /*
-     * Extend jQuery as plugin
-     *
-     * @param {Mixed} command to execute
-     * @param {Mixed} arguments as Array
-     * @return {jQuery}
-     */
+     
     $.fn.scrollbar = function (command, args) {
         if (typeof command !== 'string') {
             args = command;
@@ -632,15 +597,11 @@
         return this;
     };
 
-    /**
-     * Connect default options to global object
-     */
+     
     $.fn.scrollbar.options = defaults;
 
 
-    /**
-     * Check if scroll content/container size is changed
-     */
+     
 
     var updateScrollbars = (function () {
         var timer = 0,
@@ -680,13 +641,8 @@
         };
     })();
 
-    /* ADDITIONAL FUNCTIONS */
-    /**
-     * Get native browser scrollbar size (height/width)
-     *
-     * @param {Boolean} actual size or CSS size, default - CSS size
-     * @returns {Object} with height, width
-     */
+     
+     
     function getBrowserScrollSize(actualSize) {
 
         if (browser.webkit && !actualSize) {
@@ -722,11 +678,7 @@
         };
     }
 
-    /**
-     * Check if native browser scrollbars overlay content
-     *
-     * @returns {Boolean}
-     */
+     
     function isScrollOverlaysContent() {
         var scrollSize = getBrowserScrollSize(true);
         return !(scrollSize.height || scrollSize.width);
@@ -742,11 +694,7 @@
     }
 
 
-    /**
-     * Extend AngularJS as UI directive
-     * and expose a provider for override default config
-     *
-     */
+     
     if (window.angular) {
         (function (angular) {
             angular.module('jQueryScrollbar', [])

@@ -1,38 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "operations" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $operations = $computeService->operations;
-   *  </code>
-   */
+   
   class Google_OperationsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the specified operation resource. (operations.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $operation Name of the operation resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function get($project, $operation, $optParams = array()) {
       $params = array('project' => $project, 'operation' => $operation);
       $params = array_merge($params, $optParams);
@@ -43,18 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of operation resources contained within the specified project.
-     * (operations.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_OperationList
-     */
+     
     public function listOperations($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -65,13 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified operation resource. (operations.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $operation Name of the operation resource to delete.
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($project, $operation, $optParams = array()) {
       $params = array('project' => $project, 'operation' => $operation);
       $params = array_merge($params, $optParams);
@@ -80,28 +37,11 @@
     }
   }
 
-  /**
-   * The "kernels" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $kernels = $computeService->kernels;
-   *  </code>
-   */
+   
   class Google_KernelsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the list of kernel resources available to the specified project. (kernels.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_KernelList
-     */
+     
     public function listKernels($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -112,14 +52,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified kernel resource. (kernels.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $kernel Name of the kernel resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Kernel
-     */
+     
     public function get($project, $kernel, $optParams = array()) {
       $params = array('project' => $project, 'kernel' => $kernel);
       $params = array_merge($params, $optParams);
@@ -132,26 +65,11 @@
     }
   }
 
-  /**
-   * The "disks" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $disks = $computeService->disks;
-   *  </code>
-   */
+   
   class Google_DisksServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a persistent disk resource in the specified project using the data included in the
-     * request. (disks.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Disk $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Disk $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -162,14 +80,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified persistent disk resource. (disks.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $disk Name of the persistent disk resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Disk
-     */
+     
     public function get($project, $disk, $optParams = array()) {
       $params = array('project' => $project, 'disk' => $disk);
       $params = array_merge($params, $optParams);
@@ -180,18 +91,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of persistent disk resources contained within the specified project.
-     * (disks.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_DiskList
-     */
+     
     public function listDisks($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -202,14 +102,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified persistent disk resource. (disks.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $disk Name of the persistent disk resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $disk, $optParams = array()) {
       $params = array('project' => $project, 'disk' => $disk);
       $params = array_merge($params, $optParams);
@@ -222,26 +115,11 @@
     }
   }
 
-  /**
-   * The "snapshots" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $snapshots = $computeService->snapshots;
-   *  </code>
-   */
+   
   class Google_SnapshotsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a persistent disk snapshot resource in the specified project using the data included in
-     * the request. (snapshots.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Snapshot $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Snapshot $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -252,14 +130,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified persistent disk snapshot resource. (snapshots.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $snapshot Name of the persistent disk snapshot resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Snapshot
-     */
+     
     public function get($project, $snapshot, $optParams = array()) {
       $params = array('project' => $project, 'snapshot' => $snapshot);
       $params = array_merge($params, $optParams);
@@ -270,18 +141,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of persistent disk snapshot resources contained within the specified project.
-     * (snapshots.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_SnapshotList
-     */
+     
     public function listSnapshots($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -292,14 +152,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified persistent disk snapshot resource. (snapshots.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $snapshot Name of the persistent disk snapshot resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $snapshot, $optParams = array()) {
       $params = array('project' => $project, 'snapshot' => $snapshot);
       $params = array_merge($params, $optParams);
@@ -312,28 +165,11 @@
     }
   }
 
-  /**
-   * The "zones" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $zones = $computeService->zones;
-   *  </code>
-   */
+   
   class Google_ZonesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the list of zone resources available to the specified project. (zones.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_ZoneList
-     */
+     
     public function listZones($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -344,14 +180,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified zone resource. (zones.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $zone Name of the zone resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Zone
-     */
+     
     public function get($project, $zone, $optParams = array()) {
       $params = array('project' => $project, 'zone' => $zone);
       $params = array_merge($params, $optParams);
@@ -364,26 +193,11 @@
     }
   }
 
-  /**
-   * The "instances" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $instances = $computeService->instances;
-   *  </code>
-   */
+   
   class Google_InstancesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates an instance resource in the specified project using the data included in the request.
-     * (instances.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Instance $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Instance $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -394,16 +208,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes an access config from an instance's network interface. (instances.deleteAccessConfig)
-     *
-     * @param string $project Project name.
-     * @param string $instance Instance name.
-     * @param string $access_config Access config name.
-     * @param string $network_interface Network interface name.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function deleteAccessConfig($project, $instance, $access_config, $network_interface, $optParams = array()) {
       $params = array('project' => $project, 'instance' => $instance, 'access_config' => $access_config, 'network_interface' => $network_interface);
       $params = array_merge($params, $optParams);
@@ -414,14 +219,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified instance resource. (instances.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $instance Name of the instance resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Instance
-     */
+     
     public function get($project, $instance, $optParams = array()) {
       $params = array('project' => $project, 'instance' => $instance);
       $params = array_merge($params, $optParams);
@@ -432,17 +230,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of instance resources contained within the specified project. (instances.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_InstanceList
-     */
+     
     public function listInstances($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -453,16 +241,7 @@
         return $data;
       }
     }
-    /**
-     * Adds an access config to an instance's network interface. (instances.addAccessConfig)
-     *
-     * @param string $project Project name.
-     * @param string $instance Instance name.
-     * @param string $network_interface Network interface name.
-     * @param Google_AccessConfig $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function addAccessConfig($project, $instance, $network_interface, Google_AccessConfig $postBody, $optParams = array()) {
       $params = array('project' => $project, 'instance' => $instance, 'network_interface' => $network_interface, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -473,14 +252,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified instance resource. (instances.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $instance Name of the instance resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $instance, $optParams = array()) {
       $params = array('project' => $project, 'instance' => $instance);
       $params = array_merge($params, $optParams);
@@ -493,29 +265,11 @@
     }
   }
 
-  /**
-   * The "machineTypes" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $machineTypes = $computeService->machineTypes;
-   *  </code>
-   */
+   
   class Google_MachineTypesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves the list of machine type resources available to the specified project.
-     * (machineTypes.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_MachineTypeList
-     */
+     
     public function listMachineTypes($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -526,14 +280,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified machine type resource. (machineTypes.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $machineType Name of the machine type resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_MachineType
-     */
+     
     public function get($project, $machineType, $optParams = array()) {
       $params = array('project' => $project, 'machineType' => $machineType);
       $params = array_merge($params, $optParams);
@@ -546,26 +293,11 @@
     }
   }
 
-  /**
-   * The "images" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $images = $computeService->images;
-   *  </code>
-   */
+   
   class Google_ImagesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates an image resource in the specified project using the data included in the request.
-     * (images.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Image $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Image $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -576,14 +308,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified image resource. (images.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $image Name of the image resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Image
-     */
+     
     public function get($project, $image, $optParams = array()) {
       $params = array('project' => $project, 'image' => $image);
       $params = array_merge($params, $optParams);
@@ -594,17 +319,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of image resources available to the specified project. (images.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_ImageList
-     */
+     
     public function listImages($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -615,14 +330,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified image resource. (images.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $image Name of the image resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $image, $optParams = array()) {
       $params = array('project' => $project, 'image' => $image);
       $params = array_merge($params, $optParams);
@@ -635,26 +343,11 @@
     }
   }
 
-  /**
-   * The "firewalls" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $firewalls = $computeService->firewalls;
-   *  </code>
-   */
+   
   class Google_FirewallsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a firewall resource in the specified project using the data included in the request.
-     * (firewalls.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Firewall $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Firewall $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -665,14 +358,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified firewall resource. (firewalls.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $firewall Name of the firewall resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Firewall
-     */
+     
     public function get($project, $firewall, $optParams = array()) {
       $params = array('project' => $project, 'firewall' => $firewall);
       $params = array_merge($params, $optParams);
@@ -683,17 +369,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of firewall resources available to the specified project. (firewalls.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_FirewallList
-     */
+     
     public function listFirewalls($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -704,15 +380,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the specified firewall resource with the data included in the request. (firewalls.update)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $firewall Name of the firewall resource to update.
-     * @param Google_Firewall $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function update($project, $firewall, Google_Firewall $postBody, $optParams = array()) {
       $params = array('project' => $project, 'firewall' => $firewall, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -723,16 +391,7 @@
         return $data;
       }
     }
-    /**
-     * Updates the specified firewall resource with the data included in the request. This method
-     * supports patch semantics. (firewalls.patch)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $firewall Name of the firewall resource to update.
-     * @param Google_Firewall $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function patch($project, $firewall, Google_Firewall $postBody, $optParams = array()) {
       $params = array('project' => $project, 'firewall' => $firewall, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -743,14 +402,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified firewall resource. (firewalls.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $firewall Name of the firewall resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $firewall, $optParams = array()) {
       $params = array('project' => $project, 'firewall' => $firewall);
       $params = array_merge($params, $optParams);
@@ -763,26 +415,11 @@
     }
   }
 
-  /**
-   * The "networks" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $networks = $computeService->networks;
-   *  </code>
-   */
+   
   class Google_NetworksServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a network resource in the specified project using the data included in the request.
-     * (networks.insert)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Network $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function insert($project, Google_Network $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -793,14 +430,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the specified network resource. (networks.get)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $network Name of the network resource to return.
-     * @param array $optParams Optional parameters.
-     * @return Google_Network
-     */
+     
     public function get($project, $network, $optParams = array()) {
       $params = array('project' => $project, 'network' => $network);
       $params = array_merge($params, $optParams);
@@ -811,17 +441,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the list of network resources available to the specified project. (networks.list)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter Optional. Filter expression for filtering listed resources.
-     * @opt_param string pageToken Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
-     * @opt_param string maxResults Optional. Maximum count of results to be returned. Maximum and default value is 100.
-     * @return Google_NetworkList
-     */
+     
     public function listNetworks($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -832,14 +452,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the specified network resource. (networks.delete)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param string $network Name of the network resource to delete.
-     * @param array $optParams Optional parameters.
-     * @return Google_Operation
-     */
+     
     public function delete($project, $network, $optParams = array()) {
       $params = array('project' => $project, 'network' => $network);
       $params = array_merge($params, $optParams);
@@ -852,38 +465,18 @@
     }
   }
 
-  /**
-   * The "projects" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $computeService = new Google_ComputeService(...);
-   *   $projects = $computeService->projects;
-   *  </code>
-   */
+   
   class Google_ProjectsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Sets metadata common to all instances within the specified project using the data included in the
-     * request. (projects.setCommonInstanceMetadata)
-     *
-     * @param string $project Name of the project scoping this request.
-     * @param Google_Metadata $postBody
-     * @param array $optParams Optional parameters.
-     */
+     
     public function setCommonInstanceMetadata($project, Google_Metadata $postBody, $optParams = array()) {
       $params = array('project' => $project, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
       $data = $this->__call('setCommonInstanceMetadata', array($params));
       return $data;
     }
-    /**
-     * Returns the specified project resource. (projects.get)
-     *
-     * @param string $project Name of the project resource to retrieve.
-     * @param array $optParams Optional parameters.
-     * @return Google_Project
-     */
+     
     public function get($project, $optParams = array()) {
       $params = array('project' => $project);
       $params = array_merge($params, $optParams);
@@ -896,20 +489,7 @@
     }
   }
 
-/**
- * Service definition for Google_Compute (v1beta12).
- *
- * <p>
- * API for the Google Compute Engine service.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/compute/docs/reference/v1beta12" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_ComputeService extends Google_Service {
   public $operations;
   public $kernels;
@@ -922,11 +502,7 @@ class Google_ComputeService extends Google_Service {
   public $firewalls;
   public $networks;
   public $projects;
-  /**
-   * Constructs the internal representation of the Compute service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'compute/v1beta12/projects/';
     $this->version = 'v1beta12';

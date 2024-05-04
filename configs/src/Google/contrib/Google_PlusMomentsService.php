@@ -1,41 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "moments" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $plusService = new Google_PlusMomentsService(...);
-   *   $moments = $plusService->moments;
-   *  </code>
-   */
+   
   class Google_MomentsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Record a user activity (e.g Bill watched a video on Youtube) (moments.insert)
-     *
-     * @param string $userId The ID of the user to get activities for. The special value "me" can be used to indicate the authenticated user.
-     * @param string $collection The collection to which to write moments.
-     * @param Google_Moment $postBody
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool debug Return the moment as written. Should be used only for debugging.
-     * @return Google_Moment
-     */
+     
     public function insert($userId, $collection, Google_Moment $postBody, $optParams = array()) {
       $params = array('userId' => $userId, 'collection' => $collection, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -48,27 +19,10 @@
     }
   }
 
-/**
- * Service definition for Google_Plus (v1moments).
- *
- * <p>
- * The Google+ API enables developers to build on top of the Google+ platform.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://developers.google.com/+/history/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_PlusMomentsService extends Google_Service {
   public $moments;
-  /**
-   * Constructs the internal representation of the Plus service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'plus/v1moments/people/';
     $this->version = 'v1moments';
@@ -221,7 +175,7 @@ class Google_ItemScope extends Google_Model {
   public function getDuration() {
     return $this->duration;
   }
-  public function setAdditionalName(/* array(Google_string) */ $additionalName) {
+  public function setAdditionalName(  $additionalName) {
     $this->assertIsArray($additionalName, 'Google_string', __METHOD__);
     $this->additionalName = $additionalName;
   }
@@ -234,7 +188,7 @@ class Google_ItemScope extends Google_Model {
   public function getWorstRating() {
     return $this->worstRating;
   }
-  public function setContributor(/* array(Google_ItemScope) */ $contributor) {
+  public function setContributor(  $contributor) {
     $this->assertIsArray($contributor, 'Google_ItemScope', __METHOD__);
     $this->contributor = $contributor;
   }
@@ -259,21 +213,21 @@ class Google_ItemScope extends Google_Model {
   public function getPostOfficeBoxNumber() {
     return $this->postOfficeBoxNumber;
   }
-  public function setAttendees(/* array(Google_ItemScope) */ $attendees) {
+  public function setAttendees(  $attendees) {
     $this->assertIsArray($attendees, 'Google_ItemScope', __METHOD__);
     $this->attendees = $attendees;
   }
   public function getAttendees() {
     return $this->attendees;
   }
-  public function setAuthor(/* array(Google_ItemScope) */ $author) {
+  public function setAuthor(  $author) {
     $this->assertIsArray($author, 'Google_ItemScope', __METHOD__);
     $this->author = $author;
   }
   public function getAuthor() {
     return $this->author;
   }
-  public function setAssociated_media(/* array(Google_ItemScope) */ $associated_media) {
+  public function setAssociated_media(  $associated_media) {
     $this->assertIsArray($associated_media, 'Google_ItemScope', __METHOD__);
     $this->associated_media = $associated_media;
   }
@@ -448,7 +402,7 @@ class Google_ItemScope extends Google_Model {
   public function getName() {
     return $this->name;
   }
-  public function setPerformers(/* array(Google_ItemScope) */ $performers) {
+  public function setPerformers(  $performers) {
     $this->assertIsArray($performers, 'Google_ItemScope', __METHOD__);
     $this->performers = $performers;
   }

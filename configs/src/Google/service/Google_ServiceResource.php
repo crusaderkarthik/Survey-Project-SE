@@ -1,31 +1,9 @@
 <?php
-/**
- * Copyright 2010 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ 
 
-/**
- * Implements the actual methods/resources of the discovered Google API using magic function
- * calling overloading (__call()), which on call will see if the method name (plus.activities.list)
- * is available in this service, and if so construct an apiHttpRequest representing it.
- *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
- *
- */
+ 
 class Google_ServiceResource {
-  // Valid query parameters that work, but don't appear in discovery.
+ 
   private $stackParameters = array(
       'alt' => array('type' => 'string', 'location' => 'query'),
       'boundary' => array('type' => 'string', 'location' => 'query'),
@@ -40,16 +18,16 @@ class Google_ServiceResource {
       'mediaUpload' => array('type' => 'complex', 'location' => 'query'),
   );
 
-  /** @var Google_Service $service */
+   
   private $service;
 
-  /** @var string $serviceName */
+   
   private $serviceName;
 
-  /** @var string $resourceName */
+   
   private $resourceName;
 
-  /** @var array $methods */
+   
   private $methods;
 
   public function __construct($service, $serviceName, $resourceName, $resource) {
@@ -59,27 +37,20 @@ class Google_ServiceResource {
     $this->methods = isset($resource['methods']) ? $resource['methods'] : array($resourceName => $resource);
   }
 
-  /**
-   * @param $name
-   * @param $arguments
-   * @return Google_HttpRequest|array
-   * @throws Google_Exception
-   */
+   
   public function __call($name, $arguments) {
     if (! isset($this->methods[$name])) {
       throw new Google_Exception("Unknown function: {$this->serviceName}->{$this->resourceName}->{$name}()");
     }
     $method = $this->methods[$name];
     $parameters = $arguments[0];
-
-    // postBody is a special case since it's not defined in the discovery document as parameter, but we abuse the param entry for storing it
+ 
     $postBody = null;
     if (isset($parameters['postBody'])) {
       if (is_object($parameters['postBody'])) {
         $this->stripNull($parameters['postBody']);
       }
-
-      // Some APIs require the postBody to be set under the data key.
+ 
       if (is_array($parameters['postBody']) && 'latitude' == $this->serviceName) {
         if (!isset($parameters['postBody']['data'])) {
           $rawBody = $parameters['postBody'];
@@ -125,20 +96,17 @@ class Google_ServiceResource {
         }
       }
     }
-
-    // Discovery v1.0 puts the canonical method id under the 'id' field.
+ 
     if (! isset($method['id'])) {
       $method['id'] = $method['rpcMethod'];
     }
-
-    // Discovery v1.0 puts the canonical path under the 'path' field.
+ 
     if (! isset($method['path'])) {
       $method['path'] = $method['restPath'];
     }
 
     $servicePath = $this->service->servicePath;
-
-    // Process Media Request
+ 
     $contentType = false;
     if (isset($method['mediaUpload'])) {
       $media = Google_MediaFileUpload::process($postBody, $parameters);
@@ -167,8 +135,7 @@ class Google_ServiceResource {
     if (Google_Client::$useBatch) {
       return $httpRequest;
     }
-
-    // Terminate immediatly if this is a resumable request.
+ 
     if (isset($parameters['uploadType']['value'])
         && 'resumable' == $parameters['uploadType']['value']) {
       return $httpRequest;

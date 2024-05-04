@@ -1,47 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "advertisers" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $ganService = new Google_GanService(...);
-   *   $advertisers = $ganService->advertisers;
-   *  </code>
-   */
+   
   class Google_AdvertisersServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves data about all advertisers that the requesting advertiser/publisher has access to.
-     * (advertisers.list)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string relationshipStatus Filters out all advertisers for which do not have the given relationship status with the requesting publisher.
-     * @opt_param double minSevenDayEpc Filters out all advertisers that have a seven day EPC average lower than the given value (inclusive). Min value: 0.0. Optional.
-     * @opt_param string advertiserCategory Caret(^) delimted list of advertiser categories. Valid categories are defined here: http://www.google.com/support/affiliatenetwork/advertiser/bin/answer.py?hl=en=107581. Filters out all advertisers not in one of the given advertiser categories. Optional.
-     * @opt_param double minNinetyDayEpc Filters out all advertisers that have a ninety day EPC average lower than the given value (inclusive). Min value: 0.0. Optional.
-     * @opt_param string pageToken The value of 'nextPageToken' from the previous page. Optional.
-     * @opt_param string maxResults Max number of items to return in this page. Optional. Defaults to 20.
-     * @opt_param int minPayoutRank A value between 1 and 4, where 1 represents the quartile of advertisers with the lowest ranks and 4 represents the quartile of advertisers with the highest ranks. Filters out all advertisers with a lower rank than the given quartile. For example if a 2 was given only advertisers with a payout rank of 25 or higher would be included. Optional.
-     * @return Google_Advertisers
-     */
+     
     public function listAdvertisers($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -52,18 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves data about a single advertiser if that the requesting advertiser/publisher has access
-     * to it. Only publishers can lookup advertisers. Advertisers can request information about
-     * themselves by omitting the advertiserId query parameter. (advertisers.get)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string advertiserId The ID of the advertiser to look up. Optional.
-     * @return Google_Advertiser
-     */
+     
     public function get($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -76,27 +30,11 @@
     }
   }
 
-  /**
-   * The "ccOffers" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $ganService = new Google_GanService(...);
-   *   $ccOffers = $ganService->ccOffers;
-   *  </code>
-   */
+   
   class Google_CcOffersServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves credit card offers for the given publisher. (ccOffers.list)
-     *
-     * @param string $publisher The ID of the publisher in question.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string advertiser The advertiser ID of a card issuer whose offers to include. Optional, may be repeated.
-     * @opt_param string projection The set of fields to return.
-     * @return Google_CcOffers
-     */
+     
     public function listCcOffers($publisher, $optParams = array()) {
       $params = array('publisher' => $publisher);
       $params = array_merge($params, $optParams);
@@ -109,42 +47,11 @@
     }
   }
 
-  /**
-   * The "events" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $ganService = new Google_GanService(...);
-   *   $events = $ganService->events;
-   *  </code>
-   */
+   
   class Google_EventsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves event data for a given advertiser/publisher. (events.list)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string orderId Caret(^) delimited list of order IDs. Filters out all events that do not reference one of the given order IDs. Optional.
-     * @opt_param string sku Caret(^) delimited list of SKUs. Filters out all events that do not reference one of the given SKU. Optional.
-     * @opt_param string eventDateMax Filters out all events later than given date. Optional. Defaults to 24 hours after eventMin.
-     * @opt_param string type Filters out all events that are not of the given type. Valid values: 'action', 'transaction', 'charge'. Optional.
-     * @opt_param string linkId Caret(^) delimited list of link IDs. Filters out all events that do not reference one of the given link IDs. Optional.
-     * @opt_param string modifyDateMin Filters out all events modified earlier than given date. Optional. Defaults to 24 hours before the current modifyDateMax, if modifyDateMax is explicitly set.
-     * @opt_param string eventDateMin Filters out all events earlier than given date. Optional. Defaults to 24 hours from current date/time.
-     * @opt_param string memberId Caret(^) delimited list of member IDs. Filters out all events that do not reference one of the given member IDs. Optional.
-     * @opt_param string maxResults Max number of offers to return in this page. Optional. Defaults to 20.
-     * @opt_param string advertiserId Caret(^) delimited list of advertiser IDs. Filters out all events that do not reference one of the given advertiser IDs. Only used when under publishers role. Optional.
-     * @opt_param string pageToken The value of 'nextPageToken' from the previous page. Optional.
-     * @opt_param string productCategory Caret(^) delimited list of product categories. Filters out all events that do not reference a product in one of the given product categories. Optional.
-     * @opt_param string chargeType Filters out all charge events that are not of the given charge type. Valid values: 'other', 'slotting_fee', 'monthly_minimum', 'tier_bonus', 'credit', 'debit'. Optional.
-     * @opt_param string modifyDateMax Filters out all events modified later than given date. Optional. Defaults to 24 hours after modifyDateMin, if modifyDateMin is explicitly set.
-     * @opt_param string status Filters out all events that do not have the given status. Valid values: 'active', 'canceled'. Optional.
-     * @opt_param string publisherId Caret(^) delimited list of publisher IDs. Filters out all events that do not reference one of the given publishers IDs. Only used when under advertiser role. Optional.
-     * @return Google_Events
-     */
+     
     public function listEvents($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -157,26 +64,11 @@
     }
   }
 
-  /**
-   * The "links" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $ganService = new Google_GanService(...);
-   *   $links = $ganService->links;
-   *  </code>
-   */
+   
   class Google_LinksServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Inserts a new link. (links.insert)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param Google_Link $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Link
-     */
+     
     public function insert($role, $roleId, Google_Link $postBody, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -187,26 +79,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves all links that match the query parameters. (links.list)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string linkType The type of the link.
-     * @opt_param string startDateMin The beginning of the start date range.
-     * @opt_param string assetSize The size of the given asset.
-     * @opt_param string relationshipStatus The status of the relationship.
-     * @opt_param string advertiserCategory The advertiser's primary vertical.
-     * @opt_param string maxResults Max number of items to return in this page. Optional. Defaults to 20.
-     * @opt_param string advertiserId Limits the resulting links to the ones belonging to the listed advertisers.
-     * @opt_param string pageToken The value of 'nextPageToken' from the previous page. Optional.
-     * @opt_param string startDateMax The end of the start date range.
-     * @opt_param string promotionType The promotion type.
-     * @opt_param string authorship The role of the author of the link.
-     * @return Google_Links
-     */
+     
     public function listLinks($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -217,17 +90,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves data about a single link if the requesting advertiser/publisher has access to it.
-     * Advertisers can look up their own links. Publishers can look up visible links or links belonging
-     * to advertisers they are in a relationship with. (links.get)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param string $linkId The ID of the link to look up.
-     * @param array $optParams Optional parameters.
-     * @return Google_Link
-     */
+     
     public function get($role, $roleId, $linkId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId, 'linkId' => $linkId);
       $params = array_merge($params, $optParams);
@@ -240,34 +103,11 @@
     }
   }
 
-  /**
-   * The "publishers" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $ganService = new Google_GanService(...);
-   *   $publishers = $ganService->publishers;
-   *  </code>
-   */
+   
   class Google_PublishersServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves data about all publishers that the requesting advertiser/publisher has access to.
-     * (publishers.list)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string publisherCategory Caret(^) delimted list of publisher categories. Valid categories: (unclassified|community_and_content|shopping_and_promotion|loyalty_and_rewards|network|search_specialist|comparison_shopping|email). Filters out all publishers not in one of the given advertiser categories. Optional.
-     * @opt_param string relationshipStatus Filters out all publishers for which do not have the given relationship status with the requesting publisher.
-     * @opt_param double minSevenDayEpc Filters out all publishers that have a seven day EPC average lower than the given value (inclusive). Min value 0.0. Optional.
-     * @opt_param double minNinetyDayEpc Filters out all publishers that have a ninety day EPC average lower than the given value (inclusive). Min value: 0.0. Optional.
-     * @opt_param string pageToken The value of 'nextPageToken' from the previous page. Optional.
-     * @opt_param string maxResults Max number of items to return in this page. Optional. Defaults to 20.
-     * @opt_param int minPayoutRank A value between 1 and 4, where 1 represents the quartile of publishers with the lowest ranks and 4 represents the quartile of publishers with the highest ranks. Filters out all publishers with a lower rank than the given quartile. For example if a 2 was given only publishers with a payout rank of 25 or higher would be included. Optional.
-     * @return Google_Publishers
-     */
+     
     public function listPublishers($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -278,18 +118,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves data about a single advertiser if that the requesting advertiser/publisher has access
-     * to it. Only advertisers can look up publishers. Publishers can request information about
-     * themselves by omitting the publisherId query parameter. (publishers.get)
-     *
-     * @param string $role The role of the requester. Valid values: 'advertisers' or 'publishers'.
-     * @param string $roleId The ID of the requesting advertiser or publisher.
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string publisherId The ID of the publisher to look up. Optional.
-     * @return Google_Publisher
-     */
+     
     public function get($role, $roleId, $optParams = array()) {
       $params = array('role' => $role, 'roleId' => $roleId);
       $params = array_merge($params, $optParams);
@@ -302,31 +131,14 @@
     }
   }
 
-/**
- * Service definition for Google_Gan (v1beta1).
- *
- * <p>
- * Lets you have programmatic access to your Google Affiliate Network data.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://code.google.com/apis/gan/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_GanService extends Google_Service {
   public $advertisers;
   public $ccOffers;
   public $events;
   public $links;
   public $publishers;
-  /**
-   * Constructs the internal representation of the Gan service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'gan/v1beta1/';
     $this->version = 'v1beta1';

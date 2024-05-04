@@ -1,32 +1,7 @@
 <?php
-/*
-Copyright (c) 2010 Kevin M Burns Jr, http://kevburnsjr.com/
+ 
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-
-/**
- * A URI Template Parser which is used by the apiREST class to resolve the REST requests
- * Blogpost: http://lab.kevburnsjr.com/php-uri-template-parser
- * Source: http://github.com/KevBurnsJr/php-uri-template-parser
- */
+ 
 class URI_Template_Parser {
 
   public static $operators = array('+', ';', '?', '/', '.');
@@ -48,24 +23,12 @@ class URI_Template_Parser {
   }
 
   public function expand($data) {
-    // Modification to make this a bit more performant (since gettype is very slow)
+ 
     if (! is_array($data)) {
       $data = (array)$data;
     }
-    /*
-    // Original code, which uses a slow gettype() statement, kept in place for if the assumption that is_array always works here is incorrect
-    switch (gettype($data)) {
-      case "boolean":
-      case "integer":
-      case "double":
-      case "string":
-      case "object":
-        $data = (array)$data;
-        break;
-    }
-*/
-
-    // Resolve template vars
+     
+ 
     preg_match_all('/\{([^\}]*)\}/', $this->template, $em);
 
     foreach ($em[1] as $i => $bare_expression) {
@@ -85,8 +48,7 @@ class URI_Template_Parser {
         $var->default = isset($vm[4]) ? substr($vm[4], 1) : null;
         $exp->vars[] = $var;
       }
-
-      // Add processing flags
+ 
       $exp->reserved = false;
       $exp->prefix = '';
       $exp->delimiter = ',';
@@ -113,8 +75,7 @@ class URI_Template_Parser {
       }
       $expressions[] = $exp;
     }
-
-    // Expansion
+ 
     $this->expansion = $this->template;
 
     foreach ($expressions as $exp) {
@@ -125,14 +86,13 @@ class URI_Template_Parser {
         if ($exp->one_var_defined && isset($data[$var->name])) {
           $part .= $exp->delimiter;
         }
-        // Variable present
+ 
         if (isset($data[$var->name])) {
           $exp->one_var_defined = true;
           $var->data = $data[$var->name];
 
           $val = self::val_from_var($var, $exp);
-
-        // Variable missing
+ 
         } else {
           if ($var->default) {
             $exp->one_var_defined = true;
@@ -159,8 +119,7 @@ class URI_Template_Parser {
         $del = $var->modifier ? $exp->delimiter : ',';
         $ek = rawurlencode($k);
         $ev = rawurlencode($v);
-
-        // Array
+ 
         if ($k !== $i) {
           if ($var->modifier == '+') {
             $val .= $var->name . '.';
@@ -170,8 +129,7 @@ class URI_Template_Parser {
           } else {
             $val .= $ek . $del;
           }
-
-        // List
+ 
         } else {
           if ($var->modifier == '+') {
             if ($exp->operator == ';' && $var->modifier == '*' || $exp->operator == ';' && $var->modifier == '+' || $exp->operator == '?' && $var->modifier == '+') {
@@ -185,8 +143,7 @@ class URI_Template_Parser {
         $i ++;
       }
       $val = trim($val, $del);
-
-    // Strings, numbers, etc.
+ 
     } else {
       if ($exp->operator == '?') {
         $val = $var->name . (isset($var->data) ? '=' : '');

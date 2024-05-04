@@ -1,43 +1,14 @@
 <?php
-/**
- * Copyright 2014 Facebook, Inc.
- *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
- */
+ 
 namespace Facebook\FileUpload;
 
-/**
- * Provides mappings of file extensions to mimetypes
- *
- * Taken from Guzzle
- *
- * @see https://github.com/guzzle/guzzle/blob/master/src/Mimetypes.php
- *
- * @link http://svn.apache.org/repos/asf/httpd/httpd/branches/1.3.x/conf/mime.types
- */
+ 
 class Mimetypes
 {
-    /** @var self */
+     
     protected static $instance;
 
-    /** @var array Mapping of extension to mimetype */
+     
     protected $mimetypes = [
         '3dml' => 'text/vnd.in3d.3dml',
         '3g2' => 'video/3gpp2',
@@ -944,12 +915,7 @@ class Mimetypes
         'zmm' => 'application/vnd.handheld-entertainment+xml'
     ];
 
-    /**
-     * Get a singleton instance of the class
-     *
-     * @return self
-     * @codeCoverageIgnore
-     */
+     
     public static function getInstance()
     {
         if (!self::$instance) {
@@ -959,13 +925,7 @@ class Mimetypes
         return self::$instance;
     }
 
-    /**
-     * Get a mimetype value from a file extension
-     *
-     * @param string $extension File extension
-     *
-     * @return string|null
-     */
+     
     public function fromExtension($extension)
     {
         $extension = strtolower($extension);
@@ -973,13 +933,7 @@ class Mimetypes
         return isset($this->mimetypes[$extension]) ? $this->mimetypes[$extension] : null;
     }
 
-    /**
-     * Get a mimetype from a filename
-     *
-     * @param string $filename Filename to generate a mimetype from
-     *
-     * @return string|null
-     */
+     
     public function fromFilename($filename)
     {
         return $this->fromExtension(pathinfo($filename, PATHINFO_EXTENSION));

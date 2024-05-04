@@ -1,39 +1,12 @@
 <?php
-/*
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
+ 
 
 
-  /**
-   * The "tables" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bigqueryService = new Google_BigqueryService(...);
-   *   $tables = $bigqueryService->tables;
-   *  </code>
-   */
+   
   class Google_TablesServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a new, empty table in the dataset. (tables.insert)
-     *
-     * @param string $projectId Project ID of the new table
-     * @param string $datasetId Dataset ID of the new table
-     * @param Google_Table $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Table
-     */
+     
     public function insert($projectId, $datasetId, Google_Table $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -44,16 +17,7 @@
         return $data;
       }
     }
-    /**
-     * Gets the specified table resource by table ID. This method does not return the data in the table,
-     * it only returns the table resource, which describes the structure of this table. (tables.get)
-     *
-     * @param string $projectId Project ID of the requested table
-     * @param string $datasetId Dataset ID of the requested table
-     * @param string $tableId Table ID of the requested table
-     * @param array $optParams Optional parameters.
-     * @return Google_Table
-     */
+     
     public function get($projectId, $datasetId, $tableId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'tableId' => $tableId);
       $params = array_merge($params, $optParams);
@@ -64,17 +28,7 @@
         return $data;
       }
     }
-    /**
-     * Lists all tables in the specified dataset. (tables.list)
-     *
-     * @param string $projectId Project ID of the tables to list
-     * @param string $datasetId Dataset ID of the tables to list
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken Page token, returned by a previous call, to request the next page of results
-     * @opt_param string maxResults Maximum number of results to return
-     * @return Google_TableList
-     */
+     
     public function listTables($projectId, $datasetId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId);
       $params = array_merge($params, $optParams);
@@ -85,16 +39,7 @@
         return $data;
       }
     }
-    /**
-     * Updates information in an existing table, specified by tableId. (tables.update)
-     *
-     * @param string $projectId Project ID of the table to update
-     * @param string $datasetId Dataset ID of the table to update
-     * @param string $tableId Table ID of the table to update
-     * @param Google_Table $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Table
-     */
+     
     public function update($projectId, $datasetId, $tableId, Google_Table $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'tableId' => $tableId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -105,17 +50,7 @@
         return $data;
       }
     }
-    /**
-     * Updates information in an existing table, specified by tableId. This method supports patch
-     * semantics. (tables.patch)
-     *
-     * @param string $projectId Project ID of the table to update
-     * @param string $datasetId Dataset ID of the table to update
-     * @param string $tableId Table ID of the table to update
-     * @param Google_Table $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Table
-     */
+     
     public function patch($projectId, $datasetId, $tableId, Google_Table $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'tableId' => $tableId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -126,15 +61,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the table specified by tableId from the dataset. If the table contains data, all the data
-     * will be deleted. (tables.delete)
-     *
-     * @param string $projectId Project ID of the table to delete
-     * @param string $datasetId Dataset ID of the table to delete
-     * @param string $tableId Table ID of the table to delete
-     * @param array $optParams Optional parameters.
-     */
+     
     public function delete($projectId, $datasetId, $tableId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'tableId' => $tableId);
       $params = array_merge($params, $optParams);
@@ -143,25 +70,11 @@
     }
   }
 
-  /**
-   * The "datasets" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bigqueryService = new Google_BigqueryService(...);
-   *   $datasets = $bigqueryService->datasets;
-   *  </code>
-   */
+   
   class Google_DatasetsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Creates a new empty dataset. (datasets.insert)
-     *
-     * @param string $projectId Project ID of the new dataset
-     * @param Google_Dataset $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Dataset
-     */
+     
     public function insert($projectId, Google_Dataset $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -172,14 +85,7 @@
         return $data;
       }
     }
-    /**
-     * Returns the dataset specified by datasetID. (datasets.get)
-     *
-     * @param string $projectId Project ID of the requested dataset
-     * @param string $datasetId Dataset ID of the requested dataset
-     * @param array $optParams Optional parameters.
-     * @return Google_Dataset
-     */
+     
     public function get($projectId, $datasetId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId);
       $params = array_merge($params, $optParams);
@@ -190,17 +96,7 @@
         return $data;
       }
     }
-    /**
-     * Lists all the datasets in the specified project to which the caller has read access; however, a
-     * project owner can list (but not necessarily get) all datasets in his project. (datasets.list)
-     *
-     * @param string $projectId Project ID of the datasets to be listed
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken Page token, returned by a previous call, to request the next page of results
-     * @opt_param string maxResults The maximum number of results to return
-     * @return Google_DatasetList
-     */
+     
     public function listDatasets($projectId, $optParams = array()) {
       $params = array('projectId' => $projectId);
       $params = array_merge($params, $optParams);
@@ -211,18 +107,7 @@
         return $data;
       }
     }
-    /**
-     * Updates information in an existing dataset, specified by datasetId. Properties not included in
-     * the submitted resource will not be changed. If you include the access property without any values
-     * assigned, the request will fail as you must specify at least one owner for a dataset.
-     * (datasets.update)
-     *
-     * @param string $projectId Project ID of the dataset being updated
-     * @param string $datasetId Dataset ID of the dataset being updated
-     * @param Google_Dataset $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Dataset
-     */
+     
     public function update($projectId, $datasetId, Google_Dataset $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -233,18 +118,7 @@
         return $data;
       }
     }
-    /**
-     * Updates information in an existing dataset, specified by datasetId. Properties not included in
-     * the submitted resource will not be changed. If you include the access property without any values
-     * assigned, the request will fail as you must specify at least one owner for a dataset. This method
-     * supports patch semantics. (datasets.patch)
-     *
-     * @param string $projectId Project ID of the dataset being updated
-     * @param string $datasetId Dataset ID of the dataset being updated
-     * @param Google_Dataset $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Dataset
-     */
+     
     public function patch($projectId, $datasetId, Google_Dataset $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -255,17 +129,7 @@
         return $data;
       }
     }
-    /**
-     * Deletes the dataset specified by datasetId value. Before you can delete a dataset, you must
-     * delete all its tables, either manually or by specifying deleteContents. Immediately after
-     * deletion, you can create another dataset with the same name. (datasets.delete)
-     *
-     * @param string $projectId Project ID of the dataset being deleted
-     * @param string $datasetId Dataset ID of dataset being deleted
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param bool deleteContents If True, delete all the tables in the dataset. If False and the dataset contains tables, the request will fail. Default is False
-     */
+     
     public function delete($projectId, $datasetId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId);
       $params = array_merge($params, $optParams);
@@ -274,25 +138,11 @@
     }
   }
 
-  /**
-   * The "jobs" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bigqueryService = new Google_BigqueryService(...);
-   *   $jobs = $bigqueryService->jobs;
-   *  </code>
-   */
+   
   class Google_JobsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Starts a new asynchronous job. (jobs.insert)
-     *
-     * @param string $projectId Project ID of the project that will be billed for the job
-     * @param Google_Job $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_Job
-     */
+     
     public function insert($projectId, Google_Job $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -303,15 +153,7 @@
         return $data;
       }
     }
-    /**
-     * Runs a BigQuery SQL query synchronously and returns query results if the query completes within a
-     * specified timeout. (jobs.query)
-     *
-     * @param string $projectId Project ID of the project billed for the query
-     * @param Google_QueryRequest $postBody
-     * @param array $optParams Optional parameters.
-     * @return Google_QueryResponse
-     */
+     
     public function query($projectId, Google_QueryRequest $postBody, $optParams = array()) {
       $params = array('projectId' => $projectId, 'postBody' => $postBody);
       $params = array_merge($params, $optParams);
@@ -322,19 +164,7 @@
         return $data;
       }
     }
-    /**
-     * Lists all the Jobs in the specified project that were started by the user. (jobs.list)
-     *
-     * @param string $projectId Project ID of the jobs to list
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string projection Restrict information returned to a set of selected fields
-     * @opt_param string stateFilter Filter for job state
-     * @opt_param bool allUsers Whether to display jobs owned by all users in the project. Default false
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string pageToken Page token, returned by a previous call, to request the next page of results
-     * @return Google_JobList
-     */
+     
     public function listJobs($projectId, $optParams = array()) {
       $params = array('projectId' => $projectId);
       $params = array_merge($params, $optParams);
@@ -345,18 +175,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the results of a query job. (jobs.getQueryResults)
-     *
-     * @param string $projectId Project ID of the query job
-     * @param string $jobId Job ID of the query job
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string timeoutMs How long to wait for the query to complete, in milliseconds, before returning. Default is to return immediately. If the timeout passes before the job completes, the request will fail with a TIMEOUT error
-     * @opt_param string startIndex Zero-based index of the starting row
-     * @opt_param string maxResults Maximum number of results to read
-     * @return Google_GetQueryResultsResponse
-     */
+     
     public function getQueryResults($projectId, $jobId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'jobId' => $jobId);
       $params = array_merge($params, $optParams);
@@ -367,14 +186,7 @@
         return $data;
       }
     }
-    /**
-     * Retrieves the specified job by ID. (jobs.get)
-     *
-     * @param string $projectId Project ID of the requested job
-     * @param string $jobId Job ID of the requested job
-     * @param array $optParams Optional parameters.
-     * @return Google_Job
-     */
+     
     public function get($projectId, $jobId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'jobId' => $jobId);
       $params = array_merge($params, $optParams);
@@ -387,30 +199,11 @@
     }
   }
 
-  /**
-   * The "tabledata" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bigqueryService = new Google_BigqueryService(...);
-   *   $tabledata = $bigqueryService->tabledata;
-   *  </code>
-   */
+   
   class Google_TabledataServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Retrieves table data from a specified set of rows. (tabledata.list)
-     *
-     * @param string $projectId Project ID of the table to read
-     * @param string $datasetId Dataset ID of the table to read
-     * @param string $tableId Table ID of the table to read
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string maxResults Maximum number of results to return
-     * @opt_param string pageToken Page token, returned by a previous call, identifying the result set
-     * @opt_param string startIndex Zero-based index of the starting row to read
-     * @return Google_TableDataList
-     */
+     
     public function listTabledata($projectId, $datasetId, $tableId, $optParams = array()) {
       $params = array('projectId' => $projectId, 'datasetId' => $datasetId, 'tableId' => $tableId);
       $params = array_merge($params, $optParams);
@@ -423,26 +216,11 @@
     }
   }
 
-  /**
-   * The "projects" collection of methods.
-   * Typical usage is:
-   *  <code>
-   *   $bigqueryService = new Google_BigqueryService(...);
-   *   $projects = $bigqueryService->projects;
-   *  </code>
-   */
+   
   class Google_ProjectsServiceResource extends Google_ServiceResource {
 
 
-    /**
-     * Lists the projects to which you have at least read access. (projects.list)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string pageToken Page token, returned by a previous call, to request the next page of results
-     * @opt_param string maxResults Maximum number of results to return
-     * @return Google_ProjectList
-     */
+     
     public function listProjects($optParams = array()) {
       $params = array();
       $params = array_merge($params, $optParams);
@@ -455,31 +233,14 @@
     }
   }
 
-/**
- * Service definition for Google_Bigquery (v2).
- *
- * <p>
- * A data platform for customers to create, manage, share and query data.
- * </p>
- *
- * <p>
- * For more information about this service, see the
- * <a href="https://code.google.com/apis/bigquery/docs/v2/" target="_blank">API Documentation</a>
- * </p>
- *
- * @author Google, Inc.
- */
+ 
 class Google_BigqueryService extends Google_Service {
   public $tables;
   public $datasets;
   public $jobs;
   public $tabledata;
   public $projects;
-  /**
-   * Constructs the internal representation of the Bigquery service.
-   *
-   * @param Google_Client $client
-   */
+   
   public function __construct(Google_Client $client) {
     $this->servicePath = 'bigquery/v2/';
     $this->version = 'v2';
@@ -534,7 +295,7 @@ class Google_Dataset extends Google_Model {
   public function getCreationTime() {
     return $this->creationTime;
   }
-  public function setAccess(/* array(Google_DatasetAccess) */ $access) {
+  public function setAccess(  $access) {
     $this->assertIsArray($access, 'Google_DatasetAccess', __METHOD__);
     $this->access = $access;
   }
@@ -630,7 +391,7 @@ class Google_DatasetList extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setDatasets(/* array(Google_DatasetListDatasets) */ $datasets) {
+  public function setDatasets(  $datasets) {
     $this->assertIsArray($datasets, 'Google_DatasetListDatasets', __METHOD__);
     $this->datasets = $datasets;
   }
@@ -746,7 +507,7 @@ class Google_GetQueryResultsResponse extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setRows(/* array(Google_TableRow) */ $rows) {
+  public function setRows(  $rows) {
     $this->assertIsArray($rows, 'Google_TableRow', __METHOD__);
     $this->rows = $rows;
   }
@@ -965,7 +726,7 @@ class Google_JobConfigurationLink extends Google_Model {
   public function getDestinationTable() {
     return $this->destinationTable;
   }
-  public function setSourceUri(/* array(Google_string) */ $sourceUri) {
+  public function setSourceUri(  $sourceUri) {
     $this->assertIsArray($sourceUri, 'Google_string', __METHOD__);
     $this->sourceUri = $sourceUri;
   }
@@ -1027,7 +788,7 @@ class Google_JobConfigurationLoad extends Google_Model {
   public function getSkipLeadingRows() {
     return $this->skipLeadingRows;
   }
-  public function setSourceUris(/* array(Google_string) */ $sourceUris) {
+  public function setSourceUris(  $sourceUris) {
     $this->assertIsArray($sourceUris, 'Google_string', __METHOD__);
     $this->sourceUris = $sourceUris;
   }
@@ -1182,7 +943,7 @@ class Google_JobList extends Google_Model {
   public function getEtag() {
     return $this->etag;
   }
-  public function setJobs(/* array(Google_JobListJobs) */ $jobs) {
+  public function setJobs(  $jobs) {
     $this->assertIsArray($jobs, 'Google_JobListJobs', __METHOD__);
     $this->jobs = $jobs;
   }
@@ -1315,7 +1076,7 @@ class Google_JobStatus extends Google_Model {
   public function getState() {
     return $this->state;
   }
-  public function setErrors(/* array(Google_ErrorProto) */ $errors) {
+  public function setErrors(  $errors) {
     $this->assertIsArray($errors, 'Google_ErrorProto', __METHOD__);
     $this->errors = $errors;
   }
@@ -1362,7 +1123,7 @@ class Google_ProjectList extends Google_Model {
   public function getEtag() {
     return $this->etag;
   }
-  public function setProjects(/* array(Google_ProjectListProjects) */ $projects) {
+  public function setProjects(  $projects) {
     $this->assertIsArray($projects, 'Google_ProjectListProjects', __METHOD__);
     $this->projects = $projects;
   }
@@ -1480,7 +1241,7 @@ class Google_QueryResponse extends Google_Model {
   public function getKind() {
     return $this->kind;
   }
-  public function setRows(/* array(Google_TableRow) */ $rows) {
+  public function setRows(  $rows) {
     $this->assertIsArray($rows, 'Google_TableRow', __METHOD__);
     $this->rows = $rows;
   }
@@ -1637,7 +1398,7 @@ class Google_TableDataList extends Google_Model {
   public function getEtag() {
     return $this->etag;
   }
-  public function setRows(/* array(Google_TableRow) */ $rows) {
+  public function setRows(  $rows) {
     $this->assertIsArray($rows, 'Google_TableRow', __METHOD__);
     $this->rows = $rows;
   }
@@ -1659,7 +1420,7 @@ class Google_TableFieldSchema extends Google_Model {
   public $type;
   public $mode;
   public $name;
-  public function setFields(/* array(Google_TableFieldSchema) */ $fields) {
+  public function setFields(  $fields) {
     $this->assertIsArray($fields, 'Google_TableFieldSchema', __METHOD__);
     $this->fields = $fields;
   }
@@ -1700,7 +1461,7 @@ class Google_TableList extends Google_Model {
   public function getNextPageToken() {
     return $this->nextPageToken;
   }
-  public function setTables(/* array(Google_TableListTables) */ $tables) {
+  public function setTables(  $tables) {
     $this->assertIsArray($tables, 'Google_TableListTables', __METHOD__);
     $this->tables = $tables;
   }
@@ -1788,7 +1549,7 @@ class Google_TableRow extends Google_Model {
   protected $__fType = 'Google_TableRowF';
   protected $__fDataType = 'array';
   public $f;
-  public function setF(/* array(Google_TableRowF) */ $f) {
+  public function setF(  $f) {
     $this->assertIsArray($f, 'Google_TableRowF', __METHOD__);
     $this->f = $f;
   }
@@ -1811,7 +1572,7 @@ class Google_TableSchema extends Google_Model {
   protected $__fieldsType = 'Google_TableFieldSchema';
   protected $__fieldsDataType = 'array';
   public $fields;
-  public function setFields(/* array(Google_TableFieldSchema) */ $fields) {
+  public function setFields(  $fields) {
     $this->assertIsArray($fields, 'Google_TableFieldSchema', __METHOD__);
     $this->fields = $fields;
   }

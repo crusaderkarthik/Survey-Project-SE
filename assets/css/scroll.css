@@ -1,4 +1,4 @@
-/*************** SCROLLBAR BASE CSS ***************/
+ 
 
 .scroll-wrapper {
     overflow: hidden !important;
@@ -72,7 +72,7 @@
 
 
 
-/*************** SCROLLBAR MAC OS X ***************/
+ 
 
 .pt-scroll > .scroll-element,
 .pt-scroll > .scroll-element div
@@ -137,7 +137,7 @@
     width: 0px;
 }
 
-/* scrollbar height/width & offset from container borders */
+ 
 .pt-scroll > .scroll-element.scroll-x .scroll-bar { height: 7px; min-width: 10px; top: -9px; }
 .pt-scroll > .scroll-element.scroll-y .scroll-bar { left: -7px; min-height: 10px; width: 4px; }
 
@@ -147,6 +147,6 @@
 .pt-scroll > .scroll-element.scroll-y .scroll-element_outer { top: 2px; }
 .pt-scroll > .scroll-element.scroll-y .scroll-element_size { top: -4px; }
 
-/* update scrollbar offset if both scrolls are visible */
+ 
 .pt-scroll > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -11px; }
 .pt-scroll > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -11px; }
